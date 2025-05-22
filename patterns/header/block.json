@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "blocktheme/header",
+  "title": "Navbar",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Une barre de navigation statique avec logo, menu et bouton.",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "editorScript": "file:../../build/index.js",
+  "style": "file:./header.css",
+  "render": "file:./header.php"
+}

@@ -1,0 +1,27 @@
+/* Appliqué uniquement dans l’éditeur Gutenberg */
+
+body.block-editor-page .editor-styles-wrapper {
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.editor-visual-editor{
+    background-color: white;
+}
+
+.wp-block {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.editor-visual-editor__post-title-wrapper, .wp-block-post-content{
+    outline: 1px solid rgb(231, 231, 231) !important;
+}
+
+.editor-styles-wrapper section.hero .visual-container img {
+  height: auto !important;
+  transform: none !important;
+  position: absolute !important;
+  opacity: 0.2 !important;
+}

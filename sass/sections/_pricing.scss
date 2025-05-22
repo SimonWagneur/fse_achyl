@@ -1,0 +1,15 @@
+section.pricing{
+    .content{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:900px){
+    section.pricing{
+        .content{
+            flex-wrap: wrap;
+        }
+    }
+}

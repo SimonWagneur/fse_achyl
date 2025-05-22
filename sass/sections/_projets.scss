@@ -1,0 +1,22 @@
+section.projets{
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+        h2{
+            margin-bottom: 0px;
+        }
+    }
+    .bottom{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 600px){
+    section.projets{
+        .top{
+            margin-bottom: 30px;
+        }
+    }
+}

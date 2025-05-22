@@ -1,0 +1,38 @@
+section.cta{
+    margin: 2.5vw;
+    padding: 12vw 2.5vw;
+    background-color: $grey;
+    border-radius: 20px;
+    text-align: center;
+    .container{
+        width: 90%;
+        max-width: 700px;
+        h2{
+            margin-bottom: 15px;
+        }
+        p{
+            margin-bottom: 50px;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    section.cta{
+        text-align: left;
+        border-radius: 15px;
+        .container{
+            p{
+                margin-bottom: 40px;
+            }
+            .buttons{
+                justify-content: left;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

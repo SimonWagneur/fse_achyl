@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "blocktheme/button",
+  "title": "Bouton call-to-action",
+  "category": "design",
+  "icon": "button",
+  "description": "Un bouton personnalisable avec texte, lien et couleur.",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "text": { "type": "string", "default": "" },
+    "linkObject": { "type": "object" },
+    "colorName": { "type": "string", "default": "black" }
+  },
+  "editorScript": "file:../../build/index.js",
+  "render": "file:./button.php",
+  "style": "file:./button.css"
+}

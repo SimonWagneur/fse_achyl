@@ -1,0 +1,141 @@
+section.benefits{
+    display: flex;
+    align-items: center;
+    &.reversed{
+        .container{
+            flex-direction: row-reverse;
+        }
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+            width: 45%;
+            // margin-top: 60px;
+            .state{
+                margin-bottom: 10px;
+            }
+            h2{
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 22px;
+                line-height: 35px;
+                margin-bottom: 40px;
+                .feature{
+                    margin-bottom: 5px;
+                    display: flex;
+                    align-items: center;
+                    &:first-child{
+                        margin-top: 10px;
+                    }
+                    i{
+                        color: $green;
+                        margin-right: 10px;
+                        margin-left: 10px;
+                        font-size: 18px;
+                        margin-top: 4px;
+                    }
+                }
+            }
+            .controls{
+                padding-left: 0px;
+            }
+        }
+        .right{
+            width: 47%;
+            .canvas{
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                background-color: $grey;
+                border-radius: 20px;
+                overflow: hidden;
+                position: relative;
+                overflow: hidden;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                
+                p{
+                    max-width: 70%;
+                    text-align: center;
+                    color: #CCCCCC;
+                    font-size: 32px;
+                    text-transform: uppercase;
+                    line-height: 38px;
+                }
+                #heroBackground{
+                    position: absolute;
+                    transition: all .2s ease-out;
+                    opacity: 1;
+                    filter: blur(0);
+                    // width: 100%; /* L'image prend toute la largeur */
+                    height: 100%; /* L'image prend toute la hauteur */
+                    object-fit: cover; /* Ajuste l'image pour couvrir tout l'espace */
+                    &.blurring{
+                        filter: blur(20px);
+                    }
+                }
+            }
+        }
+    }
+    .slides{
+        display: none;
+    }
+}
+
+@media screen and (max-width:1200px){
+    section.benefits{
+        .container{
+            .left{
+                width: 55%;
+            }
+            .right{
+                width: 35%;
+                .canvas{
+                    height: 70vh;
+                    aspect-ratio: auto;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    section.benefits{
+        .container{
+            .left{
+                width: 100%;
+                margin-top: 0px;
+                p{
+                    font-size: 16px;
+                    line-height: 1.4em;
+                    margin-bottom: 20px;
+                }
+                button{
+                    margin-bottom: 20px;
+                }
+                .controls{
+                    margin-bottom: 20px;
+                }
+            }
+            .right{
+                width: 100%;
+                margin-top: 0px;
+                margin-bottom: 50px;
+                .canvas{
+                    height: auto;
+                    aspect-ratio: 1 / 1;
+
+                    p{
+                        max-width: 80%;
+                        font-size: 24px;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+}

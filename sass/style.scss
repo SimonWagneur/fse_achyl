@@ -1,0 +1,42 @@
+/*
+Theme Name: Achyl
+Author: Simon Wagneur
+Description: Thème pour l'agence Achyl
+Version: 1
+*/
+
+@import "./base/variables";
+@import "./base/base";
+@import "./base/containers";
+@import "./base/input";
+@import "./base/typography";
+@import "./base/section";
+
+
+@import "./components/buttons";
+@import "./components/footer";
+@import "./components/titles";
+@import "./components/controls";
+@import "./components/card-solution";
+@import "./components/card-step";
+@import "./components/card-testimonial";
+@import "./components/card-projet";
+@import "./components/card-price";
+@import "./components/faq-question";
+
+@import "./sections/solutions";
+@import "./sections/types-de-business";
+@import "./sections/process";
+@import "./sections/testimonials";
+@import "./sections/cta";
+@import "./sections/benefits";
+@import "./sections/projets";
+@import "./sections/pricing";
+@import "./sections/features";
+@import "./sections/page-header";
+@import "./sections/page-text";
+
+
+@import "../patterns/header/header";
+@import "../patterns/button/button";
+@import "../patterns/hero1/hero1";

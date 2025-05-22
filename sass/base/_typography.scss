@@ -1,0 +1,54 @@
+// @font-face{
+//     font-family: 'Sk Modernist';
+//     src: url('./fonts/Sk-Modernist-Light.otf') format('opentype');
+//     font-weight: lighter;
+// }
+@font-face{
+    font-family: 'Sk Modernist Text';
+    src: url('./assets/fonts/Sk-Modernist-Regular.otf') format('opentype');
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'Sk Modernist Bold';
+    src: url('./assets/fonts/Sk-Modernist-Bold.otf') format('opentype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Sk Modernist";
+    src: url('./assets/fonts/Sk-Modernist-Regular.otf') format('opentype');
+}
+// @font-face {
+//     font-family: "Sk Modernist Bold";
+//     src: url("./fonts/sk-modernist-bold-webfont.woff");
+// }
+@font-face {
+    font-family: "Sk Modernist Mono";
+    src: url("./assets/fonts/sk-modernist-mono-webfont.woff");
+}
+@font-face {
+    font-family: "Sk Modernist Light";
+    src: url("./assets/fonts/sk-modernist-light-webfont.woff");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Sk Modernist Text', 'Poppins', sans-serif;
+    color: $black;
+}
+
+button{
+    font-family: 'Sk Modernist Text', 'Poppins', sans-serif;
+    font-weight: normal;
+    line-height: 1.7em;
+}
+
+input, textarea, select, option{
+    font-family: 'Sk Modernist', 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Sk Modernist', 'Poppins', sans-serif;
+}

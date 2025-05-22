@@ -1,0 +1,111 @@
+section.types-de-business{
+    .content{
+        display: flex;
+        .left{
+            padding-top: 50px;
+            padding-bottom: 30px;
+            width: 60%;
+            .type-de-business{
+                margin-bottom: 60px;
+                h3{
+                    margin-bottom: 10px;
+                    &::after{
+                        display: inline-block;
+                        width: 49px;
+                        height: 14px;
+                        background-image: url(./images/long-arrow-black.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        content: ''; /* Nécessaire pour ::after */
+                        margin-left: 12px;
+                    }
+                }
+
+                &.active{
+                    color: $green;
+                    h3::after{
+                        background-image: url(./images/long-arrow-green.svg);
+                    }
+                }
+            }
+        }
+        .right{
+            width: 35%;
+            margin-left: 5%;
+            display: flex;
+            .canvas{
+                background-color: $grey;
+                border-radius: 20px;
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                img{
+                    // opacity: 0;
+                    filter: blur(0px);
+                    transition: all .15s;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%); /* Centre l'image */
+                    width: 100%; /* L'image prend toute la largeur */
+                    height: 100%; /* L'image prend toute la hauteur */
+                    object-fit: cover; /* Ajuste l'image pour couvrir tout l'espace */
+                    &.blurring {
+                        // opacity: 1;
+                        filter: blur(20px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    section.types-de-business{
+        .content{
+            .left{
+                padding-top: 25px;
+                padding-bottom: 15px;
+                .type-de-business{
+                    margin-bottom: 40px;
+                    h3{
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    section.types-de-business{
+        .content{
+            .left{
+                width: 100%;
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+            .right{
+                display: none;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    section.types-de-business{
+        .content{
+            .left{
+                .type-de-business{
+                    &.active{
+                        color: $black;
+                        h3::after{
+                            background-image: url(./images/long-arrow-black.svg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

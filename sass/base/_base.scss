@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: white;
+}
+.wrapper{
+    width: 100%;
+    overflow-x: hidden;
+}
+*{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+button, input, textarea, select{
+    outline: none;
+}
+select{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
