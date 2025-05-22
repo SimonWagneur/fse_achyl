@@ -1,34 +1,65 @@
 <?php
-// Rendu dynamique en PHP du bloc "header"
-
 $menu_slug  = $attributes['menuSlug'] ?? '';
-
-// On récupère le HTML du menu si un menu est sélectionné
 $menu_html = '';
+$imageUrl = $attributes['imageUrl'];
+
+// Récupérer le contenu d'un menu FSE enregistré comme un post
 if (!empty($menu_slug)) {
-    $menu_html = wp_nav_menu([
-        'menu' => $menu_slug,
-        'container' => false,
-        'echo' => false,
-        'menu_class' => 'menu'
-    ]);
+    $menu_post = get_page_by_path($menu_slug, OBJECT, 'wp_navigation');
+    if ($menu_post instanceof WP_Post) {
+        $menu_html = do_blocks($menu_post->post_content);
+    }
 }
 ?>
 
 <div class="navbar">
   <div class="left">
-    <a href="/">
-      <img class="logo" src="/wp-content/themes/votre-theme/images/achyl_black.png" alt="Site Logo" />
+    <a href="<?php echo esc_url(home_url('/')); ?>">
+      <?php
+      if (!empty($imageUrl)) {
+          echo '<img class="logo" src="' . esc_url($imageUrl) . '" alt="Site Logo">';
+      } else {
+          echo 'Mon Logo';
+      }
+      ?>
     </a>
 
-    <div class="menu-container">
+  <div class="menu-container">
+    <ul class="menu">
       <?php
-      echo $menu_html ?: '<ul class="menu"><li><a href="#">Aucun menu sélectionné</a></li></ul>';
+      $menu_slug = $attributes['menuSlug'] ?? '';
+
+      if (!empty($menu_slug)) {
+          $menu_post = get_page_by_path($menu_slug, OBJECT, 'wp_navigation');
+
+          if ($menu_post instanceof WP_Post) {
+              $blocks = parse_blocks($menu_post->post_content);
+
+              foreach ($blocks as $block) {
+                  if ($block['blockName'] === 'core/navigation-link') {
+                      $url = $block['attrs']['url'] ?? '#';
+                      $label = $block['attrs']['label'] ?? 'Lien';
+
+                      echo '<li>';
+                      echo '<a href="' . esc_url($url) . '">';
+                      echo '<div class="bg"></div>';
+                      echo '<span>' . esc_html($label) . '</span>';
+                      echo '</a>';
+                      echo '</li>';
+                  }
+              }
+          } else {
+              echo '<li><a href="#">Menu non trouvé</a></li>';
+          }
+      } else {
+          echo '<li><a href="#">Aucun menu sélectionné</a></li>';
+      }
       ?>
-    </div>
+    </ul>
+  </div>
   </div>
 
   <div class="right">
-    <?php echo $content; // Contenu des InnerBlocks (ex: bouton) ?>
+    <?php echo $content; ?>
   </div>
 </div>

@@ -25,3 +25,14 @@ body.block-editor-page .editor-styles-wrapper {
   position: absolute !important;
   opacity: 0.2 !important;
 }
+
+.editor-styles-wrapper .navbar .left img{
+    opacity: 0.2 !important;
+    position: absolute;
+}
+.editor-styles-wrapper .navbar .left button{
+    margin-right: 50px;
+}
+.editor-styles-wrapper .navbar .menu-container{
+    margin-left: 50px;
+}

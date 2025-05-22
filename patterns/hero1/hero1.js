@@ -55,7 +55,6 @@ function EditComponent({ attributes, setAttributes }) {
                       id="heroBackground"
                       src={attributes.imageUrl}
                       alt="Image sélectionnée"
-                      style={{ height: '761.4px', transform: 'translate(-206.601px, 36.8665px)' }}
                     />
                     <Button onClick={open} isSecondary style={{ marginTop: "10px" }}>
                       Modifier l'image

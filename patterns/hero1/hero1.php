@@ -24,7 +24,6 @@ $imageUrl = $attributes['imageUrl'] ?? 'https://achyl.be/wp-content/themes/achyl
           id="heroBackground"
           src="<?php echo esc_url($imageUrl); ?>"
           alt="Image sélectionnée"
-          style="height: 761.4px; transform: translate(-206.601px, 36.8665px);"
         />
       </div>
     </div>
