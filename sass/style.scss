@@ -14,7 +14,6 @@ Version: 1
 
 
 @import "./components/buttons";
-@import "./components/footer";
 @import "./components/titles";
 @import "./components/controls";
 @import "./components/card-solution";
@@ -38,5 +37,7 @@ Version: 1
 
 
 @import "../patterns/header/header";
+@import "../patterns/footer/footer";
 @import "../patterns/button/button";
 @import "../patterns/hero1/hero1";
+@import "../patterns/menu-footer/menu-footer";

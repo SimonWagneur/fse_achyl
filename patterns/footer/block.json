@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "blocktheme/footer",
+  "title": "Pied de page",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Un pied de page classique.",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "editorScript": "file:../../build/index.js",
+  "style": "file:./footer.css",
+  "render": "file:./footer.php"
+}

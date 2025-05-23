@@ -36,3 +36,6 @@ body.block-editor-page .editor-styles-wrapper {
 .editor-styles-wrapper .navbar .menu-container{
     margin-left: 50px;
 }
+.editor-styles-wrapper button{
+    z-index: 99;
+}
