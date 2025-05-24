@@ -1,12 +1,11 @@
-import $ from 'jquery';
+(function($){
+    $(document).ready(function(){
+        var pageLength = $("body").height();
+        var time_to_top = pageLength/7;
 
-function ToTheTop(){
-    var pageLength = $("body").height();
-    var time_to_top = pageLength/7;
+        $(".to-the-top").on('click', function(){
+            $("html, body").animate({scrollTop: 0},time_to_top);
+        });
 
-    $(".to-the-top").on('click', function(){
-        $("html, body").animate({scrollTop: 0},time_to_top);
-    });
-}
-
-export default ToTheTop;
+    })
+})(jQuery);

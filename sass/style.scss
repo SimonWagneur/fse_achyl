@@ -16,16 +16,11 @@ Version: 1
 @import "./components/buttons";
 @import "./components/titles";
 @import "./components/controls";
-@import "./components/card-solution";
-@import "./components/card-step";
-@import "./components/card-testimonial";
 @import "./components/card-projet";
 @import "./components/card-price";
 @import "./components/faq-question";
 
-@import "./sections/solutions";
-@import "./sections/types-de-business";
-@import "./sections/process";
+
 @import "./sections/testimonials";
 @import "./sections/cta";
 @import "./sections/benefits";
@@ -36,8 +31,18 @@ Version: 1
 @import "./sections/page-text";
 
 
-@import "../patterns/header/header";
-@import "../patterns/footer/footer";
-@import "../patterns/button/button";
-@import "../patterns/hero1/hero1";
-@import "../patterns/menu-footer/menu-footer";
+
+@import "../patterns/components/button/button";
+@import "../patterns/components/button-secondary/button-secondary";
+@import "../patterns/components/menu-footer/menu-footer";
+@import "../patterns/components/card-solution/card-solution";
+@import "../patterns/components/card-list/card-list";
+@import "../patterns/components/card-step/card-step";
+@import "../patterns/components/card-testimonial/card-testimonial";
+
+@import "../patterns/sections/header/header";
+@import "../patterns/sections/footer/footer";
+@import "../patterns/sections/hero1/hero1";
+@import "../patterns/sections/solutions/solutions";
+@import "../patterns/sections/section-list/section-list";
+@import "../patterns/sections/section-steps/section-steps";

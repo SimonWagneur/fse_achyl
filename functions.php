@@ -13,7 +13,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '1.0.0', true );
     // js
     wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('navbar-js', get_theme_file_uri('/patterns/header/frontend.js'), array('jquery'), '1.0', true);
+    wp_enqueue_script('navbar-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
     // font awesome
     wp_enqueue_script( 'font_awesome', 'https://kit.fontawesome.com/d9ec4440c9.js', array(), '1.0.0', true ); 
 });
@@ -37,37 +37,20 @@ add_action('enqueue_block_editor_assets', function () {
         filemtime(get_template_directory() . '/editor-style.css')
     );
 });
-
 add_action('after_setup_theme', function () {
     add_theme_support('editor-styles');
     add_editor_style('style.css');
 });
 
 
+
 add_action('init', function () {
-  foreach (glob(__DIR__ . '/patterns/*/block.json') as $block_json) {
+  foreach (glob(__DIR__ . '/patterns/*/*/block.json') as $block_json) {
     register_block_type($block_json);
   }
 });
 
-// add_action('init', function () {
-//   $blocks = glob(__DIR__ . '/patterns/*/block.json');
-  
-//   if (empty($blocks)) {
-//     error_log("❌ Aucun block.json trouvé dans /patterns/");
-//     return;
-//   }
 
-//   foreach ($blocks as $block) {
-//     error_log("🔍 Tentative d'enregistrement bloc : $block");
-//     register_block_type($block);
-//   }
-// });
-
-// add_action('init', function () {
-//     $post_type = get_post_type_object('wp_navigation');
-//     error_log('Navigation post type : ' . print_r($post_type, true));
-// });
 
 add_action( 'wp', 'fse_achyl_enqueue_pattern_scripts' );
 
@@ -82,9 +65,9 @@ function fse_achyl_enqueue_pattern_scripts() {
     }
 
     $pattern_scripts = [
-        'blocktheme/header' => 'header/frontend.js',
-        'blocktheme/hero1'  => 'hero1/frontend.js',
-        'blocktheme/button' => 'button/frontend.js',
+        'blocktheme/hero1'  => 'sections/hero1/frontend.js',
+        'blocktheme/section-list'  => 'sections/section-list/frontend.js',
+        // 'blocktheme/card-step'  => 'components/card-step/frontend.js',
     ];
 
     foreach ( $pattern_scripts as $block => $script_path ) {
@@ -93,6 +76,7 @@ function fse_achyl_enqueue_pattern_scripts() {
 
         error_log( "Tentative d'enqueue de : $script_url" );
         error_log( "Test presence bloc : $block = " . ( has_block( $block, $post ) ? 'oui' : 'non' ) );
+        error_log( "Test file exist : " . ( file_exists( $script_file ) ? 'oui' : 'non' ) );
 
         if ( has_block( $block, $post ) && file_exists( $script_file ) ) {
             wp_enqueue_script(
@@ -102,6 +86,7 @@ function fse_achyl_enqueue_pattern_scripts() {
                 null,
                 true
             );
+            error_log("Enqueue script: $script_url pour le bloc $block : OK");
         }
     }
 }

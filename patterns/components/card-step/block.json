@@ -1,0 +1,24 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/card-step",
+    "title": "Card Step",
+    "category": "theme",
+    "icon": "slides",
+    "description": "Une carte étape avec numéro, titre, texte et bouton",
+    "supports": {
+        "align": ["left", "center", "right"]
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Titre de l'étape"
+        },
+        "content": {
+            "type": "string",
+            "default": "Description de l'étape"
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-step.css",
+    "render": "file:./card-step.php"
+}

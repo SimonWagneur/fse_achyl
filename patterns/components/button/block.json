@@ -1,0 +1,19 @@
+{
+  "apiVersion": 2,
+  "name": "blocktheme/button",
+  "title": "Bouton",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Un bouton personnalisable avec texte, lien et couleur.",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "text": { "type": "string", "default": "" },
+    "linkUrl": { "type": "string", "default": "https://" },
+    "colorName": { "type": "string", "default": "black" }
+  },
+  "editorScript": "file:../../../build/index.js",
+  "style": "file:./button.css",
+  "render": "file:./button.php"
+}

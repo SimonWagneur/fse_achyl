@@ -1,0 +1,22 @@
+.menu-footer{
+    .title-menu{
+        margin: 0;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-family: 'Sk Modernist Bold';
+        margin-bottom: 15px;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li{
+            font-size: 18px;
+            font-family: "Sk Modernist Light";
+            margin-bottom: 7px;
+            a:hover{
+                color: $green;
+            }
+        }
+    }
+}

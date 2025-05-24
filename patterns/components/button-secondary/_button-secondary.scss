@@ -1,0 +1,20 @@
+button.secondary{
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    &.green{
+        color: $green;
+    }
+    &.white{
+        color: white;
+    }
+    &.black{
+        color: $black;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    button.secondary{
+        font-size: 18px;
+    }
+}

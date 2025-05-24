@@ -1,0 +1,28 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/card-list",
+    "title": "Card List",
+    "category": "theme",
+    "icon": "list-view",
+    "description": "Une carte avec image de fond, titre et texte personnalisables",
+    "supports": {
+        "align": ["left", "center", "right"]
+    },
+    "attributes": {
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Votre titre ici"
+        },
+        "content": {
+            "type": "string",
+            "default": "Votre texte ici"
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-list.css",
+    "render": "file:./card-list.php"
+}

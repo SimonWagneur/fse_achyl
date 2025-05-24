@@ -1,0 +1,154 @@
+button.primary{
+    padding: 8px 8px 8px 25px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 100px;
+    transition: all .15s ease;
+    .text{
+        text-align: left;
+        .main{
+            font-size: 16px;
+        }
+    }
+    .round-container{
+        height: 34px;
+        width: 34px;
+        margin-left: 20px;
+        .round{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .15s ease;
+            .fa-solid{
+                font-size: 16px;
+            }
+        }
+    }
+    &:hover{
+        .round-container{
+            .round{
+                height: 44px;
+                width: 44px;
+                margin-top: -5px;
+                margin-left: -5px;
+            }
+        }
+    }
+    &.black{
+        background-color: black;
+        color: white;
+        .round{
+            background-color: white;
+            color: black;
+        }
+        &:hover{
+            background-color: $green;
+        }
+    }
+    &.green{
+        background-color: $green;
+        color: white;
+        .round{
+            background-color: white;
+            color: black;
+        }
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+    &.white{
+        background-color: white;
+        color: black;
+        .round{
+            background-color: black;
+            color: white;
+        }
+        &:hover{
+            background-color: $green;
+        }
+    }
+}
+button.primary:disabled{
+    opacity: 0.5;
+    cursor: default;
+    &:hover{
+        background-color: black;
+        .round-container{
+            .round{
+                height: 34px;
+                width: 34px;
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+        }
+    }
+}
+button.primary.full{
+    height: 60px;
+    padding: 8px 8px 8px 25px;
+    .text{
+        .secondary{
+            font-size: 12px;
+            margin-top: -3px;
+        }
+    }
+    .round-container{
+        height: 46px;
+        width: 46px;
+    }
+    &:hover{
+        .round-container{
+            .round{
+                height: 54px;
+                width: 54px;
+                margin-top: -4px;
+                margin-left: -4px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    button.primary:disabled{
+        &:hover{
+            .round-container{
+                .round{
+                    height: 32px;
+                    width: 32px;
+                    margin-top: 0px;
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+    button.primary.full{
+        height: auto;
+        padding: 8px 8px 8px 25px;
+        .text{
+            .secondary{
+                display: none;
+            }
+        }
+        .round-container{
+            height: 34px;
+            width: 34px;
+            margin-left: 20px;
+        }
+        &:hover{
+            .round-container{
+                .round{
+                    height: 44px;
+                    width: 44px;
+                    margin-top: -5px;
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+}

@@ -15,9 +15,9 @@ body.block-editor-page .editor-styles-wrapper {
     border-radius: 2px;
 }
 
-.editor-visual-editor__post-title-wrapper, .wp-block-post-content{
+/* .editor-visual-editor__post-title-wrapper, .wp-block-post-content{
     outline: 1px solid rgb(231, 231, 231) !important;
-}
+} */
 
 .editor-styles-wrapper section.hero .visual-container img {
   height: auto !important;
@@ -38,4 +38,33 @@ body.block-editor-page .editor-styles-wrapper {
 }
 .editor-styles-wrapper button{
     z-index: 99;
+}
+
+.block-editor-inner-blocks, .block-editor-block-list__layout{
+    display: inherit !important;
+}
+
+:where(.editor-styles-wrapper) .slider{
+    overflow: auto !important;
+}
+
+:where(.editor-styles-wrapper) section.solutions .solutions-container{
+    display: flex !important;
+    gap: 0px !important;
+    width: 100% !important;
+}
+:where(.editor-styles-wrapper) section.solutions .solutions-container .block-editor-inner-blocks{
+    display: inherit !important;
+    gap: 50px;
+    flex-wrap: wrap;
+    width: 100% !important;
+}
+:where(.editor-styles-wrapper) section.solutions .solutions-container .block-editor-block-list__layout{
+    display: inherit !important;
+    gap: 50px;
+    flex-wrap: wrap;
+    width: 100% !important;
+}
+:where(.editor-styles-wrapper) section.solutions .solutions-container .card-solution{
+    width: calc(50% - 25px);
 }
