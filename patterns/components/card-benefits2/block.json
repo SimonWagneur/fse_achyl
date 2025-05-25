@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/card-benefits2",
+    "title": "Card Benefits 2",
+    "category": "theme",
+    "icon": "slides",
+    "description": "Carte de bénéfices avec titre, texte et image",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Titre de la carte"
+        },
+        "text": {
+            "type": "string",
+            "default": "Texte de la carte"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-benefits2.css",
+    "render": "file:./card-benefits2.php"
+}

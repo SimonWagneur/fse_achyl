@@ -11,11 +11,11 @@
     "attributes": {
         "title": {
             "type": "string",
-            "default": "Titre de l'étape"
+            "default": ""
         },
         "content": {
             "type": "string",
-            "default": "Description de l'étape"
+            "default": ""
         }
     },
     "editorScript": "file:../../../build/index.js",

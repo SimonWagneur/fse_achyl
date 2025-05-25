@@ -6,11 +6,11 @@ registerBlockType("blocktheme/card-faq", {
     attributes: {
         title: {
             type: "string",
-            default: "Combien coûte la création d'un site ?"
+            default: ""
         },
         content: {
             type: "string",
-            default: "Les prix pour un site vitrine commencent à 1990€. Pour un site e-commerce, les prix commencent à 2990€. Après un appel découverte, nous réalisons un audit pour vous proposer un devis clair et adapté, sans frais cachés."
+            default: ""
         }
     },
     edit: EditComponent,
@@ -30,7 +30,7 @@ function EditComponent({ attributes, setAttributes }) {
                         className="h3"
                         value={attributes.title}
                         onChange={(title) => setAttributes({ title })}
-                        placeholder="Question..."
+                        placeholder="Question"
                     />
                     <i className="fa-solid fa-plus" aria-hidden="true"></i>
                 </div>

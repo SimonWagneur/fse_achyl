@@ -36,7 +36,32 @@ add_action('enqueue_block_editor_assets', function () {
         array('achyl-editor-style-base'), // dépendance pour être chargé après
         filemtime(get_template_directory() . '/editor-style.css')
     );
+
+    // Scripts pour l'éditeur
+    wp_enqueue_script('jquery');
+    
+    // Enregistrer les scripts frontend pour l'éditeur
+    $editor_scripts = [
+        'section-benefits2' => '/patterns/sections/section-benefits2/frontend.js',
+        // Ajoutez d'autres scripts ici si nécessaire
+    ];
+
+    foreach ($editor_scripts as $name => $path) {
+        $script_url = get_template_directory_uri() . $path;
+        $script_path = get_template_directory() . $path;
+
+        if (file_exists($script_path)) {
+            wp_enqueue_script(
+                'fse-achyl-' . $name . '-editor',
+                $script_url,
+                ['jquery'],
+                filemtime($script_path),
+                true
+            );
+        }
+    }
 });
+
 add_action('after_setup_theme', function () {
     add_theme_support('editor-styles');
     add_editor_style('style.css');
@@ -65,9 +90,10 @@ function fse_achyl_enqueue_pattern_scripts() {
     }
 
     $pattern_scripts = [
-        'blocktheme/hero1'  => 'sections/hero1/frontend.js',
+        'blocktheme/section-hero1'  => 'sections/section-hero1/frontend.js',
         'blocktheme/section-list'  => 'sections/section-list/frontend.js',
         'blocktheme/section-faq'  => 'sections/section-faq/frontend.js',
+        'blocktheme/section-benefits2'  => 'sections/section-benefits2/frontend.js',
         // 'blocktheme/card-step'  => 'components/card-step/frontend.js',
     ];
 

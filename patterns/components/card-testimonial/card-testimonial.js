@@ -6,15 +6,15 @@ registerBlockType("blocktheme/card-testimonial", {
     attributes: {
         testimonialContent: {
             type: "string",
-            default: "Votre témoignage"
+            default: ""
         },
         authorName: {
             type: "string",
-            default: "Nom de la personne"
+            default: ""
         },
         authorRole: {
             type: "string",
-            default: "Fonction de la personne"
+            default: ""
         }
     },
     edit: EditComponent,
@@ -40,7 +40,7 @@ function EditComponent({ attributes, setAttributes }) {
         <>
 
             {/* Render */}
-            <div {...blockProps} className="slide card-testimonial">
+            <div className="slide card-testimonial active">
                 <div className="upper">
                     <div className="quote">
                         <i className="fa-solid fa-quote-right" aria-hidden="true"></i>
@@ -66,14 +66,14 @@ function EditComponent({ attributes, setAttributes }) {
                         className="nom"
                         value={attributes.authorName}
                         onChange={handleNameChange}
-                        placeholder="Nom de la personne..."
+                        placeholder="Nom"
                     />
                     <RichText
                         tagName="div"
                         className="fonction"
                         value={attributes.authorRole}
                         onChange={handleRoleChange}
-                        placeholder="Fonction de la personne..."
+                        placeholder="Fonction"
                     />
                 </div>
             </div>

@@ -1,5 +1,6 @@
 /* Appliqué uniquement dans l’éditeur Gutenberg */
 
+/* Global */
 body.block-editor-page .editor-styles-wrapper {
     max-width: 90% !important;
     margin-left: auto !important;
@@ -14,18 +15,18 @@ body.block-editor-page .editor-styles-wrapper {
     padding: 10px;
     border-radius: 2px;
 }
-
-/* .editor-visual-editor__post-title-wrapper, .wp-block-post-content{
-    outline: 1px solid rgb(231, 231, 231) !important;
-} */
-
-.editor-styles-wrapper section.hero .visual-container img {
-  height: auto !important;
-  transform: none !important;
-  position: absolute !important;
-  opacity: 0.2 !important;
+.editor-styles-wrapper button{
+    z-index: 99;
+}
+.editor-styles-wrapper .slider{
+    overflow: auto !important;
+}
+.block-editor-inner-blocks, .block-editor-block-list__layout{
+    display: inherit !important;
 }
 
+
+/* Navbar */
 .editor-styles-wrapper .navbar .left img{
     opacity: 0.2 !important;
     position: absolute;
@@ -36,35 +37,71 @@ body.block-editor-page .editor-styles-wrapper {
 .editor-styles-wrapper .navbar .menu-container{
     margin-left: 50px;
 }
-.editor-styles-wrapper button{
-    z-index: 99;
-}
 
-.block-editor-inner-blocks, .block-editor-block-list__layout{
-    display: inherit !important;
-}
 
-:where(.editor-styles-wrapper) .slider{
-    overflow: auto !important;
-}
+/* Hero 1 */
+.editor-styles-wrapper section.section-hero1 .visual-container img {
+  height: auto !important;
+  transform: none !important;
+  position: absolute !important;
+  opacity: 0.2 !important;
+}   
 
-:where(.editor-styles-wrapper) section.solutions .solutions-container{
+
+/* Section solutions */
+.editor-styles-wrapper section.section-solutions .solutions-container{
     display: flex !important;
     gap: 0px !important;
     width: 100% !important;
 }
-:where(.editor-styles-wrapper) section.solutions .solutions-container .block-editor-inner-blocks{
+.editor-styles-wrapper section.section-solutions .solutions-container .block-editor-inner-blocks{
     display: inherit !important;
     gap: 50px;
     flex-wrap: wrap;
     width: 100% !important;
 }
-:where(.editor-styles-wrapper) section.solutions .solutions-container .block-editor-block-list__layout{
+.editor-styles-wrapper section.section-solutions .solutions-container .block-editor-block-list__layout{
     display: inherit !important;
     gap: 50px;
     flex-wrap: wrap;
     width: 100% !important;
 }
-:where(.editor-styles-wrapper) section.solutions .solutions-container .card-solution{
+.editor-styles-wrapper section.section-solutions .solutions-container .card-solution{
     width: calc(50% - 25px);
+}
+
+
+/* Section benefits 1 */
+.editor-styles-wrapper section.section-benefits1 .canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editor-styles-wrapper section.section-benefits1 img {
+  opacity: 0.2 !important;
+}
+
+
+
+/* Section projects */
+.editor-styles-wrapper section.section-projects .card-project{
+    width: 1100px !important;
+}
+
+
+/* Section pricing */
+.editor-styles-wrapper section.section-pricing .block-editor-inner-blocks{
+    width: 100% !important;
+}
+.editor-styles-wrapper section.section-pricing .block-editor-block-list__layout{
+    flex-wrap: wrap !important;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100% !important;
+}
+
+
+/* Section features */
+.editor-styles-wrapper section.section-features .block-editor-block-list__layout{
+    flex-wrap: wrap !important;
 }

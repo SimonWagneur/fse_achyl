@@ -58,16 +58,16 @@
                 // FUNCTIONS
                 function SlideWidth(){
                     
-                $('.slide.projet').css('width', sliderWidth);
+                $('.slide.card-project').css('width', sliderWidth);
                 slideWidth = slide.outerWidth(true);
     
                 if($(window).width() < 1200){
-                    $('.slide.projet').css('width', sliderWidth);
+                    $('.slide.card-project').css('width', sliderWidth);
                 }
     
                 if($(window).width() < 600){
                     slide.css('width', sliderWidth * 0.92);
-                    $('.slide.projet').css('width', sliderWidth);
+                    $('.slide.card-project').css('width', sliderWidth);
                     slideWidth = slide.outerWidth(true);
                 }
     

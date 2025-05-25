@@ -9,11 +9,11 @@ registerBlockType("blocktheme/card-step", {
     attributes: {
         title: {
             type: "string",
-            default: "Titre de l'étape"
+            default: ""
         },
         content: {
             type: "string",
-            default: "Description de l'étape"
+            default: ""
         }
     },
     edit: EditComponent,
@@ -52,7 +52,6 @@ function EditComponent({ attributes, setAttributes, clientId }) {
             />
             <InnerBlocks
                 allowedBlocks={ALLOWED_BLOCKS}
-                template={TEMPLATE}
             />
         </div>
     );

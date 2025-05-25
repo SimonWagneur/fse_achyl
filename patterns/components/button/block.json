@@ -10,8 +10,9 @@
   },
   "attributes": {
     "text": { "type": "string", "default": "" },
-    "linkUrl": { "type": "string", "default": "https://" },
-    "colorName": { "type": "string", "default": "black" }
+    "linkUrl": { "type": "string", "default": "" },
+    "colorName": { "type": "string", "default": "black" },
+    "disabled": { "type": "boolean", "default": false }
   },
   "editorScript": "file:../../../build/index.js",
   "style": "file:./button.css",

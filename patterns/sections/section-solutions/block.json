@@ -1,0 +1,20 @@
+{
+  "apiVersion": 2,
+  "name": "blocktheme/section-solutions",
+  "title": "Section Solutions",
+  "category": "theme",
+  "icon": "grid-view",
+  "description": "Une section pour afficher une liste de solutions avec titre personnalisable",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Nos solutions"
+    }
+  },
+  "editorScript": "file:../../../build/index.js",
+  "style": "file:./section-solutions.css",
+  "render": "file:./section-solutions.php"
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-pricing",
+    "title": "Section Pricing",
+    "category": "theme",
+    "icon": "money-alt",
+    "description": "Section de présentation des tarifs",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Nos tarifs"
+        }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-pricing.css",
+    "render": "file:./section-pricing.php"
+}

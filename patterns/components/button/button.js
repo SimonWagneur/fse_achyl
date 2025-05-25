@@ -1,7 +1,7 @@
 import ourColors from '../../../assets/colors/ourColors';
 import { registerBlockType } from '@wordpress/blocks';
 import { RichText, InspectorControls, getColorObjectByColorValue } from "@wordpress/block-editor"
-import { TextControl, PanelBody, PanelRow, ColorPalette } from "@wordpress/components"
+import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl } from "@wordpress/components"
 import metadata from './block.json';
 
 registerBlockType(metadata.name, {
@@ -32,18 +32,31 @@ function EditComponent({ attributes, setAttributes }) {
     setAttributes({ colorName: name })
   }
 
+  function handleDisabledChange(isChecked) {
+    setAttributes({ disabled: Boolean(isChecked) });
+  }
+
   return (
     <>
       <InspectorControls>
-        <PanelBody title="Link" initialOpen={true}>
+        <PanelBody title="Lien" initialOpen={true}>
           <TextControl
             value={attributes.linkUrl}
             onChange={handleLinkChange}
           />
         </PanelBody>
-        <PanelBody title="Color" initialOpen={true}>
+        <PanelBody title="Couleur" initialOpen={true}>
           <PanelRow>
             <ColorPalette disableCustomColors={true} clearable={false} colors={ourColors} value={currentColorValue} onChange={handleColorChange} />
+          </PanelRow>
+        </PanelBody>
+        <PanelBody title="Désactivé" initialOpen={true}>
+          <PanelRow>
+            <CheckboxControl 
+              label="Désactiver le bouton"
+              checked={attributes.disabled || false}
+              onChange={handleDisabledChange}
+            />
           </PanelRow>
         </PanelBody>
       </InspectorControls>
@@ -54,7 +67,10 @@ function EditComponent({ attributes, setAttributes }) {
         style={{ display: 'inline-block' }}
         onClick={preventClickInEditor}
       >
-        <button className={`primary ${attributes.colorName}`}>
+        <button 
+          className={`primary ${attributes.colorName}`}
+          disabled={attributes.disabled || false}
+        >
           <div className="text">
             <div className="main">
               <RichText

@@ -5,11 +5,11 @@ registerBlockType('blocktheme/section-cta', {
     attributes: {
         title: {
             type: "string",
-            default: "Titre de la section CTA"
+            default: ""
         },
         content: {
             type: "string",
-            default: "Contenu de la section CTA"
+            default: ""
         }
     },
     edit: EditComponent,

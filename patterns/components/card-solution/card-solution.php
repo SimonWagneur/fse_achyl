@@ -4,6 +4,8 @@ $image_url = $attributes['imageUrl'] ?? '';
 $title = $attributes['title'] ?? '';
 $description = $attributes['description'] ?? '';
 $tags = $attributes['tags'] ?? [];
+$button_color = $attributes['buttonColor'] ?? 'black';
+$button_text = $attributes['buttonText'] ?? 'Cliquez ici';
 ?>
 
 <a href="<?php echo esc_url($link_url); ?>" class="card-solution">
@@ -22,6 +24,8 @@ $tags = $attributes['tags'] ?? [];
         </div>
     </div>
     <div class="bottom">
-        <?php echo wp_kses_post($content); ?>
+    <button class="secondary <?php echo esc_attr($button_color); ?>">
+        <?php echo esc_html($button_text); ?>
+    </button>
     </div>
 </a>
