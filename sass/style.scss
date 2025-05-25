@@ -18,11 +18,8 @@ Version: 1
 @import "./components/controls";
 @import "./components/card-projet";
 @import "./components/card-price";
-@import "./components/faq-question";
 
 
-@import "./sections/testimonials";
-@import "./sections/cta";
 @import "./sections/benefits";
 @import "./sections/projets";
 @import "./sections/pricing";
@@ -39,6 +36,7 @@ Version: 1
 @import "../patterns/components/card-list/card-list";
 @import "../patterns/components/card-step/card-step";
 @import "../patterns/components/card-testimonial/card-testimonial";
+@import "../patterns/components/card-faq/card-faq";
 
 @import "../patterns/sections/header/header";
 @import "../patterns/sections/footer/footer";
@@ -46,3 +44,5 @@ Version: 1
 @import "../patterns/sections/solutions/solutions";
 @import "../patterns/sections/section-list/section-list";
 @import "../patterns/sections/section-steps/section-steps";
+@import "../patterns/sections/section-testimonials/section-testimonials";
+@import "../patterns/sections/section-cta/section-cta";

@@ -1,0 +1,17 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/section-faq",
+    "title": "Section FAQ",
+    "category": "theme",
+    "icon": "editor-help",
+    "description": "Section FAQ avec titre et questions/réponses",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "FAQ"
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-faq.css",
+    "render": "file:./section-faq.php"
+}

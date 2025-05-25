@@ -1,4 +1,4 @@
-section.cta{
+section.section-cta{
     margin: 2.5vw;
     padding: 12vw 2.5vw;
     background-color: $grey;
@@ -22,7 +22,7 @@ section.cta{
 }
 
 @media screen and (max-width:600px){
-    section.cta{
+    section.section-cta{
         text-align: left;
         border-radius: 15px;
         .container{

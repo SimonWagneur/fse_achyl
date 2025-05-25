@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-cta",
+    "title": "Section CTA",
+    "category": "theme",
+    "icon": "megaphone",
+    "description": "Section d'appel à l'action avec titre, texte et boutons",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Titre de la section CTA"
+        },
+        "content": {
+            "type": "string",
+            "default": "Contenu de la section CTA"
+        }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-cta.css",
+    "render": "file:./section-cta.php"
+}

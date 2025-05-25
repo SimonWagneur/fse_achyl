@@ -1,8 +1,19 @@
 // import { registerBlockType } from '@wordpress/blocks';
 
-// registerBlockType(metadata.name, {
-//   edit: EditComponent,
-//   save: SaveComponent
+// registerBlockType("blocktheme/", {
+  // title: "",
+  // attributes: {
+  //     title: {
+  //         type: "string",
+  //         default: "Titre de l'étape"
+  //     },
+  //     content: {
+  //         type: "string",
+  //         default: "Description de l'étape"
+  //     }
+  // },
+  // edit: EditComponent,
+  // save: SaveComponent
 // });
 
 function EditComponent({ attributes, setAttributes }) {

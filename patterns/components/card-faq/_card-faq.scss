@@ -1,4 +1,4 @@
-.question{
+.card-faq{
     border: solid 1px $dark-grey;
     border-radius: 13px;
     cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 @media screen and (max-width:600px){
-    .question{
+    .card-faq{
         // padding: 15px 20px;
         .top{
             h3{

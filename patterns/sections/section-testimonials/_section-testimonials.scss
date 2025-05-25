@@ -1,4 +1,4 @@
-section.testimonials{
+section.section-testimonials{
     .top{
         display: flex;
         justify-content: space-between;
@@ -15,7 +15,7 @@ section.testimonials{
 }
 
 @media screen and (max-width: 600px){
-    section.testimonials{
+    section.section-testimonials{
         .top{
             margin-bottom: 40px;
         }

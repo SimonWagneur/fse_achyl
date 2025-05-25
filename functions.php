@@ -3,7 +3,6 @@
 // hide admin bar
 add_filter('show_admin_bar', '__return_false');
 
-
 // enqueue scripts
 add_action('wp_enqueue_scripts', function () {
     // css
@@ -14,12 +13,13 @@ add_action('wp_enqueue_scripts', function () {
     // js
     wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
     wp_enqueue_script('navbar-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
+    // wp_enqueue_script('faq-js', get_theme_file_uri('/patterns/sections/section-faq/frontend.js'), array('jquery'), '1.0', true);
     // font awesome
     wp_enqueue_script( 'font_awesome', 'https://kit.fontawesome.com/d9ec4440c9.js', array(), '1.0.0', true ); 
 });
 
 
-// appliquer le CSS à l’éditeur
+// appliquer le CSS à l'éditeur
 add_action('enqueue_block_editor_assets', function () {
     // CSS principal (rendu réel du site)
     wp_enqueue_style(
@@ -29,7 +29,7 @@ add_action('enqueue_block_editor_assets', function () {
         filemtime(get_template_directory() . '/style.css')
     );
 
-    // CSS spécifique à l’éditeur (overrides, !important, etc.)
+    // CSS spécifique à l'éditeur (overrides, !important, etc.)
     wp_enqueue_style(
         'achyl-editor-style-custom',
         get_template_directory_uri() . '/editor-style.css',
@@ -67,6 +67,7 @@ function fse_achyl_enqueue_pattern_scripts() {
     $pattern_scripts = [
         'blocktheme/hero1'  => 'sections/hero1/frontend.js',
         'blocktheme/section-list'  => 'sections/section-list/frontend.js',
+        'blocktheme/section-faq'  => 'sections/section-faq/frontend.js',
         // 'blocktheme/card-step'  => 'components/card-step/frontend.js',
     ];
 
@@ -74,19 +75,31 @@ function fse_achyl_enqueue_pattern_scripts() {
         $script_url  = get_template_directory_uri() . '/patterns/' . $script_path;
         $script_file = get_template_directory() . '/patterns/' . $script_path;
 
-        error_log( "Tentative d'enqueue de : $script_url" );
-        error_log( "Test presence bloc : $block = " . ( has_block( $block, $post ) ? 'oui' : 'non' ) );
-        error_log( "Test file exist : " . ( file_exists( $script_file ) ? 'oui' : 'non' ) );
+        // error_log( "Tentative d'enqueue de : $script_url" );
+        // error_log( "Test presence bloc : $block = " . ( has_block( $block, $post ) ? 'oui' : 'non' ) );
+        // error_log( "Test file exist : " . ( file_exists( $script_file ) ? 'oui' : 'non' ) );
 
         if ( has_block( $block, $post ) && file_exists( $script_file ) ) {
+            // Créer un handle unique basé sur le nom du bloc
+            $handle = str_replace('blocktheme/', 'fse-achyl-', $block) . '-frontend';
+            
+            error_log(sprintf(
+                "wp_enqueue_script('%s', '%s', %s, %s, %s);",
+                $handle,
+                $script_url,
+                "['jquery']",
+                'null',
+                'true'
+            ));
+
             wp_enqueue_script(
-                'fse-achyl-' . sanitize_title( basename( $script_path ) ),
+                $handle,
                 $script_url,
                 ['jquery'],
                 null,
                 true
             );
-            error_log("Enqueue script: $script_url pour le bloc $block : OK");
+            // error_log("Enqueue script: $script_url pour le bloc $block : OK");
         }
     }
 }

@@ -1,0 +1,21 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/card-faq",
+    "title": "Card FAQ",
+    "category": "theme",
+    "icon": "editor-help",
+    "description": "Carte de question/réponse pour la FAQ",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Combien coûte la création d'un site ?"
+        },
+        "content": {
+            "type": "string",
+            "default": "Les prix pour un site vitrine commencent à 1990€. Pour un site e-commerce, les prix commencent à 2990€. Après un appel découverte, nous réalisons un audit pour vous proposer un devis clair et adapté, sans frais cachés."
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-faq.css",
+    "render": "file:./card-faq.php"
+}
