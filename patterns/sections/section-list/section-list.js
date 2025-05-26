@@ -4,13 +4,16 @@ import { InnerBlocks, RichText } from "@wordpress/block-editor";
 registerBlockType("blocktheme/section-list", {
     title: "Section List",
     supports: {
-        align: ["full"]
+        align: ["full"],
+        html: false,
+        anchor: true
     },
     attributes: {
         title: {
             type: "string",
             default: "Votre titre ici"
-        }
+        },
+        anchor: { type: "string" }
     },
     edit: EditComponent,
     save: SaveComponent

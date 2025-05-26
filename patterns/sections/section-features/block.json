@@ -14,7 +14,8 @@
         "title": {
             "type": "string",
             "default": ""
-        }
+        },
+        "anchor": { "type": "string" }
     },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",

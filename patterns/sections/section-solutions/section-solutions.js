@@ -3,13 +3,16 @@ import { InnerBlocks, RichText } from "@wordpress/block-editor";
 wp.blocks.registerBlockType("blocktheme/section-solutions", {
   title: "Section Solutions",
   supports: {
-    align: ["full"]
+    align: ["full"],
+    "html": false,
+    "anchor": true
   },
   attributes: {
     title: {
-      type: "string",
-      default: "Nos solutions"
-    }
+        type: "string",
+        default: ""
+    },
+    anchor: { type: "string" }
   },
   edit: EditComponent,
   save: SaveComponent

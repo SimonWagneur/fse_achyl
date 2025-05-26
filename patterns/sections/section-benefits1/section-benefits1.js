@@ -3,6 +3,10 @@ const { RichText, InnerBlocks, MediaUpload, MediaUploadCheck, InspectorControls 
 const { Button, PanelBody, SelectControl } = wp.components;
 
 registerBlockType('blocktheme/section-benefits1', {
+    "supports": {
+        "html": false,
+        "anchor": true
+      },
     edit: EditComponent,
     save: SaveComponent
 });

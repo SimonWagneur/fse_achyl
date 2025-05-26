@@ -4,6 +4,7 @@ const { PanelBody, ToggleControl, TextControl, DatePicker } = wp.components;
 const { __ } = wp.i18n;
 
 registerBlockType('blocktheme/card-pricing', {
+    parent: ['blocktheme/section-pricing'],
     attributes: {
         title: {
             type: "string",

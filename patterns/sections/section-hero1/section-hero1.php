@@ -2,9 +2,10 @@
 $heading = $attributes['heading'] ?? '';
 $paragraph = $attributes['paragraph'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? 'https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png';
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section class="section-hero1">
+<section class="section-hero1"<?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
   <div class="container medium-container">
     <div class="left">
       <?php if (!empty($heading)) : ?>

@@ -5,15 +5,6 @@
     "category": "theme",
     "icon": "testimonial",
     "description": "Section de témoignages avec titre et slider",
-    "supports": {
-        "align": ["full"]
-    },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Nos avis clients"
-        }
-    },
     "editorScript": "file:../../../build/index.js",
     "style": "file:./section-testimonials.css",
     "render": "file:./section-testimonials.php"

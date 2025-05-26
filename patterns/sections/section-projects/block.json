@@ -6,16 +6,6 @@
     "category": "theme",
     "icon": "portfolio",
     "description": "Section de présentation des projets avec slider",
-    "supports": {
-        "html": false,
-        "anchor": true
-    },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Nos projets"
-        }
-    },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",
     "style": "file:./section-projects.css",

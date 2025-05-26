@@ -6,8 +6,14 @@ registerBlockType("blocktheme/section-testimonials", {
     attributes: {
         title: {
             type: "string",
-            default: "Nos avis clients"
-        }
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "anchor": true
     },
     edit: EditComponent,
     save: SaveComponent
@@ -25,7 +31,7 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             {/* Render */}
-            <section {...blockProps} id="avis" className="section-testimonials">
+            <section {...blockProps} className="section-testimonials">
                 <div className="container medium-container slider-container">
                     <div className="top">
                         <RichText

@@ -2,7 +2,9 @@ const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.blockEditor;
 
 registerBlockType('blocktheme/section-benefits2', {
-    attributes: {},
+    attributes: {
+        anchor: { type: "string" }
+    },
     edit: EditComponent,
     save: SaveComponent
 });

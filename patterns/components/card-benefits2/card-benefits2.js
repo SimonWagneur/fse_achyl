@@ -3,6 +3,7 @@ const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { PanelBody, TextControl, Button } = wp.components;
 
 registerBlockType('blocktheme/card-benefits2', {
+    parent: ['blocktheme/section-benefits2'],
     attributes: {
         title: {
             type: "string",

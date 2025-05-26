@@ -2,6 +2,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
 
 registerBlockType("blocktheme/card-testimonial", {
+    parent: ['blocktheme/section-testimonials'],
     title: "Card Testimonial",
     attributes: {
         testimonialContent: {

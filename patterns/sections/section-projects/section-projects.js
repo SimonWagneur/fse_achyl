@@ -5,8 +5,13 @@ registerBlockType('blocktheme/section-projects', {
     attributes: {
         title: {
             type: "string",
-            default: "Nos projets"
-        }
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true
     },
     edit: EditComponent,
     save: SaveComponent

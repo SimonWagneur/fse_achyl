@@ -45,6 +45,23 @@
     }
     .bottom{
         padding: 10px 35px 35px 35px;
+        button{
+            border: none;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all .1s ease-out;
+            font-family: "Sk Modernist Light";
+            &.black{
+                color: $black;
+            }
+            &.green{
+                color: $green;
+            }
+            &.white{
+                color: white;
+            }
+        }
     }
     &:hover{
         & > .top .banner .background{

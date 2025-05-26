@@ -3,6 +3,7 @@ import { InspectorControls, RichText, MediaUpload } from "@wordpress/block-edito
 import { PanelBody, Button } from "@wordpress/components";
 
 registerBlockType("blocktheme/card-list", {
+    parent: ['blocktheme/section-list'],
     title: "Card List",
     supports: {
         align: ["left", "center", "right"]

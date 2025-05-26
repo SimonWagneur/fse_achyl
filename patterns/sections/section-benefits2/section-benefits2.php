@@ -1,8 +1,9 @@
 <?php
 $imageUrl = $attributes['imageUrl'] ?? '';
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section class="section-benefits2">
+<section class="section-benefits2" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container medium-container">
         <div class="left">
             <div class="state"></div>

@@ -5,11 +5,16 @@
     "category": "theme",
     "icon": "editor-help",
     "description": "Section FAQ avec titre et questions/réponses",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     "attributes": {
         "title": {
             "type": "string",
             "default": "FAQ"
-        }
+        },
+        "anchor": { "type": "string" }
     },
     "editorScript": "file:../../../build/index.js",
     "style": "file:./section-faq.css",

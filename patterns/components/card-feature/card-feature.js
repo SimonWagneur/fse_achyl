@@ -2,6 +2,7 @@ const { registerBlockType } = wp.blocks;
 const { RichText } = wp.blockEditor;
 
 registerBlockType('blocktheme/card-feature', {
+    parent: ['blocktheme/section-features'],
     attributes: {
         content: {
             type: "string",

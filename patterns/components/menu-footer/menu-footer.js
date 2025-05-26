@@ -5,6 +5,7 @@ import { useSelect } from '@wordpress/data';
 import metadata from './block.json';
 
 registerBlockType(metadata.name, {
+  parent: ['blocktheme/footer'],
   attributes: {
     align: { type: "string", default: "full" },
     menuSlug: { type: "string", default: "" },

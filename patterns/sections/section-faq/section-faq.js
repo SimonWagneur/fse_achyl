@@ -3,11 +3,16 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 registerBlockType("blocktheme/section-faq", {
     title: "Section FAQ",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     attributes: {
         title: {
             type: "string",
-            default: "FAQ"
-        }
+            default: ""
+        },
+        anchor: { type: "string" }
     },
     edit: EditComponent,
     save: SaveComponent
@@ -25,14 +30,14 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             {/* Render */}
-            <section {...blockProps} id="faq" className="faq">
+            <section {...blockProps} className="faq">
                 <div className="container small-container">
                     <RichText
                         tagName="h2"
                         className="h2"
                         value={attributes.title}
                         onChange={(title) => setAttributes({ title })}
-                        placeholder="Titre de la section..."
+                        placeholder="FAQ"
                     />
                     <InnerBlocks 
                         allowedBlocks={ALLOWED_BLOCKS}

@@ -1,8 +1,9 @@
 <?php
 $title = $attributes['title'] ?? 'Notre processus';
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section id="process" class="section-steps">
+<section class="section-steps" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container medium-container slider-container">
         <div class="top">
             <h2 class="h2"><?php echo esc_html($title); ?></h2>

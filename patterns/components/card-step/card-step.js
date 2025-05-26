@@ -2,6 +2,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
 
 registerBlockType("blocktheme/card-step", {
+    parent: ['blocktheme/section-steps'],
     title: "Card Step",
     supports: {
         align: ["left", "center", "right"]

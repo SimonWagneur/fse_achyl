@@ -3,6 +3,7 @@ const { RichText, InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockE
 const { PanelBody, TextControl, Button } = wp.components;
 
 registerBlockType('blocktheme/card-project', {
+    parent: ['blocktheme/section-projects'],
     attributes: {
         title: {
             type: "string",
@@ -46,6 +47,11 @@ function EditComponent({ attributes, setAttributes }) {
 
     const addNewTag = () => {
         setAttributes({ tags: [...tags, ""] });
+    };
+
+    const removeTag = (indexToRemove) => {
+        const newTags = tags.filter((_, index) => index !== indexToRemove);
+        setAttributes({ tags: newTags });
     };
 
     const ALLOWED_BLOCKS = ['blocktheme/button-secondary'];
@@ -108,15 +114,22 @@ function EditComponent({ attributes, setAttributes }) {
                     <div style={{ marginBottom: "20px" }}>
                         <label style={{ display: "block", marginBottom: "8px" }}>Tags</label>
                         {tags.map((tag, index) => (
-                        <TextControl
-                            key={index}
-                            value={tag}
-                            onChange={(value) => handleTagChange(index, value)}
-                            style={{ marginBottom: "8px" }}
-                        />
+                            <div key={index} style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+                                <TextControl
+                                    value={tag}
+                                    onChange={(value) => handleTagChange(index, value)}
+                                />
+                                <Button 
+                                    isDestructive
+                                    onClick={() => removeTag(index)}
+                                    style={{ minWidth: '30px', padding: '0 8px' }}
+                                >
+                                    ×
+                                </Button>
+                            </div>
                         ))}
                         <Button isSecondary onClick={addNewTag}>
-                        Ajouter un tag
+                            Ajouter un tag
                         </Button>
                     </div>
                 </PanelBody>

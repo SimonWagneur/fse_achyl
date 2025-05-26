@@ -6,14 +6,17 @@ import { useBlockProps } from "@wordpress/block-editor";
 
 wp.blocks.registerBlockType("blocktheme/section-hero1", {
   title: "Section Hero 1",
-  supports: {
-    align: ["full"]
-  },
   attributes: {
     align: { type: "string", default: "full" },
     heading: { type: "string", default: "" },
     paragraph: { type: "string", default: "" },
-    imageUrl: { type: "string", default: "https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png" }
+    imageUrl: { type: "string", default: "https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png" },
+    anchor: { type: "string" }
+  },
+  "supports": {
+    "align": ["full"],
+    "html": false,
+    "anchor": true
   },
   edit: EditComponent,
   save: SaveComponent

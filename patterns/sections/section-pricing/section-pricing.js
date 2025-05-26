@@ -5,8 +5,13 @@ registerBlockType('blocktheme/section-pricing', {
     attributes: {
         title: {
             type: "string",
-            default: "Nos tarifs"
-        }
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true
     },
     edit: EditComponent,
     save: SaveComponent

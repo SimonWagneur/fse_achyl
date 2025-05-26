@@ -26,7 +26,8 @@
         "reversed": {
             "type": "boolean",
             "default": false
-        }
+        },
+        "anchor": { "type": "string" }
     },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",

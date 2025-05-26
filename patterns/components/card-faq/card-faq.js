@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 registerBlockType("blocktheme/card-faq", {
     title: "Card FAQ",
+    parent: ['blocktheme/section-faq'],
     attributes: {
         title: {
             type: "string",

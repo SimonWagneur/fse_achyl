@@ -4,13 +4,16 @@ import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
 registerBlockType("blocktheme/section-steps", {
     title: "Section Steps",
     supports: {
-        align: ["full"]
+        align: ["full"],
+        html: false,
+        anchor: true
     },
     attributes: {
         title: {
             type: "string",
-            default: "Notre processus"
-        }
+            default: ""
+        },
+        anchor: { type: "string" }
     },
     edit: EditComponent,
     save: SaveComponent
@@ -28,7 +31,7 @@ function EditComponent({ attributes, setAttributes }) {
     ];
 
     return (
-        <section id="process" className="section-steps">
+        <section className="section-steps">
             <div className="container medium-container slider-container">
                 <div className="top">
                     <RichText

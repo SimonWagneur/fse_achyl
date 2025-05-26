@@ -10,7 +10,8 @@ registerBlockType('blocktheme/section-cta', {
         content: {
             type: "string",
             default: ""
-        }
+        },
+        anchor: { type: "string" }
     },
     edit: EditComponent,
     save: SaveComponent

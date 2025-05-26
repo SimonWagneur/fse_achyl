@@ -6,7 +6,12 @@ registerBlockType('blocktheme/section-features', {
         title: {
             type: "string",
             default: ""
-        }
+        },
+        anchor: { type: "string" }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true
     },
     edit: EditComponent,
     save: SaveComponent
