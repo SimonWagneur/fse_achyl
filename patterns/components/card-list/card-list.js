@@ -23,7 +23,7 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title="Paramètres de la carte" initialOpen={true}>
+                <PanelBody title="Image" initialOpen={true}>
                     <div className="editor-post-featured-image">
                         <MediaUpload
                             onSelect={media => setAttributes({ backgroundImage: media.url })}

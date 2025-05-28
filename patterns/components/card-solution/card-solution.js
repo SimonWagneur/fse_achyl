@@ -1,6 +1,7 @@
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, MediaUpload } = wp.blockEditor;
-const { PanelBody, TextControl, Button, SelectControl } = wp.components;
+const { RichText, InspectorControls, MediaUpload, __experimentalLinkControl: LinkControl } = wp.blockEditor;
+const { PanelBody, TextControl, Button, SelectControl, Popover } = wp.components;
+const { useState } = wp.element;
 
 // Options de couleur pour le bouton
 const colorOptions = [
@@ -13,7 +14,8 @@ registerBlockType("blocktheme/card-solution", {
     parent: ['blocktheme/section-solutions'],
     title: "Card Solution",
     supports: {
-        align: ["full"]
+        align: ["full"],
+        html: false,
     },
     attributes: {
         linkUrl: { type: "string", default: "#" },
@@ -30,6 +32,7 @@ registerBlockType("blocktheme/card-solution", {
 
 function EditComponent({ attributes, setAttributes }) {
     const { linkUrl, imageUrl, title, description, tags, buttonColor, buttonText } = attributes;
+    const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
 
     // Fonction pour gérer les tags
     const handleTagChange = (index, value) => {
@@ -54,25 +57,83 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title="Paramètres de la carte" initialOpen={true}>
-                    <TextControl
-                        label="URL du lien"
-                        value={linkUrl}
-                        onChange={(value) => setAttributes({ linkUrl: value })}
-                    />
-                    
-                    <MediaUpload
-                        onSelect={(media) => setAttributes({ imageUrl: media.url })}
-                        allowedTypes={["image"]}
-                        render={({ open }) => (
-                            <Button onClick={open} isPrimary>
-                                {imageUrl ? "Changer l'image" : "Sélectionner une image"}
-                            </Button>
-                        )}
-                    />
-
+                <PanelBody title="Lien" initialOpen={true} >
+                    <div className="custom-link-control-wrapper" style={{ minWidth: 'auto' }}>
+                        <style>
+                            {`
+                            .custom-link-control-wrapper .block-editor-link-control {
+                                min-width: auto !important;
+                                width: 100% !important;
+                            }
+                            .custom-link-control-wrapper .block-editor-link-control__search-input {
+                                min-width: auto !important;
+                                width: 100% !important;
+                            }
+                            .custom-link-control-wrapper .block-editor-url-input {
+                                min-width: auto !important;
+                                width: 100% !important;
+                            }
+                            .custom-link-control-wrapper .block-editor-link-control__field {
+                                margin: 0 !important;
+                            }
+                            `}
+                        </style>
+                        <LinkControl
+                            value={{ url: linkUrl }}
+                            onChange={({ url }) => setAttributes({ linkUrl: url })}
+                            searchInputPlaceholder="Rechercher ou saisir une URL..."
+                            showSuggestions={true}
+                            suggestionsQuery={{
+                                type: 'post',
+                                subtype: ['page', 'post'],
+                            }}
+                        />
+                    </div>
+                </PanelBody>
+                <PanelBody title="Image" initialOpen={true}>
+                    <div className="editor-post-featured-image">
+                        <MediaUpload
+                            onSelect={(media) => setAttributes({ imageUrl: media.url })}
+                            type="image"
+                            value={imageUrl}
+                            render={({ open }) => (
+                                <div>
+                                    {imageUrl ? (
+                                        <div>
+                                            <img 
+                                                src={imageUrl} 
+                                                alt="Image de la solution" 
+                                                style={{ maxWidth: '100%', marginBottom: '10px' }}
+                                            />
+                                            <Button 
+                                                onClick={open}
+                                                isSecondary
+                                            >
+                                                Remplacer l'image
+                                            </Button>
+                                            <Button 
+                                                onClick={() => setAttributes({ imageUrl: '' })}
+                                                isDestructive
+                                                style={{ marginLeft: '10px' }}
+                                            >
+                                                Supprimer l'image
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <Button
+                                            onClick={open}
+                                            isPrimary
+                                        >
+                                            Ajouter une image
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
+                        />
+                    </div>
+                </PanelBody>
+                <PanelBody title="Tags" initialOpen={true}>
                     <div style={{ marginBottom: "20px" }}>
-                        <label style={{ display: "block", marginBottom: "8px" }}>Tags</label>
                         {tags.map((tag, index) => (
                             <div key={index} style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
                                 <TextControl
@@ -92,7 +153,8 @@ function EditComponent({ attributes, setAttributes }) {
                             Ajouter un tag
                         </Button>
                     </div>
-
+                </PanelBody>
+                <PanelBody title="Bouton" initialOpen={true}>
                     <SelectControl
                         label="Couleur du bouton"
                         value={buttonColor}
@@ -140,7 +202,7 @@ function EditComponent({ attributes, setAttributes }) {
                             onChange={(value) => setAttributes({ buttonText: value })}
                             placeholder="Texte du bouton..."
                         />
-                    </button>
+                  </button>
                 </div>
             </div>
         </>

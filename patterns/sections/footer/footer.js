@@ -23,6 +23,11 @@ function EditComponent({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <PanelBody title="Footer Settings">
+                    {logoUrl && (
+                        <div style={{ marginBottom: 10 }}>
+                            <img src={logoUrl} alt="Logo preview" style={{ maxWidth: "100%", height: "auto" }} />
+                        </div>
+                    )}
                     <MediaUpload
                         onSelect={media => setAttributes({ logoUrl: media.url })}
                         allowedTypes={["image"]}
@@ -33,11 +38,6 @@ function EditComponent({ attributes, setAttributes }) {
                             </Button>
                         )}
                     />
-                    {logoUrl && (
-                        <div style={{ marginBottom: 10 }}>
-                            <img src={logoUrl} alt="Logo preview" style={{ maxWidth: "100%", height: "auto" }} />
-                        </div>
-                    )}
                 </PanelBody>
             </InspectorControls>
 

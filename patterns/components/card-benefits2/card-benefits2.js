@@ -28,25 +28,23 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title="Contenu de la carte">
-                    {/* <TextControl
-                        label="Position"
-                        value={position}
-                        onChange={(value) => setAttributes({ position: value })}
-                        placeholder="Position de la carte"
-                    /> */}
+                <PanelBody title="Titre" initialOpen={true}>
                     <TextControl
                         label="Titre"
                         value={title}
                         onChange={(value) => setAttributes({ title: value })}
                         placeholder="Entrez le titre..."
                     />
+                </PanelBody>
+                <PanelBody title="Description" initialOpen={true}>
                     <TextControl
                         label="Texte"
                         value={text}
                         onChange={(value) => setAttributes({ text: value })}
                         placeholder="Entrez le texte..."
                     />
+                </PanelBody>
+                <PanelBody title="Image" initialOpen={true}>
                     <div className="editor-post-featured-image">
                         <MediaUploadCheck>
                             <MediaUpload

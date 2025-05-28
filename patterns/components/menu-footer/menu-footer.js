@@ -34,14 +34,17 @@ function EditComponent({ attributes, setAttributes }) {
   return (
     <>
       <InspectorControls>
-        <PanelBody title="Menu Settings">
+        <PanelBody title="Titre" initialOpen={true}>
           <TextControl
-            label="Menu Title"
+            label="Titre du menu"
             value={title}
             onChange={title => setAttributes({ title })}
+            placeholder="Entrez le titre..."
           />
+        </PanelBody>
+        <PanelBody title="Menu" initialOpen={true}>
           <SelectControl
-            label="Select Menu"
+            label="Sélectionner un menu"
             value={menuSlug}
             options={menuOptions}
             onChange={menuSlug => setAttributes({ menuSlug })}

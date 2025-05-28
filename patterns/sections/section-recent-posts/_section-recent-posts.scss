@@ -1,0 +1,54 @@
+.section-recent-posts {
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        article{
+            margin-bottom: 40px;
+            .post-thumbnail{
+                background-color: $grey;
+                height: 300px;
+                border-radius: 10px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    display: block;
+                }
+            }
+            .post-content{
+                h3{
+                    margin-top: 20px;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    margin-bottom: 7px;
+                }
+                button{
+                    margin-top: 40px;
+                }
+                
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .section-recent-posts {
+        .posts-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+@media screen and (max-width: 900px) {
+    .section-recent-posts {
+        .posts-grid {
+            article{
+                margin-bottom: 30px;
+            }
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

@@ -62,13 +62,15 @@ function EditComponent({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title="Paramètres du projet">
+                <PanelBody title="Lien" initialOpen={true}>
                     <TextControl
                         label="URL du bouton"
                         value={buttonUrl}
                         onChange={(value) => setAttributes({ buttonUrl: value })}
                         placeholder="https://..."
                     />
+                </PanelBody>
+                <PanelBody title="Image" initialOpen={true}>
                     <div className="editor-post-featured-image">
                         <MediaUploadCheck>
                             <MediaUpload
@@ -111,6 +113,8 @@ function EditComponent({ attributes, setAttributes }) {
                             />
                         </MediaUploadCheck>
                     </div>
+                </PanelBody>
+                <PanelBody title="Tags" initialOpen={true}>
                     <div style={{ marginBottom: "20px" }}>
                         <label style={{ display: "block", marginBottom: "8px" }}>Tags</label>
                         {tags.map((tag, index) => (
