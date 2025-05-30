@@ -5,12 +5,16 @@ add_filter('show_admin_bar', '__return_false');
 
 // enqueue scripts
 add_action('wp_enqueue_scripts', function () {
-    // css
+        // css
     wp_enqueue_style('achyl_main_styles', get_theme_file_uri('style.css'));
     // jquery
     wp_deregister_script('jquery');
     wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '1.0.0', true );
     // js
+    wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js', array(), '1.0.0', true);
+    wp_enqueue_script('scrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js', array(), '1.0.0', true);
+    wp_enqueue_script('splitText', get_theme_file_uri('/src/modules/SplitText.min.js'), array(), '1.0.0', true);
+    
     wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
     wp_enqueue_script('navbar-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
     // wp_enqueue_script('faq-js', get_theme_file_uri('/patterns/sections/section-faq/frontend.js'), array('jquery'), '1.0', true);

@@ -1,5 +1,6 @@
 (function($){
     $(document).ready(function(){
+        // console.log('slider');
 
 
         $('.section-steps').each(function() {

@@ -1,23 +1,64 @@
 <?php
-$heading = $attributes['heading'] ?? 'Titre de la section';
-$paragraph = $attributes['paragraph'] ?? 'Contenu de la section';
-$imageUrl = $attributes['imageUrl'] ?? 'https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png';
-$reversed = isset($attributes['reversed']) && $attributes['reversed'] ? 'reversed' : '';
-$anchor = $attributes['anchor'] ?? '';
+$heading = $attributes['heading'] ?? '';
+$paragraph = $attributes['paragraph'] ?? '';
+$imageUrl = $attributes['imageUrl'] ?? '';
+$reversed = $attributes['reversed'] ?? false;
+$animation = $attributes['animation'] ?? '';
+$scrollingText = $attributes['scrollingText'] ?? '';
+$mediaType = $attributes['mediaType'] ?? 'image';
+
+// Ajouter la classe video si c'est une vidéo
+$sectionClasses = ['section-benefits1'];
+if ($reversed) $sectionClasses[] = 'reversed';
+if ($animation) $sectionClasses[] = esc_attr($animation);
+if ($mediaType === 'video') $sectionClasses[] = 'has-video';
 ?>
 
-<section class="section-benefits1 <?php echo esc_attr($reversed); ?>" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
+<section class="<?php echo implode(' ', $sectionClasses); ?>">
     <div class="container medium-container">
         <div class="left">
-            <h2 class="h2"><?php echo esc_html($heading); ?></h2>
-            <p class="p"><?php echo esc_html($paragraph); ?></p>
+            <?php if ($heading) : ?>
+                <h2 class="h2"><?php echo esc_html($heading); ?></h2>
+            <?php endif; ?>
+            
+            <?php if ($paragraph) : ?>
+                <p class="p"><?php echo esc_html($paragraph); ?></p>
+            <?php endif; ?>
+            
             <div class="buttons">
-                <?php echo wp_kses_post($content); ?>
+                <?php echo $content; ?>
             </div>
         </div>
         <div class="right">
             <div class="canvas">
-                <img id="heroBackground" src="<?php echo esc_url($imageUrl); ?>" alt="Background">
+                <?php if ($imageUrl) : ?>
+                    <?php if ($mediaType === 'image') : ?>
+                        <img id="heroBackground" src="<?php echo esc_url($imageUrl); ?>" alt="Background">
+                    <?php else : ?>
+                        <video 
+                            id="heroBackground" 
+                            src="<?php echo esc_url($imageUrl); ?>" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                        ></video>
+                    <?php endif; ?>
+                <?php endif; ?>
+                
+                <?php if ($mediaType === 'image' && $animation === 'scrollingText' && $scrollingText) : ?>
+                    <p class="scrolling-text"><?php echo esc_html($scrollingText); ?></p>
+                <?php endif; ?>
+                
+                <?php if ($mediaType === 'image' && $animation === 'scrollingToggle') : ?>
+                    <div class="toggle-button-box active">
+                        <div class="toggle-button-content">
+                            <div class="toggle-button-bg">
+                                <div class="toggle-button-on-off"></div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

@@ -77,6 +77,16 @@ body.block-editor-page .editor-styles-wrapper {
     justify-content: center;
     align-items: center;
 }
+.editor-styles-wrapper section.section-benefits1 .canvas .media-buttons {
+    position: absolute;
+    z-index: 3;
+    top: unset !important;
+    right: unset !important;
+}
+.editor-styles-wrapper section.section-benefits1 .canvas .media-placeholder {
+    position: absolute;
+    z-index: 3;
+}
 .editor-styles-wrapper section.section-benefits1 img {
   opacity: 0.2 !important;
 }

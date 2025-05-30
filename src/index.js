@@ -1,6 +1,12 @@
 // éditeur Gutenberg
 import './modules/slider';
 import './modules/to-the-top';
+import './modules/scrollingText';
+import './modules/scrollingHorizontal';
+import './modules/scrollingVertical';
+import './modules/scrollingToggle';
+// import './modules/scrollingVideo';
+// import './modules/ScrollVideo';
 
 import '../patterns/components/button/button';
 import '../patterns/components/menu-footer/menu-footer';
