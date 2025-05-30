@@ -4,5 +4,5 @@ $content = $attributes['content'] ?? 'Votre fonctionnalité';
 
 <div class="card-feature">
     <i class="fa-solid fa-check"></i>
-    <?php echo esc_html($content); ?>
+    <?php echo $content; ?>
 </div>

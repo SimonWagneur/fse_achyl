@@ -1,6 +1,6 @@
 .card-project{
     padding: 30px;
-    background-color: $grey;
+    background-color: var(--wp--preset--color--grey);
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -26,8 +26,8 @@
             gap: 8px;
             .tag{
                 font-size: 16px;
-                color: $dark-grey;
-                border: solid 1px $dark-grey;
+                color: var(--wp--preset--color--grey-dark);;
+                border: solid 1px var(--wp--preset--color--grey-dark);;
                 padding: 4px 12px 6px 12px;
                 border-radius: 30px;
             }
@@ -38,7 +38,7 @@
         .canvas{
             width: 520px;
             aspect-ratio: 1 / 1;
-            background-color: white;
+            background-color: var(--wp--preset--color--bg);
             border-radius: 15px;
             position: relative;
             overflow: hidden;

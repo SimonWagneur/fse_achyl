@@ -5,6 +5,9 @@
   "category": "layout",
   "icon": "format-image",
   "description": "Bloc Hero avec titre, paragraphe et image à droite.",
+  "supports": {
+    "align": ["full"]
+  },
   "attributes": {
     "align": { "type": "string", "default": "full" },
     "heading": { "type": "string", "default": "" },

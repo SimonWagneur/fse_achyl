@@ -6,13 +6,42 @@
   "icon": "menu",
   "description": "Un bouton personnalisable avec texte, lien et couleur.",
   "supports": {
-    "align": ["full"]
+    "align": ["full"],
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true,
+      "link": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "fontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true,
+        "fontFamily": true,
+        "fontStyle": true,
+        "fontWeight": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   },
   "attributes": {
     "text": { "type": "string", "default": "" },
     "linkUrl": { "type": "string", "default": "" },
     "colorName": { "type": "string", "default": "black" },
-    "disabled": { "type": "boolean", "default": false }
+    "disabled": { "type": "boolean", "default": false },
+    "style": {
+      "type": "object",
+      "default": {}
+    }
   },
   "editorScript": "file:../../../build/index.js",
   "style": "file:./button.css",

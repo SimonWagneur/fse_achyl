@@ -6,7 +6,7 @@
         article{
             margin-bottom: 40px;
             .post-thumbnail{
-                background-color: $grey;
+                background-color: var(--wp--preset--color--grey);
                 height: 300px;
                 border-radius: 10px;
                 overflow: hidden;

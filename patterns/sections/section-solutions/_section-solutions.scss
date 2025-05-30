@@ -1,5 +1,5 @@
 section.section-solutions{
-    background-color: $grey;
+    background-color: var(--wp--preset--color--grey);
     .solutions-container{
         display: grid;
         grid-template-columns: auto auto;

@@ -21,7 +21,7 @@ $showPromoDate = $showPromo && !empty($promoEndDate);
     <div class="bottom">
         <?php if ($showPromo): ?>
             <div class="prix inactive">
-                <div class="montant"><?php echo esc_html($fullPrice); ?></div>
+                <div class="montant"><?php echo $fullPrice; ?></div>
                 <div class="tva"><?php echo esc_html($fullPriceTva); ?></div>
             </div>
         <?php endif; ?>

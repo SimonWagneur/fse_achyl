@@ -11,7 +11,7 @@ section.section-list{
             margin-left: 5%;
             display: flex;
             .canvas{
-                background-color: $grey;
+                background-color: var(--wp--preset--color--grey);
                 border-radius: 20px;
                 width: 100%;
                 overflow: hidden;

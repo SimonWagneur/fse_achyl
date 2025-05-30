@@ -1,6 +1,6 @@
 .card-solution{
     // width: 50%;
-    background-color: white;
+    background-color: var(--wp--preset--color--bg);
     border-radius: 20px;
     padding: 12px;
     -webkit-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.05);
@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
     .banner{
-        background-color: $grey;
+        background-color: var(--wp--preset--color--grey);
         border-radius: 17px;
         height: 200px;
         overflow: hidden;
@@ -35,7 +35,7 @@
             flex-wrap: wrap;
             gap: 12px;
             .tag{
-                background-color: $grey;
+                background-color: var(--wp--preset--color--grey);
                 color: #8a8a8a;
                 font-size: 16px;
                 padding: 8px 18px 9px 18px;
@@ -49,17 +49,18 @@
             border: none;
             background-color: transparent;
             font-size: 18px;
-            font-weight: 600;
+            // font-weight: 600;
             transition: all .1s ease-out;
-            font-family: "Sk Modernist Light";
+            font-family: var(--wp--preset--font-family--body);
+            // font-weight: 300;
             &.black{
-                color: $black;
+                color: var(--wp--preset--color--primary);
             }
             &.green{
-                color: $green;
+                color: var(--wp--preset--color--secondary);
             }
             &.white{
-                color: white;
+                color: var(--wp--preset--color--bg);
             }
         }
     }
@@ -68,13 +69,13 @@
             transform: scale(1.6);
         }
         & > .bottom button.black{
-            color: $green;
+            color: var(--wp--preset--color--secondary);
         }
         & > .bottom button.green{
-            color: $black;
+            color: var(--wp--preset--color--primary);
         }
         & > .bottom button.white{
-            color: $black;
+            color: var(--wp--preset--color--primary);
         }
     }
 }

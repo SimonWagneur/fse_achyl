@@ -3,7 +3,7 @@
         margin: 0;
         font-size: 16px;
         text-transform: uppercase;
-        font-family: 'Sk Modernist Bold';
+        font-weight: 700;
         margin-bottom: 15px;
     }
     ul{
@@ -12,11 +12,11 @@
         list-style: none;
         li{
             font-size: 18px;
-            font-family: "Sk Modernist Light";
+            font-weight: 300;
             margin-bottom: 10px;
             line-height: 1.2;
             a:hover{
-                color: $green;
+                color: var(--wp--preset--color--secondary);
             }
         }
     }

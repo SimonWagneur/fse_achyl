@@ -1,6 +1,6 @@
 import ourColors from '../../../assets/colors/ourColors';
 import { registerBlockType } from '@wordpress/blocks';
-import { RichText, InspectorControls, getColorObjectByColorValue } from "@wordpress/block-editor"
+import { RichText, InspectorControls, getColorObjectByColorValue, useBlockProps } from "@wordpress/block-editor"
 import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl } from "@wordpress/components"
 import metadata from './block.json';
 
@@ -10,6 +10,7 @@ registerBlockType(metadata.name, {
 });
 
 function EditComponent({ attributes, setAttributes }) {
+  const blockProps = useBlockProps();
 
   function handleTextChange(value) {
     setAttributes({ text: value });
@@ -60,34 +61,36 @@ function EditComponent({ attributes, setAttributes }) {
           </PanelRow>
         </PanelBody>
       </InspectorControls>
-      <a
-        href={attributes.linkUrl || "#"}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ display: 'inline-block' }}
-        onClick={preventClickInEditor}
-      >
-        <button 
-          className={`primary ${attributes.colorName}`}
-          disabled={attributes.disabled || false}
+      <div {...blockProps}>
+        <a
+          href={attributes.linkUrl || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'inline-block' }}
+          onClick={preventClickInEditor}
         >
-          <div className="text">
-            <div className="main">
-              <RichText
-                tagName="span"
-                value={attributes.text}
-                onChange={handleTextChange}
-                placeholder="Bouton"
-              />
+          <button 
+            className={`primary ${attributes.colorName}`}
+            disabled={attributes.disabled || false}
+          >
+            <div className="text">
+              <div className="main">
+                <RichText
+                  tagName="span"
+                  value={attributes.text}
+                  onChange={handleTextChange}
+                  placeholder="Bouton"
+                />
+              </div>
             </div>
-          </div>
-          <div className="round-container">
-            <div className="round">
-              <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <div className="round-container">
+              <div className="round">
+                <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </div>
             </div>
-          </div>
-        </button>
-      </a>
+          </button>
+        </a>
+      </div>
     </>
   );
 }
