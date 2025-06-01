@@ -35,3 +35,5 @@ import '../patterns/sections/section-projects/section-projects';
 import '../patterns/sections/section-pricing/section-pricing';
 import '../patterns/sections/section-features/section-features';
 import '../patterns/sections/section-recent-posts/section-recent-posts';
+import '../patterns/sections/section-hero2/section-hero2';
+import '../patterns/sections/section-hero3/section-hero3';

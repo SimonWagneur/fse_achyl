@@ -2,6 +2,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+.xlarge-container{
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
 .large-container{
     width: 90%;
     max-width: 1600px;
@@ -22,3 +27,16 @@
 //         padding-top: 40px;
 //     }
 // }
+
+
+@media screen and (max-width: 1200px){
+    .xlarge-container{
+        padding: 0px 30px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .xlarge-container{
+        padding: 0px 15px;
+    }
+}

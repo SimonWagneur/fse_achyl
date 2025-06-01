@@ -1,11 +1,11 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
-    "name": "blocktheme/section-hero2",
-    "title": "Section Hero 2",
+    "name": "blocktheme/section-hero3",
+    "title": "Section Hero 3",
     "category": "sections",
     "icon": "align-wide",
-    "description": "Section hero avec titre, texte et boutons",
+    "description": "Section hero avec titre, texte et boutons en disposition upper/lower",
     "supports": {
         "anchor": true
     },
@@ -32,6 +32,6 @@
         }
     },
     "editorScript": "file:../../../build/index.js",
-    "render": "file:./section-hero2.php",
-    "style": "file:./section-hero2.css"
+    "render": "file:./section-hero3.php",
+    "style": "file:./section-hero3.css"
 }

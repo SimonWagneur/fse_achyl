@@ -2,16 +2,12 @@ import { InnerBlocks, RichText, useBlockProps, MediaUpload, MediaUploadCheck } f
 import { registerBlockType } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 
-registerBlockType('blocktheme/section-hero2', {
+registerBlockType('blocktheme/section-hero3', {
     edit: EditComponent,
     save: SaveComponent
 });
 
 function EditComponent({ attributes, setAttributes }) {
-    const blockProps = useBlockProps({
-        className: 'hero'
-    });
-
     const ALLOWED_BLOCKS = ['blocktheme/button'];
     const TEMPLATE = [
         ['blocktheme/button', {}]
@@ -34,29 +30,29 @@ function EditComponent({ attributes, setAttributes }) {
     };
 
     return (
-        <section className='hero'>
-            <div class="container xlarge-container">
-                <div className="section-hero2__content">
+        <section className="section-hero3 hero">
+            <div className="container xlarge-container">
+                <div className="upper">
                     <RichText
                         tagName="h1"
-                        className="section-hero2__title"
                         value={attributes.title}
                         onChange={title => setAttributes({ title })}
                         placeholder="Votre titre ici"
                     />
-                    <RichText
-                        tagName="p"
-                        className="section-hero2__text"
-                        value={attributes.text}
-                        onChange={text => setAttributes({ text })}
-                        placeholder="Votre texte descriptif ici"
-                    />
-                    <InnerBlocks 
-                        allowedBlocks={ALLOWED_BLOCKS}
-                        template={TEMPLATE}
-                    />
+                    <div className="right">
+                        <RichText
+                            tagName="p"
+                            value={attributes.text}
+                            onChange={text => setAttributes({ text })}
+                            placeholder="Votre texte descriptif ici"
+                        />
+                        <InnerBlocks 
+                            allowedBlocks={ALLOWED_BLOCKS}
+                            template={TEMPLATE}
+                        />
+                    </div>
                 </div>
-                <div className="section-hero2__banner visual-container">
+                <div className="lower visual-container">
                     <MediaUploadCheck>
                         <MediaUpload
                             onSelect={onSelectImage}

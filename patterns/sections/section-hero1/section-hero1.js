@@ -26,7 +26,7 @@ function EditComponent({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
   return (
-    <section className="section-hero1">
+    <section className="hero section-hero1">
       <div className="container medium-container">
         <div className="left">
           <RichText
