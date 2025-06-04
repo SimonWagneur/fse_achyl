@@ -2,6 +2,7 @@
 $menu_slug  = $attributes['menuSlug'] ?? '';
 $menu_html = '';
 $imageUrl = $attributes['imageUrl'];
+$is_transparent = $attributes['isTransparent'] ?? false;
 
 // Récupérer le contenu d'un menu FSE enregistré comme un post
 if (!empty($menu_slug)) {
@@ -12,7 +13,7 @@ if (!empty($menu_slug)) {
 }
 ?>
 
-<div class="navbar">
+<div class="navbar<?php echo $is_transparent ? ' transparent' : ''; ?>">
   <div class="left">
     <a href="<?php echo esc_url(home_url('/')); ?>">
       <?php

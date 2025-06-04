@@ -1,5 +1,5 @@
 import { InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
-import { PanelBody, SelectControl, Button } from "@wordpress/components";
+import { PanelBody, SelectControl, Button, ToggleControl } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 
 wp.blocks.registerBlockType("blocktheme/header", {
@@ -11,13 +11,14 @@ wp.blocks.registerBlockType("blocktheme/header", {
     align: { type: "string", default: "full" },
     menuSlug: { type: "string", default: "" },
     imageUrl: { type: "string", default: "" },
+    isTransparent: { type: "boolean", default: false }
   },
   edit: EditComponent,
   save: SaveComponent
 });
 
 function EditComponent({ attributes, setAttributes }) {
-  const { menuSlug } = attributes;
+  const { menuSlug, isTransparent } = attributes;
 
   // Récupération des menus de navigation (FSE)
   const menus = useSelect((select) => {
@@ -33,6 +34,7 @@ function EditComponent({ attributes, setAttributes }) {
 
   return (
     <>
+    {/* Je veux une option dans l'InspectorControls pour définir la navar 'transparent' ou rien. Si c'est sélectionné, ajouter la classe '.transparent' à .navbar */}
       <InspectorControls>
         <PanelBody title="Paramètres de la navigation" initialOpen={true}>
           <SelectControl
@@ -48,10 +50,16 @@ function EditComponent({ attributes, setAttributes }) {
             }
             onChange={(slug) => setAttributes({ menuSlug: slug })}
           />
+          <ToggleControl
+            label="Navbar transparente"
+            help={isTransparent ? "La navbar est transparente" : "La navbar a un fond"}
+            checked={isTransparent}
+            onChange={(value) => setAttributes({ isTransparent: value })}
+          />
         </PanelBody>
       </InspectorControls>
 
-      <div className="navbar">
+      <div className={`navbar${isTransparent ? ' transparent' : ''}`}>
         <div className="left">
           <MediaUploadCheck>
             <MediaUpload 

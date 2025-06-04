@@ -6,6 +6,7 @@
 
     // EVENTS
     $(window).on("scroll", (function(){
+        $('.navbar').removeClass('transparent');
         st = $(this).scrollTop();
         if(st <= 0){
             $('.navbar').removeClass('scrolled');
