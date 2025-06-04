@@ -50,12 +50,6 @@ function EditComponent({ attributes, setAttributes }) {
                     onChange={title => setAttributes({ title })}
                     placeholder="Entrez le titre de la galerie"
                 />
-                <RichText
-                    tagName="p"
-                    value={attributes.description}
-                    onChange={description => setAttributes({ description })}
-                    placeholder="Entrez la description de la galerie"
-                />
             </div>
             <MediaUploadCheck>
                 <MediaUpload

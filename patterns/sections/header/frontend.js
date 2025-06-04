@@ -6,11 +6,12 @@
 
     // EVENTS
     $(window).on("scroll", (function(){
-        $('.navbar').removeClass('transparent');
         st = $(this).scrollTop();
+        $('.navbar').removeClass('transparent');
         if(st <= 0){
             $('.navbar').removeClass('scrolled');
             $('.navbar').css("margin-top","0px");
+            $('.navbar').addClass('transparent');
         }
         else{
             if (st > lastScrollTop){

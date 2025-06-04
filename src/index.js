@@ -5,6 +5,7 @@ import './modules/scrollingText';
 import './modules/scrollingHorizontal';
 import './modules/scrollingVertical';
 import './modules/scrollingToggle';
+import './modules/draggableAutomatedScrolling';
 // import './modules/scrollingVideo';
 // import './modules/ScrollVideo';
 
@@ -20,6 +21,7 @@ import '../patterns/components/card-project/card-project';
 import '../patterns/components/card-pricing/card-pricing';
 import '../patterns/components/card-feature/card-feature';
 import '../patterns/components/card-kpi/card-kpi';
+import '../patterns/components/card-team-member/card-team-member';
 
 import '../patterns/sections/header/header';
 import '../patterns/sections/section-hero1/section-hero1';
@@ -41,3 +43,5 @@ import '../patterns/sections/section-hero3/section-hero3';
 import '../patterns/sections/section-hero4/section-hero4';
 import '../patterns/sections/section-kpis/section-kpis';
 import '../patterns/sections/section-gallery/section-gallery';
+import '../patterns/sections/section-team/section-team';
+import '../patterns/sections/section-sponsors/section-sponsors';

@@ -98,7 +98,7 @@ function fse_achyl_enqueue_pattern_scripts() {
         'blocktheme/section-list'  => 'sections/section-list/frontend.js',
         'blocktheme/section-faq'  => 'sections/section-faq/frontend.js',
         'blocktheme/section-benefits2'  => 'sections/section-benefits2/frontend.js',
-        'blocktheme/section-gallery'  => 'sections/section-gallery/frontend.js',
+        // 'blocktheme/section-gallery'  => 'sections/section-gallery/frontend.js',
         // 'blocktheme/card-step'  => 'components/card-step/frontend.js',
     ];
 
