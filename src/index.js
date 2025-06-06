@@ -22,6 +22,7 @@ import '../patterns/components/card-pricing/card-pricing';
 import '../patterns/components/card-feature/card-feature';
 import '../patterns/components/card-kpi/card-kpi';
 import '../patterns/components/card-team-member/card-team-member';
+import '../patterns/components/input/input';
 
 import '../patterns/sections/header/header';
 import '../patterns/sections/section-hero1/section-hero1';
@@ -45,3 +46,4 @@ import '../patterns/sections/section-kpis/section-kpis';
 import '../patterns/sections/section-gallery/section-gallery';
 import '../patterns/sections/section-team/section-team';
 import '../patterns/sections/section-sponsors/section-sponsors';
+import '../patterns/sections/section-contact/section-contact';

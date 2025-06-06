@@ -194,7 +194,6 @@
       },
       "h2": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--skmodernist)",
           "fontSize": "var(--wp--preset--font-size--huge)",
           "fontWeight": "700",
           "lineHeight": "1.1"

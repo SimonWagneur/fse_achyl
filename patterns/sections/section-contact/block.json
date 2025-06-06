@@ -1,0 +1,30 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/section-contact",
+    "title": "Section Contact",
+    "category": "layout",
+    "icon": "email",
+    "description": "Section de contact avec image et formulaire.",
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Contactez-nous"
+        },
+        "description": {
+            "type": "string",
+            "default": "Remplissez le formulaire ci-dessous pour nous contacter."
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-contact.css",
+    "render": "file:./section-contact.php"
+}
