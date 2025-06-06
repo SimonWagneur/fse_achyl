@@ -179,3 +179,19 @@ body.block-editor-page .editor-styles-wrapper {
 .editor-styles-wrapper section.section-sponsors .sponsors-grid .sponsor-item{
     width: 200px !important;
 }   
+
+/* section contact */
+.editor-styles-wrapper section.section-contact .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.editor-styles-wrapper section.section-contact .image-container img{
+    opacity: 0.2 !important;
+}
+.editor-styles-wrapper section.section-contact .button-container{
+    position: absolute;
+}
+

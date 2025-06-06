@@ -17,7 +17,7 @@ function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
 
     return (
-        <section className="section-contact" {...blockProps}>
+        <section className="section-contact">
             <div className="container medium-container">
                 <div className="left">
                     <MediaUploadCheck>
@@ -75,50 +75,51 @@ function EditComponent({ attributes, setAttributes }) {
                             onChange={(description) => setAttributes({ description })}
                             placeholder="Description de la section..."
                         />
-                        <div className="input-box w50">
-                        <input type="text" id="prenom" name="prenom" required />
-                        <label htmlFor="prenom">Prénom</label>
-                        </div>
+                        <div className="form-container">
+                            <div className="input-box w50">
+                            <input type="text" id="prenom" name="prenom" required />
+                            <label htmlFor="prenom">Prénom</label>
+                            </div>
 
-                        <div className="input-box w50">
-                        <input type="text" id="nom" name="nom" required />
-                        <label htmlFor="nom">Nom</label>
-                        </div>
+                            <div className="input-box w50">
+                            <input type="text" id="nom" name="nom" required />
+                            <label htmlFor="nom">Nom</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <input type="email" id="email" name="email" required />
-                        <label htmlFor="email">Email</label>
-                        </div>
+                            <div className="input-box w100">
+                            <input type="email" id="email" name="email" required />
+                            <label htmlFor="email">Email</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <textarea id="message" name="message" required></textarea>
-                        <label htmlFor="message">Message</label>
-                        </div>
+                            <div className="input-box w100">
+                            <textarea id="message" name="message" required></textarea>
+                            <label htmlFor="message">Message</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <select id="sujet" name="sujet">
-                            <option value="">Choisissez un sujet</option>
-                            <option value="support">Support</option>
-                            <option value="devis">Demande de devis</option>
-                        </select>
-                        <label htmlFor="sujet">Sujet</label>
-                        </div>
+                            <div className="input-box w100">
+                            <select id="sujet" name="sujet">
+                                <option value="">Choisissez un sujet</option>
+                                <option value="support">Support</option>
+                                <option value="devis">Demande de devis</option>
+                            </select>
+                            <label htmlFor="sujet">Sujet</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <input type="file" id="cv" name="cv" />
-                        <label htmlFor="cv">Joindre un fichier</label>
-                        </div>
+                            <div className="input-box w100">
+                            <input type="file" id="cv" name="cv" />
+                            <label htmlFor="cv">Joindre un fichier</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <input type="date" id="date" name="date" />
-                        <label htmlFor="date">Date souhaitée</label>
-                        </div>
+                            <div className="input-box w100">
+                            <input type="date" id="date" name="date" />
+                            <label htmlFor="date">Date souhaitée</label>
+                            </div>
 
-                        <div className="input-box w100">
-                        <input type="checkbox" id="rgpd" name="rgpd" required />
-                        <label htmlFor="rgpd">J’accepte les conditions</label>
+                            <div className="input-box w100">
+                            <input type="checkbox" id="rgpd" name="rgpd" required />
+                            <label htmlFor="rgpd">J’accepte les conditions</label>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>

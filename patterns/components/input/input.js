@@ -1,8 +1,8 @@
 import { useBlockProps, InspectorControls } from "@wordpress/block-editor"
 import { PanelBody, SelectControl, TextControl } from "@wordpress/components"
 
-wp.blocks.registerBlockType("blocktheme/input", {
-    title: "Input",
+wp.blocks.registerBlockType("blocktheme/champ-formulaire", {
+    title: "Champ de formulaire",
     attributes: {
         type: { type: "string", default: "texte" },
         label: { type: "string", default: "Label" }

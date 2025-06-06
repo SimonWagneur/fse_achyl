@@ -1,7 +1,7 @@
 {
     "apiVersion": 2,
-    "name": "blocktheme/input",
-    "title": "Input",
+    "name": "blocktheme/champ-formulaire",
+    "title": "Champ de formulaire",
     "category": "theme",
     "icon": "feedback",
     "description": "Champ de formulaire personnalisable",
