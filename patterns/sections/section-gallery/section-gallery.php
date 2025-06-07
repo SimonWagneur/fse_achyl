@@ -1,10 +1,18 @@
 <?php
+/**
+ * Title: Section Galerie
+ * Slug: blocktheme/section-gallery
+ * Categories: sections
+ * Description: Section galerie avec défilement automatique et images/vidéos cliquables.
+ */
+
 $title = $attributes['title'] ?? '';
 $description = $attributes['description'] ?? '';
 $mediaItems = $attributes['mediaItems'] ?? [];
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section class="section-gallery">
+<section class="section-gallery" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container medium-container">
         <h2><?php echo wp_kses_post($title); ?></h2>
     </div>

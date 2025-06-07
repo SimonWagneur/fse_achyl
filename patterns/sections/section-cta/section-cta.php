@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section CTA
+ * Slug: blocktheme/section-cta
+ * Categories: sections
+ * Description: Section d'appel à l'action avec titre, texte et boutons.
+ */
 
 $title = $attributes['title'] ?? 'Titre de la section CTA';
 $contentP = $attributes['content'] ?? 'Contenu de la section CTA';

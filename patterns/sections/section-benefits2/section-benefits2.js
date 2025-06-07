@@ -1,13 +1,7 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { InnerBlocks } = wp.blockEditor;
 
-registerBlockType('blocktheme/section-benefits2', {
-    attributes: {
-        anchor: { type: "string" }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent() {
     const ALLOWED_BLOCKS = ['blocktheme/card-benefits2'];
@@ -48,3 +42,10 @@ function SaveComponent() {
     return <InnerBlocks.Content />;
 }
 
+registerBlockType('blocktheme/section-benefits2', {
+    attributes: {
+        anchor: { type: "string" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

@@ -205,3 +205,14 @@ body.block-editor-page .editor-styles-wrapper {
     gap: 14px;
     width: 100%;
 }
+
+/* section solutions 2 */
+.editor-styles-wrapper section.section-solution2 .block-editor-inner-blocks{
+    width: 100% !important;
+    flex-wrap: wrap !important;
+}
+.editor-styles-wrapper section.section-solution2 .block-editor-block-list__layout{
+    width: 100% !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}

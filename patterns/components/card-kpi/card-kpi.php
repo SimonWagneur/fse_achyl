@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card KPI
+ * Slug: blocktheme/card-kpi
+ * Categories: components
+ * Description: Carte de KPI avec nombre et texte.
+ */
+
 $number = $attributes['number'] ?? '';
 $wording = $attributes['wording'] ?? '';
 ?>

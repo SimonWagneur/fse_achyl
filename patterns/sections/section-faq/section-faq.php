@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Section FAQ
+ * Slug: blocktheme/section-faq
+ * Categories: sections
+ * Description: Section de questions fréquemment posées.
+ */
+
 $title = $attributes['title'] ?? 'FAQ';
 $anchor = $attributes['anchor'] ?? '';
 ?>

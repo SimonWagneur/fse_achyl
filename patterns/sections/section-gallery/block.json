@@ -7,6 +7,7 @@
     "icon": "format-gallery",
     "description": "Section galerie avec titre, description et sélection de médias",
     "supports": {
+        "html": false,
         "anchor": true
     },
     "attributes": {

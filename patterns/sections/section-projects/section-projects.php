@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Projects
+ * Slug: blocktheme/section-projects
+ * Categories: sections
+ * Description: Section projets avec titre et contenu.
+ */
 $title = $attributes['title'] ?? 'Nos projets';
 $anchor = $attributes['anchor'] ?? '';
 ?>

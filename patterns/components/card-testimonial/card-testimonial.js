@@ -1,26 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-editor';
 
-registerBlockType("blocktheme/card-testimonial", {
-    parent: ['blocktheme/section-testimonials'],
-    title: "Card Testimonial",
-    attributes: {
-        testimonialContent: {
-            type: "string",
-            default: ""
-        },
-        authorName: {
-            type: "string",
-            default: ""
-        },
-        authorRole: {
-            type: "string",
-            default: ""
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
@@ -87,3 +68,23 @@ function SaveComponent({ attributes }) {
     return null;
 }
 
+registerBlockType("blocktheme/card-testimonial", {
+    parent: ['blocktheme/section-testimonials'],
+    title: "Card Testimonial",
+    attributes: {
+        testimonialContent: {
+            type: "string",
+            default: ""
+        },
+        authorName: {
+            type: "string",
+            default: ""
+        },
+        authorRole: {
+            type: "string",
+            default: ""
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

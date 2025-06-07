@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Button
+ * Slug: blocktheme/button
+ * Categories: components
+ * Description: Bouton avec texte et lien.
+ */
+
 $text = $attributes['text'] ?? '';
 $link_url = $attributes['linkUrl'] ?? '#';
 $color_name = $attributes['colorName'] ?? 'black';

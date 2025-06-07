@@ -5,27 +5,43 @@ add_filter('show_admin_bar', '__return_false');
 
 // enqueue scripts
 add_action('wp_enqueue_scripts', function () {
-        // css
+    // css
     wp_enqueue_style('achyl_main_styles', get_theme_file_uri('style.css'));
+
     // jquery
     wp_deregister_script('jquery');
     wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '1.0.0', true );
-    // js
-    wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js', array(), '1.0.0', true);
-    wp_enqueue_script('scrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js', array(), '1.0.0', true);
-    wp_enqueue_script('splitText', get_theme_file_uri('/src/modules/SplitText.min.js'), array(), '1.0.0', true);
+
+    // // gsap
+    // wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js', array(), '1.0.0', true);
+    // wp_enqueue_script('scrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js', array(), '1.0.0', true);
+    // wp_enqueue_script('splitText', get_theme_file_uri('/src/modules/SplitText.min.js'), array(), '1.0.0', true);
     
-    wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
-    wp_enqueue_script('navbar-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
-    // wp_enqueue_script('faq-js', get_theme_file_uri('/patterns/sections/section-faq/frontend.js'), array('jquery'), '1.0', true);
+    // js front-end uniquement
+    if (!is_admin()) {
+        wp_enqueue_script('header-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
+        wp_enqueue_script('to-the-top-js', get_theme_file_uri('/src/modules/to-the-top.js'), array('jquery'), '1.0', true);
+    }
+
     // font awesome
     wp_enqueue_script( 'font_awesome', 'https://kit.fontawesome.com/d9ec4440c9.js', array(), '1.0.0', true ); 
 });
 
+// Ajouter les données du thème au JavaScript
+function add_theme_data() {
+    wp_localize_script('main-achyl-js', 'themeData', array(
+        'root' => get_template_directory_uri() . '/'
+    ));
+}
+add_action('wp_enqueue_scripts', 'add_theme_data');
 
-// appliquer le CSS à l'éditeur
+
+// appliquer le CSS et JS à l'éditeur
 add_action('enqueue_block_editor_assets', function () {
-    // CSS principal (rendu réel du site)
+    // JS de l'éditeur
+    wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'), '1.0', true);
+
+    // CSS principal
     wp_enqueue_style(
         'achyl-editor-style-base',
         get_template_directory_uri() . '/style.css',
@@ -33,11 +49,11 @@ add_action('enqueue_block_editor_assets', function () {
         filemtime(get_template_directory() . '/style.css')
     );
 
-    // CSS spécifique à l'éditeur (overrides, !important, etc.)
+    // CSS éditeur
     wp_enqueue_style(
         'achyl-editor-style-custom',
         get_template_directory_uri() . '/editor-style.css',
-        array('achyl-editor-style-base'), // dépendance pour être chargé après
+        array('achyl-editor-style-base'),
         filemtime(get_template_directory() . '/editor-style.css')
     );
 
@@ -65,14 +81,13 @@ add_action('enqueue_block_editor_assets', function () {
         }
     }
 });
-
 add_action('after_setup_theme', function () {
     add_theme_support('editor-styles');
     add_editor_style('style.css');
 });
 
 
-
+// register blocks
 add_action('init', function () {
   foreach (glob(__DIR__ . '/patterns/*/*/block.json') as $block_json) {
     register_block_type($block_json);
@@ -81,8 +96,7 @@ add_action('init', function () {
 
 
 
-add_action( 'wp', 'fse_achyl_enqueue_pattern_scripts' );
-
+// enqueue scripts dynamicly
 function fse_achyl_enqueue_pattern_scripts() {
     if ( ! is_singular() ) {
         return;
@@ -98,30 +112,18 @@ function fse_achyl_enqueue_pattern_scripts() {
         'blocktheme/section-list'  => 'sections/section-list/frontend.js',
         'blocktheme/section-faq'  => 'sections/section-faq/frontend.js',
         'blocktheme/section-benefits2'  => 'sections/section-benefits2/frontend.js',
-        // 'blocktheme/section-gallery'  => 'sections/section-gallery/frontend.js',
-        // 'blocktheme/card-step'  => 'components/card-step/frontend.js',
     ];
 
     foreach ( $pattern_scripts as $block => $script_path ) {
         $script_url  = get_template_directory_uri() . '/patterns/' . $script_path;
         $script_file = get_template_directory() . '/patterns/' . $script_path;
-
-        // error_log( "Tentative d'enqueue de : $script_url" );
-        // error_log( "Test presence bloc : $block = " . ( has_block( $block, $post ) ? 'oui' : 'non' ) );
-        // error_log( "Test file exist : " . ( file_exists( $script_file ) ? 'oui' : 'non' ) );
+        
 
         if ( has_block( $block, $post ) && file_exists( $script_file ) ) {
+
+
             // Créer un handle unique basé sur le nom du bloc
             $handle = str_replace('blocktheme/', 'fse-achyl-', $block) . '-frontend';
-            
-            error_log(sprintf(
-                "wp_enqueue_script('%s', '%s', %s, %s, %s);",
-                $handle,
-                $script_url,
-                "['jquery']",
-                'null',
-                'true'
-            ));
 
             wp_enqueue_script(
                 $handle,
@@ -130,17 +132,55 @@ function fse_achyl_enqueue_pattern_scripts() {
                 null,
                 true
             );
-            // error_log("Enqueue script: $script_url pour le bloc $block : OK");
+        }
+    }
+
+    $global_scripts = [
+        '.form' => 'Forms.js',
+        '.section-benefits1.scrollingText' => 'scrollingText.js',
+        '.section-benefits1.scrollingHorizontal' => 'scrollingHorizontal.js',
+        '.section-benefits1.scrollingVertical' => 'scrollingVertical.js',
+        '.section-benefits1.scrollingToggle' => 'scrollingToggle.js',
+        '.section-draggable' => 'draggableAutomatedScrolling.js',
+        '.slider-container' => 'slider.js',
+    ];
+
+    foreach ($global_scripts as $selector => $script_path) {
+        // Créer un handle unique basé sur le nom du script
+        $handle = 'fse-achyl-' . str_replace(['.js', '.'], ['', '-'], $script_path);
+        
+        // Préparer le script à injecter pour vérifier la présence de la classe
+        $check_script = "
+            if (typeof window.scriptChecked === 'undefined') {
+                window.scriptChecked = {};
+            }
+            
+            if (!window.scriptChecked['" . $script_path . "']) {
+                window.scriptChecked['" . $script_path . "'] = true;
+                var elements = document.querySelectorAll('" . $selector . "');
+                
+                if (elements.length > 0) {
+                    var script = document.createElement('script');
+                    script.src = '" . get_template_directory_uri() . "/src/modules/$script_path';
+                    script.type = 'module';  // Ajout du type module
+                    script.defer = true;
+                    script.onload = function() {
+                        // console.log('📥 Script chargé avec succès: " . $script_path . "');
+                    };
+                    document.body.appendChild(script);
+                }
+            }
+        ";
+
+        // Vérifier si le fichier existe
+        $script_file = get_template_directory() . '/src/modules/' . $script_path;
+        if (file_exists($script_file)) {
+            // Ajouter le script uniquement dans le footer
+            add_action('wp_footer', function() use ($check_script) {
+                echo '<script type="text/javascript">' . $check_script . '</script>';
+            }, 99);
         }
     }
 }
-
-// Ajouter les données du thème au JavaScript
-function add_theme_data() {
-    wp_localize_script('main-achyl-js', 'themeData', array(
-        'root' => get_template_directory_uri() . '/'
-    ));
-}
-add_action('wp_enqueue_scripts', 'add_theme_data');
-
+add_action( 'wp', 'fse_achyl_enqueue_pattern_scripts' );
 

@@ -1,4 +1,4 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { Button } = wp.components;
 

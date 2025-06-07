@@ -1,10 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // console.log('DOM chargé, initialisation de la galerie');
-    const galleries = document.querySelectorAll('.section-draggable[data-draggable="true"]');
-    // console.log('Nombre de galeries trouvées:', galleries.length);
+jQuery(function($) {
+    // Initialisation de la galerie
+    const $galleries = $('.section-draggable[data-draggable="true"]');
 
-    galleries.forEach((gallery, index) => {
-        // console.log(`Initialisation de la galerie ${index}`);
+    $galleries.each(function() {
+        const $gallery = $(this);
         
         // Variables pour le drag
         let isDragging = false;
@@ -14,122 +13,83 @@ document.addEventListener('DOMContentLoaded', () => {
         const autoScrollSpeed = 1;
 
         // Configuration initiale
-        const totalWidth = gallery.scrollWidth;
-        const visibleWidth = gallery.clientWidth;
-        // console.log('Dimensions de la galerie:', {
-        //     totalWidth,
-        //     visibleWidth,
-        //     scrollable: totalWidth > visibleWidth
-        // });
+        const totalWidth = $gallery[0].scrollWidth;
+        const visibleWidth = $gallery[0].clientWidth;
 
         // Fonction pour le défilement automatique
         function autoScroll() {
             if (!isDragging) {
-                gallery.scrollLeft += autoScrollSpeed;
+                let currentScroll = $gallery.scrollLeft();
+                $gallery.scrollLeft(currentScroll + autoScrollSpeed);
                 
                 // Vérifier la position de défilement
-                const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-                // console.log('Position de défilement:', {
-                //     current: gallery.scrollLeft,
-                //     max: maxScroll
-                // });
+                const maxScroll = $gallery[0].scrollWidth - $gallery[0].clientWidth;
 
                 // Si on atteint la fin, revenir au début en douceur
-                if (gallery.scrollLeft >= maxScroll) {
-                    // console.log('Fin atteinte, retour au début');
-                    // Créer une transition fluide
-                    gallery.scrollLeft = 0;
+                if ($gallery.scrollLeft() >= maxScroll) {
+                    $gallery.scrollLeft(0);
                 }
             }
             animationFrameId = requestAnimationFrame(autoScroll);
         }
 
         // Démarrer le défilement automatique si activé
-        if (gallery.getAttribute('data-autoscroll') === 'true') {
-            // console.log('Démarrage du défilement automatique');
+        if ($gallery.data('autoscroll') === true) {
             autoScroll();
         }
 
-        // Gestionnaire mousedown
-        gallery.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            gallery.classList.add('dragging');
-            startX = e.pageX - gallery.offsetLeft;
-            scrollLeft = gallery.scrollLeft;
-            // console.log('Début du drag:', { startX, scrollLeft });
-        });
+        // Gestionnaires d'événements pour le drag
+        $gallery
+            .on('mousedown', function(e) {
+                isDragging = true;
+                $gallery.addClass('dragging');
+                startX = e.pageX - $gallery.offset().left;
+                scrollLeft = $gallery.scrollLeft();
+            })
+            .on('mouseleave', function() {
+                isDragging = false;
+                $gallery.removeClass('dragging');
+            })
+            .on('mouseup', function() {
+                isDragging = false;
+                $gallery.removeClass('dragging');
+            })
+            .on('mousemove', function(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                
+                const x = e.pageX - $gallery.offset().left;
+                const walk = (x - startX) * 2;
+                const newScrollPosition = scrollLeft - walk;
+                
+                $gallery.scrollLeft(newScrollPosition);
 
-        // Gestionnaire mouseleave
-        gallery.addEventListener('mouseleave', () => {
-            if (isDragging) {
-                // console.log('Souris a quitté pendant le drag');
-            }
-            isDragging = false;
-            gallery.classList.remove('dragging');
-        });
+                // Gérer le défilement infini pendant le drag
+                const maxScroll = $gallery[0].scrollWidth - $gallery[0].clientWidth;
+                if (newScrollPosition >= maxScroll) {
+                    $gallery.scrollLeft(0);
+                    scrollLeft = 0;
+                    startX = e.pageX - $gallery.offset().left;
+                }
+            })
+            .on('mouseenter', function() {
+                cancelAnimationFrame(animationFrameId);
+            })
+            .on('mouseleave', function() {
+                if ($gallery.data('autoscroll') === true) {
+                    autoScroll();
+                }
+            });
 
-        // Gestionnaire mouseup
-        gallery.addEventListener('mouseup', () => {
-            // console.log('Fin du drag');
-            isDragging = false;
-            gallery.classList.remove('dragging');
-        });
-
-        // Gestionnaire mousemove
-        gallery.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            
-            const x = e.pageX - gallery.offsetLeft;
-            const walk = (x - startX) * 2;
-            const newScrollPosition = scrollLeft - walk;
-            
-            // console.log('Déplacement:', {
-            //     currentX: x,
-            //     walk,
-            //     newScrollPosition
-            // });
-
-            gallery.scrollLeft = newScrollPosition;
-
-            // Gérer le défilement infini pendant le drag
-            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-            if (newScrollPosition >= maxScroll) {
-                // console.log('Retour au début pendant le drag');
-                gallery.scrollLeft = 0;
-                scrollLeft = 0;
-                startX = e.pageX - gallery.offsetLeft;
-            }
-        });
-
-        // Gestionnaire mouseenter - arrêter le défilement auto
-        gallery.addEventListener('mouseenter', () => {
-            // console.log('Souris entre dans la galerie, pause du défilement');
-            cancelAnimationFrame(animationFrameId);
-        });
-
-        // Gestionnaire mouseleave - reprendre le défilement auto
-        gallery.addEventListener('mouseleave', () => {
-            // console.log('Souris quitte la galerie');
-            if (gallery.getAttribute('data-autoscroll') === 'true') {
-                // console.log('Reprise du défilement automatique');
-                autoScroll();
-            }
-        });
-
-        // Dupliquer les éléments pour un défilement infini
+        // Fonction pour dupliquer les éléments
         function duplicateItems() {
-            const items = Array.from(gallery.children);
-            // console.log('Nombre d\'éléments dans la galerie:', items.length);
-            
-            items.forEach(item => {
-                const clone = item.cloneNode(true);
-                gallery.appendChild(clone);
-                // console.log('Élément dupliqué');
+            const $items = $gallery.children();
+            $items.each(function() {
+                $(this).clone(true).appendTo($gallery);
             });
         }
 
-        // Appeler la duplication initiale
+        // Dupliquer les éléments initialement
         duplicateItems();
     });
 });

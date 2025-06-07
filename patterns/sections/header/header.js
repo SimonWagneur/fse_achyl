@@ -1,21 +1,9 @@
 import { InspectorControls, InnerBlocks, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
 import { PanelBody, SelectControl, Button, ToggleControl } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
+import { registerBlockType } from '@wordpress/blocks';
 
-wp.blocks.registerBlockType("blocktheme/header", {
-  title: "Navbar",
-  supports: {
-    align: ["full"]
-  },
-  attributes: {
-    align: { type: "string", default: "full" },
-    menuSlug: { type: "string", default: "" },
-    imageUrl: { type: "string", default: "" },
-    isTransparent: { type: "boolean", default: false }
-  },
-  edit: EditComponent,
-  save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
   const { menuSlug, isTransparent } = attributes;
@@ -100,3 +88,18 @@ function EditComponent({ attributes, setAttributes }) {
 function SaveComponent() {
   return <InnerBlocks.Content />;
 }
+
+registerBlockType("blocktheme/header", {
+  title: "Navbar",
+  supports: {
+    align: ["full"]
+  },
+  attributes: {
+    align: { type: "string", default: "full" },
+    menuSlug: { type: "string", default: "" },
+    imageUrl: { type: "string", default: "" },
+    isTransparent: { type: "boolean", default: false }
+  },
+  edit: EditComponent,
+  save: SaveComponent
+});

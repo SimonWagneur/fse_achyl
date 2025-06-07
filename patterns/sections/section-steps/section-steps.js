@@ -1,23 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
 
-registerBlockType("blocktheme/section-steps", {
-    title: "Section Steps",
-    supports: {
-        align: ["full"],
-        html: false,
-        anchor: true
-    },
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        anchor: { type: "string" }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { title } = attributes;
@@ -65,3 +49,20 @@ function SaveComponent() {
     return <InnerBlocks.Content />;
 }
 
+registerBlockType("blocktheme/section-steps", {
+    title: "Section Steps",
+    supports: {
+        align: ["full"],
+        html: false,
+        anchor: true
+    },
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

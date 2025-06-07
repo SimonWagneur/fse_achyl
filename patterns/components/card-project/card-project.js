@@ -1,35 +1,8 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { PanelBody, TextControl, Button } = wp.components;
 
-registerBlockType('blocktheme/card-project', {
-    parent: ['blocktheme/section-projects'],
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        content: {
-            type: "string",
-            default: ""
-        },
-        buttonText: {
-            type: "string",
-            default: ""
-        },
-        buttonUrl: {
-            type: "string",
-            default: "#"
-        },
-        imageUrl: {
-            type: "string",
-            default: ""
-        },
-        tags: { type: "array", default: [] },
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { title, content, buttonText, buttonUrl, imageUrl, tags } = attributes;
@@ -191,3 +164,31 @@ function SaveComponent() {
     return null;
 }
 
+registerBlockType('blocktheme/card-project', {
+    parent: ['blocktheme/section-projects'],
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        content: {
+            type: "string",
+            default: ""
+        },
+        buttonText: {
+            type: "string",
+            default: ""
+        },
+        buttonUrl: {
+            type: "string",
+            default: "#"
+        },
+        imageUrl: {
+            type: "string",
+            default: ""
+        },
+        tags: { type: "array", default: [] },
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

@@ -6,7 +6,9 @@
   "icon": "menu",
   "description": "Le pied de page du site",
   "supports": {
-    "align": ["full"]
+    "align": ["full"],
+    "html": false,
+    "anchor": true
   },
   "attributes": {
     "align": {

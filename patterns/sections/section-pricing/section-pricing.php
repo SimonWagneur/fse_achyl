@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Pricing
+ * Slug: blocktheme/section-pricing
+ * Categories: sections
+ * Description: Section tarifs avec titre et contenu.
+ */
 $title = $attributes['title'] ?? 'Nos tarifs';
 $anchor = $attributes['anchor'] ?? '';
 ?>

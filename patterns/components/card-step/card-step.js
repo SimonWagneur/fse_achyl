@@ -1,25 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
 
-registerBlockType("blocktheme/card-step", {
-    parent: ['blocktheme/section-steps'],
-    title: "Card Step",
-    supports: {
-        align: ["left", "center", "right"]
-    },
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        content: {
-            type: "string",
-            default: ""
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes, clientId }) {
     const { title, content } = attributes;
@@ -62,3 +44,22 @@ function SaveComponent() {
     return <InnerBlocks.Content />;
 }
 
+registerBlockType("blocktheme/card-step", {
+    parent: ['blocktheme/section-steps'],
+    title: "Card Step",
+    supports: {
+        align: ["left", "center", "right"]
+    },
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        content: {
+            type: "string",
+            default: ""
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

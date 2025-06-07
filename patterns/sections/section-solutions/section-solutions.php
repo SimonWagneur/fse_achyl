@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Solutions
+ * Slug: blocktheme/section-solutions
+ * Categories: sections
+ * Description: Section solutions avec titre et contenu.
+ */
 $title = $attributes['title'] ?? 'Nos solutions';
 $anchor = $attributes['anchor'] ?? '';
 ?>

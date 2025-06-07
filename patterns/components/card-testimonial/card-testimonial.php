@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Card Testimonial
+ * Slug: blocktheme/card-testimonial
+ * Categories: components
+ * Description: Carte de témoignage avec contenu et crédits.
+ */
 
 $testimonialContent = $attributes['testimonialContent'] ?? 'Votre témoignage';
 $authorName = $attributes['authorName'] ?? 'Nom de la personne';

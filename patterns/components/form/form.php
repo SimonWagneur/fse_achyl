@@ -1,8 +1,14 @@
 <?php
+/**
+ * Title: Form
+ * Slug: blocktheme/form
+ * Categories: components
+ * Description: Formulaire avec titre et texte.
+ */
 $buttonText = $attributes['buttonText'] ?? 'Envoyer';
 ?>
 
-<form class="form-container">
+<form class="form form-container">
     <?php echo $content; // Contenu des InnerBlocks ?>
     <input type="text" id="check" name="check">
     <button class="primary black">

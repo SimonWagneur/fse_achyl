@@ -1,6 +1,9 @@
 <?php
 /**
- * Card Team Member Block Template.
+ * Title: Card Team Member
+ * Slug: blocktheme/card-team-member
+ * Categories: components
+ * Description: Carte de membre de l'équipe avec photo, nom et description.
  */
 
 // Récupération des attributs

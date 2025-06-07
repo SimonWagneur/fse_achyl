@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section List
+ * Slug: blocktheme/section-list
+ * Categories: sections
+ * Description: Section liste avec titre et contenu.
+ */
 $title = $attributes['title'] ?? 'Votre titre ici';
 $anchor = $attributes['anchor'] ?? '';
 ?>

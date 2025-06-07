@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card Project
+ * Slug: blocktheme/card-project
+ * Categories: components
+ * Description: Carte de projet avec titre et texte.
+ */
+
 $title = $attributes['title'] ?? 'Titre du projet';
 $content = $attributes['content'] ?? 'Description du projet';
 $buttonText = $attributes['buttonText'] ?? 'Voir le projet';

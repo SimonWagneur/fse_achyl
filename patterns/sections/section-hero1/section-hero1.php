@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Section Hero 1
+ * Slug: blocktheme/section-hero1
+ * Categories: sections
+ * Description: Section héro principale avec image et texte.
+ */
+
 $heading = $attributes['heading'] ?? '';
 $paragraph = $attributes['paragraph'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? 'https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png';

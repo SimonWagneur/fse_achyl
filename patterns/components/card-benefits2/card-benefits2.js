@@ -1,26 +1,8 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { PanelBody, TextControl, Button } = wp.components;
 
-registerBlockType('blocktheme/card-benefits2', {
-    parent: ['blocktheme/section-benefits2'],
-    attributes: {
-        title: {
-            type: "string",
-            default: "Titre de la carte"
-        },
-        text: {
-            type: "string",
-            default: "Texte de la carte"
-        },
-        imageUrl: {
-            type: "string",
-            default: ""
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { title, text, imageUrl, position } = attributes;
@@ -107,3 +89,22 @@ function SaveComponent() {
     return null;
 }
 
+registerBlockType('blocktheme/card-benefits2', {
+    parent: ['blocktheme/section-benefits2'],
+    attributes: {
+        title: {
+            type: "string",
+            default: "Titre de la carte"
+        },
+        text: {
+            type: "string",
+            default: "Texte de la carte"
+        },
+        imageUrl: {
+            type: "string",
+            default: ""
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

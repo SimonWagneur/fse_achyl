@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card Benefits 2
+ * Slug: blocktheme/card-benefits2
+ * Categories: components
+ * Description: Carte de bénéfices avec titre et texte.
+ */
+
 $title = $attributes['title'] ?? 'Titre de la carte';
 $text = $attributes['text'] ?? 'Texte de la carte';
 $imageUrl = $attributes['imageUrl'] ?? '';

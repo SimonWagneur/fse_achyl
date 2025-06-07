@@ -1,22 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-registerBlockType("blocktheme/card-faq", {
-    title: "Card FAQ",
-    parent: ['blocktheme/section-faq'],
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        content: {
-            type: "string",
-            default: ""
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
@@ -51,3 +36,19 @@ function SaveComponent({ attributes }) {
     return null;
 }
 
+registerBlockType("blocktheme/card-faq", {
+    title: "Card FAQ",
+    parent: ['blocktheme/section-faq'],
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        content: {
+            type: "string",
+            default: ""
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

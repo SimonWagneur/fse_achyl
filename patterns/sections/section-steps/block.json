@@ -5,6 +5,10 @@
     "category": "theme",
     "icon": "slides",
     "description": "Une section avec titre et slider de cartes étapes",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     "editorScript": "file:../../../build/index.js",
     "viewScript": "file:./frontend.js",
     "style": "file:./section-steps.css",

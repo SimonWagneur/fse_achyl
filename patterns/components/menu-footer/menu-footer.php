@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Menu Footer
+ * Slug: blocktheme/menu-footer
+ * Categories: components
+ * Description: Menu de pied de page avec titre et texte.
+ */
+
 $menu_slug = $attributes['menuSlug'] ?? '';
 $title = $attributes['title'] ?? 'Menu Title';
 

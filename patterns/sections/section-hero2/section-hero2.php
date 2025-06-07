@@ -1,11 +1,19 @@
 <?php
+/**
+ * Title: Section Hero 2
+ * Slug: blocktheme/section-hero2
+ * Categories: sections
+ * Description: Deuxième variante de la section héro avec image et texte.
+ */
+
 $title = $attributes['title'] ?? '';
 $text = $attributes['text'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? '';
 $imageAlt = $attributes['imageAlt'] ?? '';
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section class="section-hero2">
+<section class="section-hero2" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container xlarge-container">
         <div class="section-hero2__content">
             <h1 class="section-hero2__title"><?php echo esc_html($title); ?></h1>

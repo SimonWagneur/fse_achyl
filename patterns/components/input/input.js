@@ -1,23 +1,13 @@
 import { useBlockProps, InspectorControls } from "@wordpress/block-editor"
 import { PanelBody, SelectControl, TextControl, Button } from "@wordpress/components"
+import { registerBlockType } from '@wordpress/blocks';
 
 // Fonction pour nettoyer le label (même logique que côté PHP)
 function sanitize_label(label) {
     return label.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-wp.blocks.registerBlockType("blocktheme/champ-formulaire", {
-    title: "Champ de formulaire",
-    parent: ['blocktheme/form'],
-    attributes: {
-        type: { type: "string", default: "texte" },
-        label: { type: "string", default: "Label" },
-        width: { type: "string", default: "w100" },
-        selectOptions: { type: "array", default: [] }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-})
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { type, label, width, selectOptions } = attributes;
@@ -150,3 +140,15 @@ function SaveComponent() {
     return null;
 }
 
+registerBlockType("blocktheme/champ-formulaire", {
+    title: "Champ de formulaire",
+    parent: ['blocktheme/form'],
+    attributes: {
+        type: { type: "string", default: "texte" },
+        label: { type: "string", default: "Label" },
+        width: { type: "string", default: "w100" },
+        selectOptions: { type: "array", default: [] }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+})

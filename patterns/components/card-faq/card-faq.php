@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card FAQ
+ * Slug: blocktheme/card-faq
+ * Categories: components
+ * Description: Carte de question fréquente avec titre et texte.
+ */
+
 $title = $attributes['title'] ?? "Combien coûte la création d'un site ?";
 $content = $attributes['content'] ?? "Les prix pour un site vitrine commencent à 1990€. Pour un site e-commerce, les prix commencent à 2990€. Après un appel découverte, nous réalisons un audit pour vous proposer un devis clair et adapté, sans frais cachés.";
 ?>

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Témoignages
+ * Slug: blocktheme/section-testimonials
+ * Categories: sections
+ * Description: Une section pour afficher les témoignages clients avec un slider.
+ */
 
 $title = $attributes['title'] ?? 'Nos avis clients';
 $anchor = $attributes['anchor'] ?? '';

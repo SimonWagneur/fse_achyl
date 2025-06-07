@@ -2,10 +2,7 @@ import { InnerBlocks, RichText, useBlockProps, MediaUpload, MediaUploadCheck } f
 import { registerBlockType } from '@wordpress/blocks';
 import { Button } from '@wordpress/components';
 
-registerBlockType('blocktheme/section-hero3', {
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const ALLOWED_BLOCKS = ['blocktheme/button'];
@@ -95,3 +92,7 @@ function SaveComponent() {
     return <InnerBlocks.Content />
 }
 
+registerBlockType('blocktheme/section-hero3', {
+    edit: EditComponent,
+    save: SaveComponent
+});

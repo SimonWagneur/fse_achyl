@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Title: Card Pricing
+ * Slug: blocktheme/card-pricing
+ * Categories: components
+ * Description: Carte de prix avec titre et texte.
+ */
 $title = $attributes['title'] ?? 'Titre de l\'offre';
 $description = $attributes['description'] ?? 'Description de l\'offre';
 $fullPrice = $attributes['fullPrice'] ?? '99€';

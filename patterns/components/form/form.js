@@ -1,14 +1,8 @@
 import { useBlockProps, InnerBlocks, InspectorControls } from "@wordpress/block-editor"
 import { PanelBody, TextControl } from "@wordpress/components"
+import { registerBlockType } from '@wordpress/blocks';
 
-wp.blocks.registerBlockType("blocktheme/form", {
-    title: "Formulaire",
-    attributes: {
-        buttonText: { type: "string", default: "Envoyer" }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-})
+
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
@@ -58,3 +52,11 @@ function SaveComponent() {
   return <InnerBlocks.Content />
 }
 
+registerBlockType("blocktheme/form", {
+    title: "Formulaire",
+    attributes: {
+        buttonText: { type: "string", default: "Envoyer" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+})

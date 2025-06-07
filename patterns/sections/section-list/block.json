@@ -6,7 +6,9 @@
     "icon": "list-view",
     "description": "Une section avec titre et liste de cartes",
     "supports": {
-        "align": ["full"]
+        "align": ["full"],
+        "html": false,
+        "anchor": true
     },
     "attributes": {
         "title": {

@@ -1,7 +1,15 @@
 <?php
+/**
+ * Title: Footer
+ * Slug: blocktheme/footer
+ * Categories: sections
+ * Description: Footer de la page.
+ */
+
 $copyright_text = $attributes['copyrightText'] ?? '@2024 Achyl - All rights reserved';
 $social_menu_slug = $attributes['socialMenuSlug'] ?? '';
 $logo_url = $attributes['logoUrl'] ?? '';
+$anchor = $attributes['anchor'] ?? '';
 
 if (!function_exists('get_navigation_menu_html')) {
     function get_navigation_menu_html($menu_slug) {
@@ -81,7 +89,7 @@ if (!function_exists('get_social_menu_html')) {
 }
 ?>
 
-<div class="footer">
+<div class="footer" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="upper">
         <div class="left">
             <a class="menulink" href="<?php echo esc_url(home_url('/')); ?>">

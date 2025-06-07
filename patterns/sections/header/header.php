@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Header
+ * Slug: blocktheme/header
+ * Categories: sections
+ * Description: Header de la page.
+ */
+
 $menu_slug  = $attributes['menuSlug'] ?? '';
 $menu_html = '';
 $imageUrl = $attributes['imageUrl'];

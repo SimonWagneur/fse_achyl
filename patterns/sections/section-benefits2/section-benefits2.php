@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Section Bénéfices 2
+ * Slug: blocktheme/section-benefits2
+ * Categories: sections
+ * Description: Section de bénéfices avec slider et image.
+ */
+
 $imageUrl = $attributes['imageUrl'] ?? '';
 $anchor = $attributes['anchor'] ?? '';
 ?>

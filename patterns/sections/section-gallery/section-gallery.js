@@ -2,10 +2,7 @@ import { RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor
 import { registerBlockType } from '@wordpress/blocks';
 import { Button, TextControl } from '@wordpress/components';
 
-registerBlockType('blocktheme/section-gallery', {
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const onSelectMedia = (media) => {
@@ -129,3 +126,8 @@ function SaveComponent() {
     return null; // Utilise le rendu PHP
 }
 
+
+registerBlockType('blocktheme/section-gallery', {
+    edit: EditComponent,
+    save: SaveComponent
+});

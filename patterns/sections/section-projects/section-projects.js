@@ -1,21 +1,7 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InnerBlocks } = wp.blockEditor;
 
-registerBlockType('blocktheme/section-projects', {
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        anchor: { type: "string" }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { title } = attributes;
@@ -59,3 +45,18 @@ function SaveComponent() {
     return <InnerBlocks.Content />
 }
 
+registerBlockType('blocktheme/section-projects', {
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

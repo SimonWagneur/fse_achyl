@@ -1,22 +1,7 @@
 import { InnerBlocks, RichText } from "@wordpress/block-editor";
+import { registerBlockType } from '@wordpress/blocks';
 
-wp.blocks.registerBlockType("blocktheme/section-solutions", {
-  title: "Section Solutions",
-  supports: {
-    align: ["full"],
-    "html": false,
-    "anchor": true
-  },
-  attributes: {
-    title: {
-        type: "string",
-        default: ""
-    },
-    anchor: { type: "string" }
-  },
-  edit: EditComponent,
-  save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
   const { title } = attributes;
@@ -55,3 +40,21 @@ function EditComponent({ attributes, setAttributes }) {
 function SaveComponent({ attributes }) {
   return <InnerBlocks.Content />
 }
+
+registerBlockType("blocktheme/section-solutions", {
+  title: "Section Solutions",
+  supports: {
+    align: ["full"],
+    "html": false,
+    "anchor": true
+  },
+  attributes: {
+    title: {
+        type: "string",
+        default: ""
+    },
+    anchor: { type: "string" }
+  },
+  edit: EditComponent,
+  save: SaveComponent
+});

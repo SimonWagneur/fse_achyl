@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Input
+ * Slug: blocktheme/input
+ * Categories: components
+ * Description: Champ de formulaire avec titre et texte.
+ */
 $type = $attributes['type'] ?? 'texte';
 $label = $attributes['label'] ?? 'Label';
 $width = $attributes['width'] ?? 'w100';

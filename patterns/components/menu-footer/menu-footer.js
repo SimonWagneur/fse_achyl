@@ -4,16 +4,7 @@ import { PanelBody, SelectControl, TextControl } from "@wordpress/components";
 import { useSelect } from '@wordpress/data';
 import metadata from './block.json';
 
-registerBlockType(metadata.name, {
-  parent: ['blocktheme/footer'],
-  attributes: {
-    align: { type: "string", default: "full" },
-    menuSlug: { type: "string", default: "" },
-    title: { type: "string", default: "" },
-  },
-  edit: EditComponent,
-  save: () => null
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
   const { menuSlug, title } = attributes;
@@ -62,3 +53,13 @@ function EditComponent({ attributes, setAttributes }) {
   );
 }
 
+registerBlockType(metadata.name, {
+  parent: ['blocktheme/footer'],
+  attributes: {
+    align: { type: "string", default: "full" },
+    menuSlug: { type: "string", default: "" },
+    title: { type: "string", default: "" },
+  },
+  edit: EditComponent,
+  save: () => null
+});

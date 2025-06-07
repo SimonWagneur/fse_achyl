@@ -1,17 +1,9 @@
 import { RichText, MediaUpload, MediaUploadCheck, InnerBlocks } from "@wordpress/block-editor"
 import { Button } from "@wordpress/components"
 import { useBlockProps } from "@wordpress/block-editor";
+import { registerBlockType } from '@wordpress/blocks';
 
-wp.blocks.registerBlockType("blocktheme/section-contact", {
-    title: "Section Contact",
-    attributes: {
-        imageUrl: { type: "string", default: "" },
-        title: { type: "string", default: "Contactez-nous" },
-        description: { type: "string", default: "Remplissez le formulaire ci-dessous pour nous contacter." }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-})
+
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
@@ -90,3 +82,13 @@ function SaveComponent() {
     return <InnerBlocks.Content />
 }
 
+registerBlockType("blocktheme/section-contact", {
+    title: "Section Contact",
+    attributes: {
+        imageUrl: { type: "string", default: "" },
+        title: { type: "string", default: "Contactez-nous" },
+        description: { type: "string", default: "Remplissez le formulaire ci-dessous pour nous contacter." }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+})

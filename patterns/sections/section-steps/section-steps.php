@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Steps
+ * Slug: blocktheme/section-steps
+ * Categories: sections
+ * Description: Section étapes avec titre et contenu.
+ */
 $title = $attributes['title'] ?? 'Notre processus';
 $anchor = $attributes['anchor'] ?? '';
 ?>

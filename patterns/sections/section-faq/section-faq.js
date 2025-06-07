@@ -1,22 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
-registerBlockType("blocktheme/section-faq", {
-    title: "Section FAQ",
-    "supports": {
-        "html": false,
-        "anchor": true
-    },
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        anchor: { type: "string" }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
@@ -54,3 +39,19 @@ function SaveComponent({ attributes }) {
   return <InnerBlocks.Content />
 }
 
+registerBlockType("blocktheme/section-faq", {
+    title: "Section FAQ",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        anchor: { type: "string" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

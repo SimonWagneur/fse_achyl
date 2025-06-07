@@ -1,13 +1,5 @@
-// éditeur Gutenberg
-import './modules/slider';
-import './modules/to-the-top';
-import './modules/scrollingText';
-import './modules/scrollingHorizontal';
-import './modules/scrollingVertical';
-import './modules/scrollingToggle';
-import './modules/draggableAutomatedScrolling';
-import './modules/Forms';
 
+// components
 import '../patterns/components/button/button';
 import '../patterns/components/menu-footer/menu-footer';
 import '../patterns/components/card-solution/card-solution';
@@ -23,7 +15,9 @@ import '../patterns/components/card-kpi/card-kpi';
 import '../patterns/components/card-team-member/card-team-member';
 import '../patterns/components/input/input';
 import '../patterns/components/form/form';
+import '../patterns/components/card-solution2/card-solution2';
 
+// sections
 import '../patterns/sections/header/header';
 import '../patterns/sections/section-hero1/section-hero1';
 import '../patterns/sections/footer/footer';
@@ -47,3 +41,4 @@ import '../patterns/sections/section-gallery/section-gallery';
 import '../patterns/sections/section-team/section-team';
 import '../patterns/sections/section-sponsors/section-sponsors';
 import '../patterns/sections/section-contact/section-contact';
+import '../patterns/sections/section-solutions2/section-solutions2';

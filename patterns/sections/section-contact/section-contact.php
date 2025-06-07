@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Contact
+ * Slug: blocktheme/section-contact
+ * Categories: sections
+ * Description: Section de contact avec formulaire.
+ */
 $anchor = $attributes['anchor'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? '';
 $title = $attributes['title'] ?? 'Contactez-nous';

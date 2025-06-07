@@ -1,34 +1,11 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InspectorControls, useBlockProps, InnerBlocks } = wp.blockEditor;
 const { PanelBody, RangeControl, ToggleControl } = wp.components;
 const { useState, useEffect } = wp.element;
 const { useSelect } = wp.data;
-const { createBlock } = wp.blocks;
 const { __ } = wp.i18n;
 
-registerBlockType("blocktheme/section-recent-posts", {
-    title: "Section Articles Récents",
-    supports: {
-        align: ["full"],
-        html: false
-    },
-    attributes: {
-        title: {
-            type: "string",
-            default: "Articles Récents"
-        },
-        postsPerPage: {
-            type: "number",
-            default: 10
-        },
-        showExcerpt: {
-            type: "boolean",
-            default: true
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { title, postsPerPage, showExcerpt } = attributes;
@@ -134,3 +111,27 @@ function EditComponent({ attributes, setAttributes }) {
 function SaveComponent() {
     return null;
 } 
+
+registerBlockType("blocktheme/section-recent-posts", {
+    title: "Section Articles Récents",
+    supports: {
+        align: ["full"],
+        html: false
+    },
+    attributes: {
+        title: {
+            type: "string",
+            default: "Articles Récents"
+        },
+        postsPerPage: {
+            type: "number",
+            default: 10
+        },
+        showExcerpt: {
+            type: "boolean",
+            default: true
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

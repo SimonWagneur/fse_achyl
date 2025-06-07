@@ -1,10 +1,7 @@
 import { InnerBlocks, RichText } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 
-registerBlockType('blocktheme/section-kpis', {
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const ALLOWED_BLOCKS = ['blocktheme/card-kpi'];
@@ -38,3 +35,7 @@ function SaveComponent() {
   return <InnerBlocks.Content />
 }
 
+registerBlockType('blocktheme/section-kpis', {
+    edit: EditComponent,
+    save: SaveComponent
+});

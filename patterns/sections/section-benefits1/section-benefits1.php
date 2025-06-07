@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Section Bénéfices 1
+ * Slug: blocktheme/section-benefits1
+ * Categories: sections
+ * Description: Section de bénéfices avec image et texte.
+ */
+
 $heading = $attributes['heading'] ?? '';
 $paragraph = $attributes['paragraph'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? '';
@@ -6,6 +13,7 @@ $reversed = $attributes['reversed'] ?? false;
 $animation = $attributes['animation'] ?? '';
 $scrollingText = $attributes['scrollingText'] ?? '';
 $mediaType = $attributes['mediaType'] ?? 'image';
+$anchor = $attributes['anchor'] ?? '';
 
 // Ajouter la classe video si c'est une vidéo
 $sectionClasses = ['section-benefits1'];
@@ -14,7 +22,7 @@ if ($animation) $sectionClasses[] = esc_attr($animation);
 if ($mediaType === 'video') $sectionClasses[] = 'has-video';
 ?>
 
-<section class="<?php echo implode(' ', $sectionClasses); ?>">
+<section class="<?php echo implode(' ', $sectionClasses); ?> <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>">
     <div class="container medium-container">
         <div class="left">
             <?php if ($heading) : ?>

@@ -1,42 +1,8 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InnerBlocks, MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
 const { Button, PanelBody, SelectControl, TextControl } = wp.components;
 
-registerBlockType('blocktheme/section-benefits1', {
-    "supports": {
-        "html": false,
-        "anchor": true
-    },
-    attributes: {
-        heading: {
-            type: 'string'
-        },
-        paragraph: {
-            type: 'string'
-        },
-        imageUrl: {
-            type: 'string',
-            default: ''
-        },
-        mediaType: {
-            type: 'string',
-            default: 'image'
-        },
-        reversed: {
-            type: 'boolean',
-            default: false
-        },
-        animation: {
-            type: 'string',
-            default: ''
-        },
-        scrollingText: {
-            type: 'string'
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText } = attributes;
@@ -196,3 +162,38 @@ function SaveComponent({ attributes }) {
     return <InnerBlocks.Content />;
 }
 
+registerBlockType('blocktheme/section-benefits1', {
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    attributes: {
+        heading: {
+            type: 'string'
+        },
+        paragraph: {
+            type: 'string'
+        },
+        imageUrl: {
+            type: 'string',
+            default: ''
+        },
+        mediaType: {
+            type: 'string',
+            default: 'image'
+        },
+        reversed: {
+            type: 'boolean',
+            default: false
+        },
+        animation: {
+            type: 'string',
+            default: ''
+        },
+        scrollingText: {
+            type: 'string'
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

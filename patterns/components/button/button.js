@@ -1,13 +1,10 @@
 import ourColors from '../../../assets/colors/ourColors';
-import { registerBlockType } from '@wordpress/blocks';
 import { RichText, InspectorControls, getColorObjectByColorValue, useBlockProps } from "@wordpress/block-editor"
 import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl } from "@wordpress/components"
 import metadata from './block.json';
+import { registerBlockType } from '@wordpress/blocks';
 
-registerBlockType(metadata.name, {
-  edit: EditComponent,
-  save: () => null
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
@@ -94,4 +91,9 @@ function EditComponent({ attributes, setAttributes }) {
     </>
   );
 }
+
+registerBlockType(metadata.name, {
+  edit: EditComponent,
+  save: () => null
+});
 

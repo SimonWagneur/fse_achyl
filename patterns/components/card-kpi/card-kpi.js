@@ -1,10 +1,7 @@
 import { RichText } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 
-registerBlockType('blocktheme/card-kpi', {
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     return (
@@ -33,3 +30,7 @@ function SaveComponent() {
     return null; // Utilise le rendu PHP
 }
 
+registerBlockType('blocktheme/card-kpi', {
+    edit: EditComponent,
+    save: SaveComponent
+});

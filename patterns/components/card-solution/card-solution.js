@@ -1,4 +1,4 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InspectorControls, MediaUpload, __experimentalLinkControl: LinkControl } = wp.blockEditor;
 const { PanelBody, TextControl, Button, SelectControl, Popover } = wp.components;
 const { useState } = wp.element;
@@ -10,25 +10,7 @@ const colorOptions = [
   { label: "Vert", value: "green" }
 ];
 
-registerBlockType("blocktheme/card-solution", {
-    parent: ['blocktheme/section-solutions'],
-    title: "Card Solution",
-    supports: {
-        align: ["full"],
-        html: false,
-    },
-    attributes: {
-        linkUrl: { type: "string", default: "#" },
-        imageUrl: { type: "string", default: "" },
-        title: { type: "string", default: "" },
-        description: { type: "string", default: "" },
-        tags: { type: "array", default: [] },
-        buttonColor: { type: "string", default: "black" },
-        buttonText: { type: "string", default: "En savoir plus" }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { linkUrl, imageUrl, title, description, tags, buttonColor, buttonText } = attributes;
@@ -213,3 +195,22 @@ function SaveComponent() {
     return null;
 }
 
+registerBlockType("blocktheme/card-solution", {
+    parent: ['blocktheme/section-solutions'],
+    title: "Card Solution",
+    supports: {
+        align: ["full"],
+        html: false,
+    },
+    attributes: {
+        linkUrl: { type: "string", default: "#" },
+        imageUrl: { type: "string", default: "" },
+        title: { type: "string", default: "" },
+        description: { type: "string", default: "" },
+        tags: { type: "array", default: [] },
+        buttonColor: { type: "string", default: "black" },
+        buttonText: { type: "string", default: "En savoir plus" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

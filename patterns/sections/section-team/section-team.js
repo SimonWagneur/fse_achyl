@@ -1,4 +1,4 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InnerBlocks } = wp.blockEditor;
 
 registerBlockType('fse-achyl/section-team', {

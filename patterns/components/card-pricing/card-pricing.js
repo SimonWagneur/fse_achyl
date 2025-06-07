@@ -1,47 +1,9 @@
-const { registerBlockType } = wp.blocks;
+import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InnerBlocks, InspectorControls } = wp.blockEditor;
 const { PanelBody, ToggleControl, TextControl, DatePicker } = wp.components;
 const { __ } = wp.i18n;
 
-registerBlockType('blocktheme/card-pricing', {
-    parent: ['blocktheme/section-pricing'],
-    attributes: {
-        title: {
-            type: "string",
-            default: ""
-        },
-        description: {
-            type: "string",
-            default: ""
-        },
-        fullPrice: {
-            type: "string",
-            default: ""
-        },
-        fullPriceTva: {
-            type: "string",
-            default: ""
-        },
-        hasReducedPrice: {
-            type: "boolean",
-            default: false
-        },
-        reducedPrice: {
-            type: "string",
-            default: ""
-        },
-        reducedPriceTva: {
-            type: "string",
-            default: ""
-        },
-        promoEndDate: {
-            type: "string",
-            default: ""
-        }
-    },
-    edit: EditComponent,
-    save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { 
@@ -180,3 +142,43 @@ function SaveComponent() {
     return <InnerBlocks.Content />;
 }
 
+
+registerBlockType('blocktheme/card-pricing', {
+    parent: ['blocktheme/section-pricing'],
+    attributes: {
+        title: {
+            type: "string",
+            default: ""
+        },
+        description: {
+            type: "string",
+            default: ""
+        },
+        fullPrice: {
+            type: "string",
+            default: ""
+        },
+        fullPriceTva: {
+            type: "string",
+            default: ""
+        },
+        hasReducedPrice: {
+            type: "boolean",
+            default: false
+        },
+        reducedPrice: {
+            type: "string",
+            default: ""
+        },
+        reducedPriceTva: {
+            type: "string",
+            default: ""
+        },
+        promoEndDate: {
+            type: "string",
+            default: ""
+        }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+});

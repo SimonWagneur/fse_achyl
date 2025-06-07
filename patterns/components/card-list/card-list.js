@@ -2,20 +2,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import { InspectorControls, RichText, MediaUpload } from "@wordpress/block-editor";
 import { PanelBody, Button } from "@wordpress/components";
 
-registerBlockType("blocktheme/card-list", {
-    parent: ['blocktheme/section-list'],
-    title: "Card List",
-    supports: {
-        align: ["left", "center", "right"]
-    },
-    attributes: {
-        backgroundImage: { type: "string", default: "" },
-        title: { type: "string", default: "Votre titre ici" },
-        content: { type: "string", default: "Votre texte ici" }
-    },
-    edit: EditComponent,
-    save: () => null
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { backgroundImage, title, content } = attributes;
@@ -93,3 +80,18 @@ function SaveComponent({ attributes }) {
   // return <InnerBlocks.Content />
 }
 
+
+registerBlockType("blocktheme/card-list", {
+    parent: ['blocktheme/section-list'],
+    title: "Card List",
+    supports: {
+        align: ["left", "center", "right"]
+    },
+    attributes: {
+        backgroundImage: { type: "string", default: "" },
+        title: { type: "string", default: "Votre titre ici" },
+        content: { type: "string", default: "Votre texte ici" }
+    },
+    edit: EditComponent,
+    save: () => null
+});

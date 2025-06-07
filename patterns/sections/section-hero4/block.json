@@ -7,6 +7,7 @@
     "icon": "align-wide",
     "description": "Section hero avec alignements personnalisables et média de fond",
     "supports": {
+        "html": false,
         "anchor": true
     },
     "attributes": {

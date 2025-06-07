@@ -1,4 +1,10 @@
 <?php
+/**
+ * Title: Section Hero 4
+ * Slug: blocktheme/section-hero4
+ * Categories: sections
+ * Description: Section héro avec image et texte.
+ */
 $title = $attributes['title'] ?? '';
 $text = $attributes['text'] ?? '';
 $horizontalAlignment = $attributes['horizontalAlignment'] ?? 'hcenter';
@@ -7,9 +13,10 @@ $backgroundType = $attributes['backgroundType'] ?? 'none';
 $backgroundImageUrl = $attributes['backgroundImageUrl'] ?? '';
 $backgroundImageAlt = $attributes['backgroundImageAlt'] ?? '';
 $backgroundVideoUrl = $attributes['backgroundVideoUrl'] ?? '';
+$anchor = $attributes['anchor'] ?? '';
 ?>
 
-<section class="section-hero4 hero <?php echo esc_attr($horizontalAlignment); ?> <?php echo esc_attr($verticalAlignment); ?>">
+<section class="section-hero4 hero <?php echo esc_attr($horizontalAlignment); ?> <?php echo esc_attr($verticalAlignment); ?>" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="background">
         <?php if ($backgroundType === 'image' && !empty($backgroundImageUrl)) : ?>
             <img 

@@ -1,20 +1,9 @@
 const { useSelect } = wp.data;
 const { InspectorControls, RichText, MediaUpload, InnerBlocks } = wp.blockEditor;
 const { PanelBody, SelectControl, Button } = wp.components;
+import { registerBlockType } from '@wordpress/blocks';
 
-wp.blocks.registerBlockType("blocktheme/footer", {
-  title: "Pied de page",
-  supports: {
-    align: ["full"]
-  },
-  attributes: {
-    align: { type: "string", default: "full" },
-    copyrightText: { type: "string", default: "@2024 Achyl - All rights reserved" },
-    logoUrl: { type: "string", default: "" }
-  },
-  edit: EditComponent,
-  save: SaveComponent
-});
+
 
 function EditComponent({ attributes, setAttributes }) {
     const { copyrightText, logoUrl } = attributes;  
@@ -90,3 +79,17 @@ function SaveComponent() {
         </div>
     );
 }
+
+registerBlockType("blocktheme/footer", {
+    title: "Pied de page",
+    supports: {
+      align: ["full"]
+    },
+    attributes: {
+      align: { type: "string", default: "full" },
+      copyrightText: { type: "string", default: "@2024 Achyl - All rights reserved" },
+      logoUrl: { type: "string", default: "" }
+    },
+    edit: EditComponent,
+    save: SaveComponent
+  });

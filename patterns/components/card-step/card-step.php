@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card Step
+ * Slug: blocktheme/card-step
+ * Categories: components
+ * Description: Carte d'étape avec titre et texte.
+ */
+
 $title = $attributes['title'] ?? 'Titre de l\'étape';
 $attrContent = $attributes['content'] ?? 'Description de l\'étape';
 ?>

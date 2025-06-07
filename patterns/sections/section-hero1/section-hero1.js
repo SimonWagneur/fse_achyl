@@ -2,25 +2,10 @@ import { RichText, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor
 import { Button } from "@wordpress/components"
 import { InnerBlocks } from "@wordpress/block-editor"
 import { useBlockProps } from "@wordpress/block-editor";
+import { registerBlockType } from '@wordpress/blocks';
 
 
-wp.blocks.registerBlockType("blocktheme/section-hero1", {
-  title: "Section Hero 1",
-  attributes: {
-    align: { type: "string", default: "full" },
-    heading: { type: "string", default: "" },
-    paragraph: { type: "string", default: "" },
-    imageUrl: { type: "string", default: "https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png" },
-    anchor: { type: "string" }
-  },
-  "supports": {
-    "align": ["full"],
-    "html": false,
-    "anchor": true
-  },
-  edit: EditComponent,
-  save: SaveComponent
-})
+
 
 function EditComponent({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
@@ -76,3 +61,21 @@ function EditComponent({ attributes, setAttributes }) {
 function SaveComponent({ attributes }) {
   return <InnerBlocks.Content />
 }
+
+registerBlockType("blocktheme/section-hero1", {
+  title: "Section Hero 1",
+  attributes: {
+    align: { type: "string", default: "full" },
+    heading: { type: "string", default: "" },
+    paragraph: { type: "string", default: "" },
+    imageUrl: { type: "string", default: "https://achyl.be/wp-content/themes/achyl/images/home_bg_1080.png" },
+    anchor: { type: "string" }
+  },
+  "supports": {
+    "align": ["full"],
+    "html": false,
+    "anchor": true
+  },
+  edit: EditComponent,
+  save: SaveComponent
+})

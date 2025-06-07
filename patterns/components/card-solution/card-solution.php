@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Card Solution
+ * Slug: blocktheme/card-solution
+ * Categories: components
+ * Description: Carte de solution avec titre et texte.
+ */
+
 $link_url = $attributes['linkUrl'] ?? '#';
 $image_url = $attributes['imageUrl'] ?? '';
 $title = $attributes['title'] ?? '';

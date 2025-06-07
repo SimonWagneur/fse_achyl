@@ -6,6 +6,11 @@
     "category": "theme",
     "icon": "money-alt",
     "description": "Section de présentation des tarifs",
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "anchor": true
+    },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",
     "style": "file:./section-pricing.css",

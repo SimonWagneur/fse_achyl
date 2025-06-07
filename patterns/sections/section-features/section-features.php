@@ -1,4 +1,11 @@
 <?php
+/**
+ * Title: Section Fonctionnalités
+ * Slug: blocktheme/section-features
+ * Categories: sections
+ * Description: Section listant les fonctionnalités principales.
+ */
+
 $title = $attributes['title'] ?? 'Nos fonctionnalités';
 $content = $content ?? '';
 $anchor = $attributes['anchor'] ?? '';

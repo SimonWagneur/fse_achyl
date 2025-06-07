@@ -5,6 +5,10 @@
     "category": "theme",
     "icon": "format-quote",
     "description": "Un bloc de témoignage avec citation, étoiles et informations sur l'auteur",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     "editorScript": "file:../../../build/index.js", // ne pas changer
     "style": "file:./card-testimonial.css",
     "render": "file:./card-testimonial.php"

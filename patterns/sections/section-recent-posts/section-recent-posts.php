@@ -1,7 +1,14 @@
 <?php
+/**
+ * Title: Section Recent Posts
+ * Slug: blocktheme/section-recent-posts
+ * Categories: sections
+ * Description: Section articles récents avec titre et contenu.
+ */
 $posts_per_page = $attributes['postsPerPage'] ?? 10;
 $show_excerpt = $attributes['showExcerpt'] ?? true;
 $title = $attributes['title'] ?? 'Articles Récents';
+$anchor = $attributes['anchor'] ?? '';
 
 $args = array(
     'post_type' => 'post',
@@ -13,7 +20,7 @@ $args = array(
 $recent_posts = new WP_Query($args);
 ?>
 
-<section class="section-recent-posts">
+<section class="section-recent-posts" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container">
         <h2 class="h2"><?php echo esc_html($title); ?></h2>
 
