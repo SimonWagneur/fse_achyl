@@ -6,8 +6,7 @@ import './modules/scrollingHorizontal';
 import './modules/scrollingVertical';
 import './modules/scrollingToggle';
 import './modules/draggableAutomatedScrolling';
-// import './modules/scrollingVideo';
-// import './modules/ScrollVideo';
+import './modules/Forms';
 
 import '../patterns/components/button/button';
 import '../patterns/components/menu-footer/menu-footer';
@@ -23,6 +22,7 @@ import '../patterns/components/card-feature/card-feature';
 import '../patterns/components/card-kpi/card-kpi';
 import '../patterns/components/card-team-member/card-team-member';
 import '../patterns/components/input/input';
+import '../patterns/components/form/form';
 
 import '../patterns/sections/header/header';
 import '../patterns/sections/section-hero1/section-hero1';

@@ -5,7 +5,6 @@
     "category": "theme",
     "icon": "feedback",
     "description": "Champ de formulaire personnalisable",
-    "parent": ["blocktheme/section-contact"],
     "attributes": {
         "type": {
             "type": "string",

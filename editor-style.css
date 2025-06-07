@@ -195,3 +195,13 @@ body.block-editor-page .editor-styles-wrapper {
     position: absolute;
 }
 
+/* form */
+.editor-styles-wrapper .form-container .block-editor-inner-blocks{
+    width: 100%;
+}
+.editor-styles-wrapper .form-container .block-editor-block-list__layout{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    width: 100%;
+}

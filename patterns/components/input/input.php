@@ -1,16 +1,20 @@
 <?php
 $type = $attributes['type'] ?? 'texte';
 $label = $attributes['label'] ?? 'Label';
+$width = $attributes['width'] ?? 'w100';
+$selectOptions = $attributes['selectOptions'] ?? [];
 
 // Fonction pour nettoyer le label pour l'ID
-function sanitize_label($label) {
-    return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $label));
+if (!function_exists('sanitize_label')) {
+    function sanitize_label($label) {
+        return strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $label));
+    }
 }
 
 $id = sanitize_label($label);
 ?>
 
-<div class="input-box">
+<div class="input-box <?php echo esc_attr($width); ?>">
     <?php
     switch($type) {
         case 'date':
@@ -24,10 +28,15 @@ $id = sanitize_label($label);
             break;
         case 'liste':
             echo '<select id="' . esc_attr($id) . '" name="' . esc_attr($id) . '" required>
-                    <option value="">Choisissez une option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                </select>';
+                    <option value="">Choisissez une option</option>';
+            foreach ($selectOptions as $option) {
+                $optionValue = isset($option['value']) ? $option['value'] : sanitize_label($option['label']);
+                echo '<option value="' . esc_attr($optionValue) . '">' . esc_html($option['label']) . '</option>';
+            }
+            echo '</select>';
+            break;
+        case 'message':
+            echo '<textarea id="' . esc_attr($id) . '" name="' . esc_attr($id) . '" required></textarea>';
             break;
         default: // texte
             echo '<input type="text" id="' . esc_attr($id) . '" name="' . esc_attr($id) . '" required />';

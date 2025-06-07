@@ -135,4 +135,12 @@ function fse_achyl_enqueue_pattern_scripts() {
     }
 }
 
+// Ajouter les données du thème au JavaScript
+function add_theme_data() {
+    wp_localize_script('main-achyl-js', 'themeData', array(
+        'root' => get_template_directory_uri() . '/'
+    ));
+}
+add_action('wp_enqueue_scripts', 'add_theme_data');
+
 
