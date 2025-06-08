@@ -49,10 +49,8 @@
             border: none;
             background-color: transparent;
             font-size: 18px;
-            // font-weight: 600;
             transition: all .1s ease-out;
-            font-family: var(--wp--preset--font-family--body);
-            // font-weight: 300;
+            font-family: inherit;
             &.black{
                 color: var(--wp--preset--color--primary);
             }

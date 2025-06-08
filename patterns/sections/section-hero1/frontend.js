@@ -7,14 +7,25 @@
     const canvas = $('.section-hero1 .visual-container');
     let heroWidth, heroHeight, canvasWidth, canvasHeight, imgWidth, imgHeight;
 
+
+    $(window).on('load', defineDimensions);
+    $(window).on('resize', updateDimensions);
+    hero.on('mousemove', backgroundMovement);
+
+
     function defineDimensions(){
-      heroWidth = hero.outerWidth();
-      heroHeight = hero.outerHeight();
       canvasWidth = canvas.width();
       canvasHeight = canvas.height();
       heroBackground.css('height', canvasHeight * 1.2);
-      imgWidth = heroBackground.width();
-      imgHeight = heroBackground.height();
+      heroBackground.css('opacity', 1);
+    
+      // Attendre que le DOM reflète le nouveau style
+      setTimeout(() => {
+        heroWidth = hero.outerWidth();
+        heroHeight = hero.outerHeight();
+        imgWidth = heroBackground.width();
+        imgHeight = heroBackground.height();
+      }, 800); // 0ms suffit souvent à forcer le reflow
     }
 
     function updateDimensions() {
@@ -33,8 +44,6 @@
       }
     }
 
-    $(window).on('load', defineDimensions);
-    $(window).on('resize', updateDimensions);
-    hero.on('mousemove', backgroundMovement);
+
   });
 })(jQuery);

@@ -11,7 +11,7 @@
         if(st <= 0){
             $('.navbar').removeClass('scrolled');
             $('.navbar').css("margin-top","0px");
-            $('.navbar').addClass('transparent');
+            // $('.navbar').addClass('transparent');
         }
         else{
             if (st > lastScrollTop){

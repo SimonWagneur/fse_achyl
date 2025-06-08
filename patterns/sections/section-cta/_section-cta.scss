@@ -1,9 +1,13 @@
 section.section-cta{
-    margin: 2.5vw;
-    padding: 12vw 2.5vw;
-    background-color: var(--wp--preset--color--grey);
-    border-radius: 20px;
+    padding-top: 50px;
+    padding-bottom: 0px;
     text-align: center;
+    .bg{
+        margin: 2.5vw;
+        padding: 12vw 2.5vw;
+        background-color: var(--wp--preset--color--grey);
+        border-radius: 20px;
+    }
     .container{
         width: 90%;
         max-width: 700px;
@@ -24,7 +28,12 @@ section.section-cta{
 @media screen and (max-width:600px){
     section.section-cta{
         text-align: left;
-        border-radius: 15px;
+        
+        .bg{
+            border-radius: 15px;
+            margin: 5%;
+            width: 90%;
+        }
         .container{
             p{
                 margin-bottom: 40px;

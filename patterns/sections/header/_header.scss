@@ -19,6 +19,17 @@
             .logo{
                 filter: brightness(0) invert(1);
             }
+            .menu{
+                li{
+                    &:hover{
+                        a .bg{
+                            background-color: var(--wp--preset--color--grey);
+                            opacity: 0.5;
+                        }
+    
+                    }
+                }
+            }
         }
     }
     &.scrolled{
@@ -41,7 +52,7 @@
             margin-left: 50px;
             display: flex;
             gap: 10px;
-            font-size: 18px;
+            font-size: 20px;
             list-style: none;
             li{
                 position: relative;

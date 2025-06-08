@@ -13,6 +13,7 @@ function EditComponent({ attributes, setAttributes }){
 
   return (
       <section className="section-cta">
+        <div className="bg">
           <div className="container">
               <RichText
                   tagName="h2"
@@ -35,6 +36,7 @@ function EditComponent({ attributes, setAttributes }){
                       renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
                   />
               </div>
+          </div>
           </div>
       </section>
   );

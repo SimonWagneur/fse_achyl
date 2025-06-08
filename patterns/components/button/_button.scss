@@ -5,7 +5,7 @@ button.primary{
     border: none;
     border-radius: 100px;
     transition: all .15s ease;
-    font-family: var(--wp--preset--font-family--body);
+    font-family: inherit;
     line-height: 1.7em;
     .text{
         text-align: left;
