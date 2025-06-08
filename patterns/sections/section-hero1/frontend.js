@@ -17,6 +17,7 @@
       canvasWidth = canvas.width();
       canvasHeight = canvas.height();
       heroBackground.css('height', canvasHeight * 1.2);
+      heroBackground.css('width', canvasHeight * 1.2);
       heroBackground.css('opacity', 1);
     
       // Attendre que le DOM reflète le nouveau style

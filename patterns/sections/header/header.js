@@ -47,7 +47,7 @@ function EditComponent({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
-      <div className={`navbar${isTransparent ? ' transparent' : ''}`}>
+      <div className={`navbar${isTransparent ? ' transparent' : ''}`} data-attr={isTransparent ? 'transparent' : ''}>
         <div className="left">
           <MediaUploadCheck>
             <MediaUpload 

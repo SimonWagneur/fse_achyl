@@ -49,11 +49,22 @@ body.block-editor-page .editor-styles-wrapper {
 
 /* Hero 1 */
 .editor-styles-wrapper section.hero .visual-container img {
-  height: auto !important;
+  height: 100% !important;
+  width: 100% !important;
   transform: none !important;
   position: absolute !important;
   opacity: 0.2 !important;
+  top: 0px !important;
+  left: 0px !important;
 }   
+.editor-styles-wrapper section.hero .visual-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}   
+.editor-styles-wrapper section.hero .visual-container button {
+    z-index: 99 !important;
+  }   
 
 
 /* Section solutions */

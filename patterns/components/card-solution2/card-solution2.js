@@ -4,6 +4,7 @@ import { PanelBody, Button } from '@wordpress/components';
 
 
 
+
 function EditComponent({ attributes, setAttributes }) {
   const { iconUrl, title, content } = attributes;
 
@@ -45,7 +46,9 @@ function EditComponent({ attributes, setAttributes }) {
 
       <div className="card-solution2">
         <div className="icon">
-          {/* <img src={iconUrl} alt="Solution icon" /> */}
+          {iconUrl !== "/assets/images/check-solid.svg" && iconUrl && (
+            <img src={iconUrl} alt="Solution icon" />
+          )}
         </div>
         <div className="content">
           <RichText
@@ -76,7 +79,7 @@ registerBlockType("blocktheme/card-solution2", {
   attributes: {
     iconUrl: {
       type: "string",
-      default: "./assets/images/check-solid.svg"
+      default: "/assets/images/check-solid.svg"
     },
     title: {
       type: "string",

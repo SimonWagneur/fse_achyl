@@ -41,6 +41,9 @@ add_action('enqueue_block_editor_assets', function () {
     // JS de l'éditeur
     wp_enqueue_script('main-achyl-js', get_theme_file_uri('/build/index.js'), array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'), '1.0', true);
 
+    // Font Awesome pour l'éditeur
+    wp_enqueue_script('font_awesome', 'https://kit.fontawesome.com/d9ec4440c9.js', array(), '1.0.0', true);
+
     // CSS principal
     wp_enqueue_style(
         'achyl-editor-style-base',
