@@ -21,7 +21,7 @@ $recent_posts = new WP_Query($args);
 ?>
 
 <section class="section-recent-posts" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
-    <div class="container">
+    <div class="container medium-container">
         <h2 class="h2"><?php echo esc_html($title); ?></h2>
 
         <div class="posts-grid" data-posts-per-page="<?php echo esc_attr($posts_per_page); ?>" data-total-posts="<?php echo esc_attr($recent_posts->found_posts); ?>">

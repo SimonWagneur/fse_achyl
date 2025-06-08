@@ -1,4 +1,5 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "blocktheme/footer",
   "title": "Pied de page",
@@ -11,9 +12,21 @@
     "anchor": true
   },
   "attributes": {
-    "align": {
+    "facebookUrl": {
       "type": "string",
-      "default": "full"
+      "default": ""
+    },
+    "instagramUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "youtubeUrl": {
+      "type": "string",
+      "default": ""
     }
   },
   "editorScript": "file:../../../build/index.js",

@@ -42,3 +42,4 @@ import '../patterns/sections/section-team/section-team';
 import '../patterns/sections/section-sponsors/section-sponsors';
 import '../patterns/sections/section-contact/section-contact';
 import '../patterns/sections/section-solutions2/section-solutions2';
+import '../patterns/sections/section-hero5/section-hero5';

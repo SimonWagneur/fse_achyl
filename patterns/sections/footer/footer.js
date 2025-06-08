@@ -1,12 +1,11 @@
 const { useSelect } = wp.data;
-const { InspectorControls, RichText, MediaUpload, InnerBlocks } = wp.blockEditor;
-const { PanelBody, SelectControl, Button } = wp.components;
+const { InspectorControls, RichText, MediaUpload, InnerBlocks, useBlockProps } = wp.blockEditor;
+const { PanelBody, SelectControl, Button, TextControl } = wp.components;
 import { registerBlockType } from '@wordpress/blocks';
 
-
-
 function EditComponent({ attributes, setAttributes }) {
-    const { copyrightText, logoUrl } = attributes;  
+    const { copyrightText, logoUrl, facebookUrl, instagramUrl, linkedinUrl, youtubeUrl } = attributes;
+    const blockProps = useBlockProps();
 
     return (
         <>
@@ -26,6 +25,32 @@ function EditComponent({ attributes, setAttributes }) {
                                 {logoUrl ? "Change Logo" : "Select Logo"}
                             </Button>
                         )}
+                    />
+                </PanelBody>
+                <PanelBody title="Réseaux sociaux" initialOpen={true}>
+                    <TextControl
+                        label="Lien Facebook"
+                        value={facebookUrl}
+                        onChange={(value) => setAttributes({ facebookUrl: value })}
+                        placeholder="https://facebook.com/..."
+                    />
+                    <TextControl
+                        label="Lien Instagram"
+                        value={instagramUrl}
+                        onChange={(value) => setAttributes({ instagramUrl: value })}
+                        placeholder="https://instagram.com/..."
+                    />
+                    <TextControl
+                        label="Lien LinkedIn"
+                        value={linkedinUrl}
+                        onChange={(value) => setAttributes({ linkedinUrl: value })}
+                        placeholder="https://linkedin.com/..."
+                    />
+                    <TextControl
+                        label="Lien YouTube"
+                        value={youtubeUrl}
+                        onChange={(value) => setAttributes({ youtubeUrl: value })}
+                        placeholder="https://youtube.com/..."
                     />
                 </PanelBody>
             </InspectorControls>
@@ -65,6 +90,26 @@ function EditComponent({ attributes, setAttributes }) {
                         />
                     </div>
                     <div className="right">
+                            {facebookUrl && (
+                                <a target="_blank" className="link" href={facebookUrl} rel="noopener noreferrer">
+                                    <i className="fa-brands fa-facebook-f"></i>
+                                </a>
+                            )}
+                            {instagramUrl && (
+                                <a target="_blank" className="link" href={instagramUrl} rel="noopener noreferrer">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            )}
+                            {linkedinUrl && (
+                                <a target="_blank" className="link" href={linkedinUrl} rel="noopener noreferrer">
+                                    <i className="fa-brands fa-linkedin"></i>
+                                </a>
+                            )}
+                            {youtubeUrl && (
+                                <a target="_blank" className="link" href={youtubeUrl} rel="noopener noreferrer">
+                                    <i className="fa-brands fa-youtube"></i>
+                                </a>
+                            )}
                     </div>
                 </div>
             </div>
@@ -88,7 +133,11 @@ registerBlockType("blocktheme/footer", {
     attributes: {
       align: { type: "string", default: "full" },
       copyrightText: { type: "string", default: "@2024 Achyl - All rights reserved" },
-      logoUrl: { type: "string", default: "" }
+      logoUrl: { type: "string", default: "" },
+      facebookUrl: { type: "string", default: "" },
+      instagramUrl: { type: "string", default: "" },
+      linkedinUrl: { type: "string", default: "" },
+      youtubeUrl: { type: "string", default: "" }
     },
     edit: EditComponent,
     save: SaveComponent

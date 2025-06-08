@@ -10,6 +10,10 @@ $copyright_text = $attributes['copyrightText'] ?? '@2024 Achyl - All rights rese
 $social_menu_slug = $attributes['socialMenuSlug'] ?? '';
 $logo_url = $attributes['logoUrl'] ?? '';
 $anchor = $attributes['anchor'] ?? '';
+$facebook_url = $attributes['facebookUrl'] ?? '';
+$instagram_url = $attributes['instagramUrl'] ?? '';
+$linkedin_url = $attributes['linkedinUrl'] ?? '';
+$youtube_url = $attributes['youtubeUrl'] ?? '';
 
 if (!function_exists('get_navigation_menu_html')) {
     function get_navigation_menu_html($menu_slug) {
@@ -109,6 +113,29 @@ if (!function_exists('get_social_menu_html')) {
     <div class="lower">
         <div class="left"><?php echo wp_kses_post($copyright_text); ?></div>
         <div class="right">
+                <?php if (!empty($facebook_url)) : ?>
+                    <a target="_blank" class="link" href="<?php echo esc_url($facebook_url); ?>">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                <?php endif; ?>
+                
+                <?php if (!empty($instagram_url)) : ?>
+                    <a target="_blank" class="link" href="<?php echo esc_url($instagram_url); ?>">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                <?php endif; ?>
+                
+                <?php if (!empty($linkedin_url)) : ?>
+                    <a target="_blank" class="link" href="<?php echo esc_url($linkedin_url); ?>">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                <?php endif; ?>
+                
+                <?php if (!empty($youtube_url)) : ?>
+                    <a target="_blank" class="link" href="<?php echo esc_url($youtube_url); ?>">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                <?php endif; ?>
         </div>
     </div>
 </div>
