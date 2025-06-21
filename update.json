@@ -1,7 +1,7 @@
 {
     "version": "1.2.1",
     "details_url": "https://github.com/SimonWagneur/fse_achyl/releases",
-    "download_url": "https://github.com/SimonWagneur/fse_achyl/releases/download/v1.1.0/fse_achyl.zip",
+    "download_url": "https://github.com/SimonWagneur/fse_achyl/releases/download/v1.2.1/fse_achyl.zip",
     "requires": "6.0",
     "tested": "6.5"
   }
