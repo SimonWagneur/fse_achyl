@@ -1,9 +1,9 @@
 import { registerBlockType } from '@wordpress/blocks';
 const { RichText, InnerBlocks, MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
-const { Button, PanelBody, SelectControl, TextControl } = wp.components;
+const { Button, PanelBody, SelectControl } = wp.components;
 
 function EditComponent({ attributes, setAttributes }) {
-    const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText, themeMode } = attributes;
+    const { heading, imageUrl, reversed, themeMode } = attributes;
 
     const ALLOWED_BLOCKS = [
         'blocktheme/button',
@@ -13,36 +13,17 @@ function EditComponent({ attributes, setAttributes }) {
         ['blocktheme/button', {}]
     ];
 
-    const imageAnimations = [
-        {id: "", name: "Aucune animation"},
-        {id: "scrollingText", name: "Défilement de texte"},
-        {id: "scrollingHorizontal", name: "Défilement horizontal"},
-        {id: "scrollingVertical", name: "Défilement vertical"},
-        {id: "scrollingToggle", name: "Bouton actif/inactif"},
-    ];
-
-    const videoAnimations = [
-        {id: "", name: "Aucune animation"},
-        // {id: "scrollingVideo", name: "Défilement de vidéo"},
-    ];
-
     // Fonction pour gérer la sélection du média
     const handleMediaSelect = (media) => {
-        const newMediaType = media.type === 'video' ? 'video' : 'image';
         setAttributes({ 
-            imageUrl: media.url,
-            mediaType: newMediaType,
-            // Si c'est une vidéo, on force l'animation scrollingVideo
-            animation: newMediaType === 'video' ? 'scrollingVideo' : ''
+            imageUrl: media.url
         });
     };
 
     // Fonction pour supprimer le média
     const removeMedia = () => {
         setAttributes({ 
-            imageUrl: '',
-            animation: '',
-            mediaType: 'image'
+            imageUrl: ''
         });
     };
 
@@ -71,35 +52,9 @@ function EditComponent({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ themeMode: value })}
                     />
                 </PanelBody>
-                <PanelBody title="Options d'animation">
-                    <SelectControl
-                        label="Type d'animation"
-                        value={animation}
-                        options={mediaType === 'video' ? videoAnimations.map(anim => ({ label: anim.name, value: anim.id })) : imageAnimations.map(anim => ({ label: anim.name, value: anim.id }))}
-                        onChange={(value) => setAttributes({ animation: value })}
-                    />
-                    {mediaType === 'image' && animation === 'scrollingText' && (
-                        <TextControl
-                            label="Texte défilant"
-                            value={scrollingText}
-                            onChange={(value) => setAttributes({ scrollingText: value })}
-                        />
-                    )}
-                </PanelBody>
-                {mediaType === 'video' && (
-                    <PanelBody title="Optimisation vidéo" initialOpen={false}>
-                        <p style={{ fontSize: '12px', color: '#666' }}>
-                            ⚡ La vidéo sera automatiquement optimisée :<br/>
-                            • Lazy loading (chargement différé)<br/>
-                            • Résolution 720p recommandée<br/>
-                            • Compression automatique
-                        </p>
-                    </PanelBody>
-                )}
             </InspectorControls>
 
-            <section className={`section-benefits1 ${reversed ? 'reversed' : ''} ${animation} ${mediaType === 'video' ? 'has-video' : ''} ${themeMode === 'dark' ? 'dark-mode' : ''}`}>
-                <div className="container medium-container">
+            <section className={`section-benefits3 ${reversed ? 'reversed' : ''} ${themeMode === 'dark' ? 'dark-mode' : ''}`}>
                     <div className="left">
                         <RichText
                             tagName="h2"
@@ -120,31 +75,20 @@ function EditComponent({ attributes, setAttributes }) {
                             <MediaUploadCheck>
                                 <MediaUpload
                                     onSelect={handleMediaSelect}
-                                    allowedTypes={['image', 'video']}
+                                    allowedTypes={['image']}
                                     value={imageUrl}
                                     render={({ open }) => (
                                         <>
                                             {imageUrl ? (
                                                 <>
-                                                    {mediaType === 'image' ? (
-                                                        <img 
-                                                            id="heroBackground" 
-                                                            src={imageUrl} 
-                                                            alt="Background" 
-                                                        />
-                                                    ) : (
-                                                        <video 
-                                                            id="heroBackground"
-                                                            src={imageUrl}
-                                                            autoPlay
-                                                            loop
-                                                            muted
-                                                            playsInline
-                                                        />
-                                                    )}
+                                                    <img 
+                                                        id="heroBackground" 
+                                                        src={imageUrl} 
+                                                        alt="Background" 
+                                                    />
                                                     <div className="media-buttons" style={{ position: "absolute", top: 0, right: 0 }}>
                                                         <Button onClick={open} isSecondary style={{ marginRight: '5px' }}>
-                                                            Modifier le média
+                                                            Modifier l'image
                                                         </Button>
                                                         <Button onClick={removeMedia} isDestructive>
                                                             Supprimer
@@ -154,7 +98,7 @@ function EditComponent({ attributes, setAttributes }) {
                                             ) : (
                                                 <div className="media-placeholder" style={{ textAlign: 'center', padding: '20px' }}>
                                                     <Button onClick={open} isSecondary>
-                                                        Ajouter une image ou une vidéo
+                                                        Ajouter une image
                                                     </Button>
                                                 </div>
                                             )}
@@ -162,12 +106,8 @@ function EditComponent({ attributes, setAttributes }) {
                                     )}
                                 />
                             </MediaUploadCheck>
-                            {mediaType === 'image' && animation === 'scrollingText' && scrollingText && (
-                                <p className="scrolling-text">{scrollingText}</p>
-                            )}
                         </div>
                     </div>
-                </div>
             </section>
         </>
     );
@@ -177,7 +117,7 @@ function SaveComponent({ attributes }) {
     return <InnerBlocks.Content />;
 }
 
-registerBlockType('blocktheme/section-benefits1', {
+registerBlockType('blocktheme/section-benefits3', {
     "supports": {
         "html": false,
         "anchor": true
@@ -186,27 +126,13 @@ registerBlockType('blocktheme/section-benefits1', {
         heading: {
             type: 'string'
         },
-        paragraph: {
-            type: 'string'
-        },
         imageUrl: {
             type: 'string',
             default: ''
         },
-        mediaType: {
-            type: 'string',
-            default: 'image'
-        },
         reversed: {
             type: 'boolean',
             default: false
-        },
-        animation: {
-            type: 'string',
-            default: ''
-        },
-        scrollingText: {
-            type: 'string'
         },
         themeMode: {
             type: 'string',

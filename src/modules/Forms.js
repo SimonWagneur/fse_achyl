@@ -23,6 +23,13 @@
                 thisForm.find("input:not([type=radio]), input[type='radio']:checked, textarea, select").each(function(){
                     formData[this.name] = this.value;
                 });
+                
+                // Ajouter l'ID du formulaire pour récupérer les valeurs sensibles côté serveur
+                var formId = thisForm.attr('id');
+                if (formId) {
+                    formData['form_id'] = formId;
+                }
+                
                 console.log(formData);
 
                 $.ajax({

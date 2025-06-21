@@ -20,19 +20,18 @@ if ($button_style === 'secondary') {
 }
 ?>
 
-<div <?php echo $wrapper_attributes; ?>>
-    <a href="<?php echo esc_url($link_url); ?>" target="_blank" rel="noopener noreferrer">
-        <button class="<?php echo $button_classes; ?>" <?php echo $is_disabled ? 'disabled' : ''; ?>>
-            <div class="text">
-                <div class="main">
-                    <span><?php echo esc_html($text); ?></span>
-                </div>
+
+<a href="<?php echo esc_url($link_url); ?>" target="_blank" rel="noopener noreferrer" style="display: contents;">
+    <button class="<?php echo $button_classes; ?>" <?php echo $is_disabled ? 'disabled' : ''; ?>>
+        <div class="text">
+            <div class="main">
+                <span><?php echo esc_html($text); ?></span>
             </div>
-            <div class="round-container">
-                <div class="round">
-                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                </div>
+        </div>
+        <div class="round-container">
+            <div class="round">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </div>
-        </button>
-    </a>
-</div>
+        </div>
+    </button>
+</a>

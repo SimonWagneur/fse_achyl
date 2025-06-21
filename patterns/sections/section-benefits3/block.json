@@ -1,32 +1,36 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
-    "name": "blocktheme/section-cta",
-    "title": "Section CTA",
+    "name": "blocktheme/section-benefits3",
+    "title": "Section Benefits 3",
     "category": "theme",
-    "icon": "megaphone",
-    "description": "Section d'appel à l'action avec titre, texte et boutons",
+    "icon": "star-filled",
+    "description": "Section de bénéfices avec titre, texte, boutons et image",
     "supports": {
         "html": false,
         "anchor": true
     },
     "attributes": {
-        "title": {
+        "heading": {
             "type": "string",
             "default": ""
         },
-        "content": {
+        "imageUrl": {
             "type": "string",
             "default": ""
         },
-        "backgroundImage": {
+        "reversed": {
+            "type": "boolean",
+            "default": false
+        },
+        "themeMode": {
             "type": "string",
-            "default": ""
+            "default": "light"
         },
         "anchor": { "type": "string" }
     },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",
-    "style": "file:./section-cta.css",
-    "render": "file:./section-cta.php"
+    "style": "file:./section-benefits3.css",
+    "render": "file:./section-benefits3.php"
 }

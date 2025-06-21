@@ -2,11 +2,9 @@ import { useBlockProps, InnerBlocks, InspectorControls } from "@wordpress/block-
 import { PanelBody, TextControl } from "@wordpress/components"
 import { registerBlockType } from '@wordpress/blocks';
 
-
-
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
-    const { buttonText } = attributes;
+    const { buttonText, destination, objet } = attributes;
 
     const ALLOWED_BLOCKS = ['blocktheme/champ-formulaire'];
     const TEMPLATE = [
@@ -21,6 +19,24 @@ function EditComponent({ attributes, setAttributes }) {
                         label="Texte du bouton"
                         value={buttonText}
                         onChange={(value) => setAttributes({ buttonText: value })}
+                    />
+                </PanelBody>
+                <PanelBody title="Configuration email" initialOpen={false}>
+                    <TextControl
+                        label="Adresse de destination"
+                        value={destination}
+                        onChange={(value) => setAttributes({ destination: value })}
+                        placeholder="exemple@email.com"
+                        help="L'adresse email qui recevra les messages du formulaire"
+                    />
+                </PanelBody>
+                <PanelBody title="Objet du mail" initialOpen={false}>
+                    <TextControl
+                        label="Objet par défaut"
+                        value={objet}
+                        onChange={(value) => setAttributes({ objet: value })}
+                        placeholder="Nouveau message depuis le formulaire"
+                        help="L'objet par défaut des emails envoyés"
                     />
                 </PanelBody>
             </InspectorControls>
@@ -56,7 +72,9 @@ function SaveComponent() {
 registerBlockType("blocktheme/form", {
     title: "Formulaire",
     attributes: {
-        buttonText: { type: "string", default: "Envoyer" }
+        buttonText: { type: "string", default: "Envoyer" },
+        destination: { type: "string", default: "" },
+        objet: { type: "string", default: "" }
     },
     edit: EditComponent,
     save: SaveComponent

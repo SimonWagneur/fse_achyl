@@ -43,29 +43,30 @@ add_action('wp_enqueue_scripts', function () {
     // jquery
     wp_deregister_script('jquery');
     wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '1.0.0', true );
-
-    // // gsap
-    // wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js', array(), '1.0.0', true);
-    // wp_enqueue_script('scrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js', array(), '1.0.0', true);
-    // wp_enqueue_script('splitText', get_theme_file_uri('/src/modules/SplitText.min.js'), array(), '1.0.0', true);
     
     // js front-end uniquement
     if (!is_admin()) {
         wp_enqueue_script('header-js', get_theme_file_uri('/patterns/sections/header/frontend.js'), array('jquery'), '1.0', true);
         wp_enqueue_script('to-the-top-js', get_theme_file_uri('/src/modules/to-the-top.js'), array('jquery'), '1.0', true);
     }
+    wp_enqueue_script('lazy-loading', get_template_directory_uri() . '/src/modules/videoLazyLoading.js', array('jquery'), null, true);
+    wp_enqueue_script('achyl-forms', get_template_directory_uri() . '/src/modules/Forms.js', array('jquery'), null, true);
+    wp_localize_script('achyl-forms', 'themeData', array(
+        'root' => get_template_directory_uri() . '/'
+    ));
 
     // font awesome
     wp_enqueue_script( 'font_awesome', 'https://kit.fontawesome.com/d9ec4440c9.js', array(), '1.0.0', true ); 
 });
 
-// Ajouter les données du thème au JavaScript
-function add_theme_data() {
-    wp_localize_script('main-achyl-js', 'themeData', array(
-        'root' => get_template_directory_uri() . '/'
-    ));
-}
-add_action('wp_enqueue_scripts', 'add_theme_data');
+// // enqueue de build/index.js dans le frontend
+// add_action('wp_enqueue_scripts', function () {
+//     wp_enqueue_script('main-achyl-build', get_template_directory_uri() . '/build/index.js', array('jquery'), null, true);
+
+//     wp_localize_script('main-achyl-build', 'themeData', array(
+//         'root' => get_template_directory_uri() . '/'
+//     ));
+// });
 
 
 // appliquer le CSS et JS à l'éditeur
@@ -171,7 +172,7 @@ function fse_achyl_enqueue_pattern_scripts() {
     }
 
     $global_scripts = [
-        '.form' => 'Forms.js',
+        // '.form' => 'Forms.js',
         '.section-benefits1.scrollingText' => 'scrollingText.js',
         '.section-benefits1.scrollingHorizontal' => 'scrollingHorizontal.js',
         '.section-benefits1.scrollingVertical' => 'scrollingVertical.js',

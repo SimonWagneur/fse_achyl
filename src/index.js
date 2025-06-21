@@ -1,4 +1,3 @@
-
 // components
 import '../patterns/components/button/button';
 import '../patterns/components/menu-footer/menu-footer';
@@ -29,6 +28,7 @@ import '../patterns/sections/section-faq/section-faq';
 import '../patterns/sections/section-cta/section-cta';
 import '../patterns/sections/section-benefits1/section-benefits1';
 import '../patterns/sections/section-benefits2/section-benefits2';
+import '../patterns/sections/section-benefits3/section-benefits3';
 import '../patterns/sections/section-projects/section-projects';
 import '../patterns/sections/section-pricing/section-pricing';
 import '../patterns/sections/section-features/section-features';

@@ -26,7 +26,7 @@ function SaveComponent() {
 }
 
 registerBlockType('blocktheme/card-feature', {
-    parent: ['blocktheme/section-features', 'blocktheme/card-pricing', 'blocktheme/section-benefits1'],
+    parent: ['blocktheme/section-features', 'blocktheme/card-pricing', 'blocktheme/section-benefits1', 'blocktheme/section-benefits3'],
     attributes: {
         content: {
             type: "string",

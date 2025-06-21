@@ -9,6 +9,14 @@
         "buttonText": {
             "type": "string",
             "default": "Envoyer"
+        },
+        "destination": {
+            "type": "string",
+            "default": ""
+        },
+        "objet": {
+            "type": "string",
+            "default": ""
         }
     },
     "supports": {

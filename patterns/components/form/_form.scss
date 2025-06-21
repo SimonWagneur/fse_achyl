@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
-    input[name="check"]{
+    input[name="check"], input[name="destination"], input[name="objet"]{
         display: none;
     }
     .responseMessage{
