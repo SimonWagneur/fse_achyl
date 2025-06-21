@@ -10,12 +10,19 @@ $text = $attributes['text'] ?? '';
 $link_url = $attributes['linkUrl'] ?? '#';
 $color_name = $attributes['colorName'] ?? 'black';
 $is_disabled = $attributes['disabled'] ?? false;
+$button_style = $attributes['buttonStyle'] ?? 'primary';
 $wrapper_attributes = get_block_wrapper_attributes();
+
+// Déterminer les classes CSS en fonction du style du bouton
+$button_classes = "primary " . esc_attr($color_name);
+if ($button_style === 'secondary') {
+    $button_classes .= ' border';
+}
 ?>
 
 <div <?php echo $wrapper_attributes; ?>>
     <a href="<?php echo esc_url($link_url); ?>" target="_blank" rel="noopener noreferrer">
-        <button class="primary <?php echo esc_attr($color_name); ?>" <?php echo $is_disabled ? 'disabled' : ''; ?>>
+        <button class="<?php echo $button_classes; ?>" <?php echo $is_disabled ? 'disabled' : ''; ?>>
             <div class="text">
                 <div class="main">
                     <span><?php echo esc_html($text); ?></span>

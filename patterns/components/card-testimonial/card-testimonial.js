@@ -22,6 +22,7 @@ function EditComponent({ attributes, setAttributes }) {
         <>
 
             {/* Render */}
+            <div {...blockProps}>
             <div className="slide card-testimonial active">
                 <div className="upper">
                     <div className="quote">
@@ -58,6 +59,7 @@ function EditComponent({ attributes, setAttributes }) {
                         placeholder="Fonction"
                     />
                 </div>
+            </div>
             </div>
         </>
     );

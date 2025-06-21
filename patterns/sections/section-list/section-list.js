@@ -29,6 +29,7 @@ function EditComponent({ attributes, setAttributes }) {
                             allowedBlocks={ALLOWED_BLOCKS}
                             template={TEMPLATE}
                             templateLock={false}
+                            renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
                         />
                     </div>
                     <div className="right">

@@ -13,15 +13,21 @@ $hasReducedPrice = $attributes['hasReducedPrice'] ?? false;
 $reducedPrice = $attributes['reducedPrice'] ?? '';
 $reducedPriceTva = $attributes['reducedPriceTva'] ?? 'TTC';
 $promoEndDate = $attributes['promoEndDate'] ?? '';
+$hasButton = $attributes['hasButton'] ?? false;
+$buttonText = $attributes['buttonText'] ?? 'Choisir cette offre';
+$buttonUrl = $attributes['buttonUrl'] ?? '#';
 
 $showPromo = $hasReducedPrice && !empty($reducedPrice);
 $showPromoDate = $showPromo && !empty($promoEndDate);
+
 ?>
 
 <div class="card-pricing">
     <div class="top">
         <h3 class="h3"><?php echo esc_html($title); ?></h3>
-        <p class="p"><?php echo nl2br($description); ?></p>
+        <div class="features">
+            <?php echo $content; ?>
+        </div>
     </div>
     <div class="bottom">
         <?php if ($showPromo): ?>
@@ -42,6 +48,23 @@ $showPromoDate = $showPromo && !empty($promoEndDate);
             </div>
         <?php endif; ?>
 
-        <?php echo wp_kses_post($content); ?>
+        <?php if ($hasButton): ?>
+            <div class="buttons">
+                <a href="<?php echo esc_url($buttonUrl); ?>" target="_blank" rel="noopener noreferrer">
+                    <button class="primary black">
+                        <div class="text">
+                            <div class="main">
+                                <span><?php echo esc_html($buttonText); ?></span>
+                            </div>
+                        </div>
+                        <div class="round-container">
+                            <div class="round">
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </button>
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </div>

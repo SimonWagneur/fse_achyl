@@ -8,7 +8,7 @@ function EditComponent({ attributes, setAttributes }) {
 
     return (
         <>
-            {/* Render */}
+            <div {...blockProps}>
             <div className="card-faq">
                 <div className="top">
                     <RichText
@@ -27,6 +27,7 @@ function EditComponent({ attributes, setAttributes }) {
                     onChange={(content) => setAttributes({ content })}
                     placeholder="Réponse..."
                 />
+            </div>
             </div>
         </>
     );

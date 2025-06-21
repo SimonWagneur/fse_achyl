@@ -10,7 +10,12 @@
         "html": false,
         "anchor": true
     },
-    "attributes": {},
+    "attributes": {
+        "themeMode": {
+            "type": "string",
+            "default": "light"
+        }
+    },
     "textdomain": "blocktheme",
     "editorScript": "file:../../../build/index.js",
     "style": "file:./section-benefits2.css",

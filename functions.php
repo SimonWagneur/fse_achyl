@@ -1,5 +1,37 @@
 <?php
 
+// theme slug variable
+$theme_slug = 'fse_achyl';
+
+// theme update
+add_filter( 'pre_set_site_transient_update_themes', 'check_for_theme_update' );
+
+function check_for_theme_update( $transient ) {
+    $theme_slug = 'fse_achyl'; // doit correspondre EXACTEMENT au dossier de ton thème
+    $update_url = 'https://simonwagneur.github.io/fse_achyl/update.json';
+
+    $response = wp_remote_get( $update_url );
+    if ( is_wp_error( $response ) ) return $transient;
+
+    $data = json_decode( wp_remote_retrieve_body( $response ) );
+
+    if (
+        isset( $data->version ) &&
+        version_compare( wp_get_theme( $theme_slug )->get( 'Version' ), $data->version, '<' )
+    ) {
+        $transient->response[$theme_slug] = array(
+            'theme'       => $theme_slug,
+            'new_version' => $data->version,
+            'url'         => $data->details_url,
+            'package'     => $data->download_url,
+        );
+    }
+
+    return $transient;
+}
+
+
+
 // hide admin bar
 add_filter('show_admin_bar', '__return_false');
 

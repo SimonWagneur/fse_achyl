@@ -12,6 +12,7 @@ section.section-team {
 
 @media screen and (max-width: 600px){
   section.section-team {
+    padding-bottom: 0px;
     .container {
       .team-members {
         grid-template-columns: repeat(2, 1fr);

@@ -17,7 +17,6 @@ $anchor = $attributes['anchor'] ?? '';
         <h2><?php echo wp_kses_post($title); ?></h2>
     </div>
     <?php if (!empty($mediaItems)) : ?>
-        <!-- Je veux que .gallery-grid puisse être draggable à la souris et qu'elle défile automatiquement vers la gauche. -->
         <div class="gallery-grid section-draggable" data-draggable="true" data-autoscroll="true">
             <?php foreach ($mediaItems as $item) : ?>
                 <div class="gallery-item">

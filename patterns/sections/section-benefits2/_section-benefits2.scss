@@ -1,6 +1,10 @@
 section.section-benefits2{
     display: flex;
     align-items: center;
+    &.dark-mode{
+        background-color: var(--wp--preset--color--primary);
+        color: var(--wp--preset--color--bg);
+    }
     &.reversed{
         .container{
             flex-direction: row-reverse;
@@ -125,7 +129,7 @@ section.section-benefits2{
             .right{
                 width: 100%;
                 margin-top: 0px;
-                margin-bottom: 50px;
+                margin-bottom: 10px;
                 .canvas{
                     height: auto;
                     aspect-ratio: 1 / 1;

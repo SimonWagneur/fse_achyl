@@ -1,10 +1,12 @@
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 
 
 
 function EditComponent({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
     return (
+        <div {...blockProps}>
         <div className="card-kpi">
             <div className="content">
                 <RichText
@@ -23,6 +25,7 @@ function EditComponent({ attributes, setAttributes }) {
                 />
             </div>
         </div>
+        </div>
     );
 }
 
@@ -31,6 +34,7 @@ function SaveComponent() {
 }
 
 registerBlockType('blocktheme/card-kpi', {
+    parent: ['blocktheme/section-kpis'],
     edit: EditComponent,
     save: SaveComponent
 });

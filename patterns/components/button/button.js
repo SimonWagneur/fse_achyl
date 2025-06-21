@@ -1,6 +1,6 @@
 import ourColors from '../../../assets/colors/ourColors';
 import { RichText, InspectorControls, getColorObjectByColorValue, useBlockProps } from "@wordpress/block-editor"
-import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl } from "@wordpress/components"
+import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl, SelectControl } from "@wordpress/components"
 import metadata from './block.json';
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -34,9 +34,29 @@ function EditComponent({ attributes, setAttributes }) {
     setAttributes({ disabled: Boolean(isChecked) });
   }
 
+  function handleButtonStyleChange(newStyle) {
+    setAttributes({ buttonStyle: newStyle });
+  }
+
+  // Déterminer les classes CSS en fonction du style du bouton
+  const buttonClasses = `primary ${attributes.colorName}${attributes.buttonStyle === 'secondary' ? ' border' : ''}`;
+
   return (
     <>
       <InspectorControls>
+        <PanelBody title="Style du bouton" initialOpen={true}>
+          <PanelRow>
+            <SelectControl
+              label="Style du bouton"
+              value={attributes.buttonStyle || 'primary'}
+              options={[
+                { label: 'Primaire', value: 'primary' },
+                { label: 'Secondaire', value: 'secondary' }
+              ]}
+              onChange={handleButtonStyleChange}
+            />
+          </PanelRow>
+        </PanelBody>
         <PanelBody title="Lien" initialOpen={true}>
           <TextControl
             value={attributes.linkUrl}
@@ -67,7 +87,7 @@ function EditComponent({ attributes, setAttributes }) {
           onClick={preventClickInEditor}
         >
           <button 
-            className={`primary ${attributes.colorName}`}
+            className={buttonClasses}
             disabled={attributes.disabled || false}
           >
             <div className="text">

@@ -1,12 +1,12 @@
 import { registerBlockType } from '@wordpress/blocks';
-const { RichText, InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { RichText, InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
 const { PanelBody, TextControl, Button } = wp.components;
 
 
 
 function EditComponent({ attributes, setAttributes }) {
     const { title, content, buttonText, buttonUrl, imageUrl, tags } = attributes;
-
+    const blockProps = useBlockProps();
     // Fonction pour gérer les tags
     const handleTagChange = (index, value) => {
         const newTags = [...tags];
@@ -111,7 +111,7 @@ function EditComponent({ attributes, setAttributes }) {
                     </div>
                 </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <div className="slide card-project active">
                 <div className="left">
                     <RichText
@@ -155,6 +155,7 @@ function EditComponent({ attributes, setAttributes }) {
                         {imageUrl && <img src={imageUrl} alt={title} />}
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

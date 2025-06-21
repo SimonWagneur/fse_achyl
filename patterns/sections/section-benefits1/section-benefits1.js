@@ -5,9 +5,12 @@ const { Button, PanelBody, SelectControl, TextControl } = wp.components;
 
 
 function EditComponent({ attributes, setAttributes }) {
-    const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText } = attributes;
+    const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText, themeMode } = attributes;
 
-    const ALLOWED_BLOCKS = ['blocktheme/button'];
+    const ALLOWED_BLOCKS = [
+        'blocktheme/button',
+        'blocktheme/card-feature'
+    ];
     const TEMPLATE = [
         ['blocktheme/button', {}]
     ];
@@ -59,6 +62,17 @@ function EditComponent({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ reversed: value === 'left' })}
                     />
                 </PanelBody>
+                <PanelBody title="Options de thème">
+                    <SelectControl
+                        label="Mode de thème"
+                        value={themeMode}
+                        options={[
+                            { label: 'Mode clair', value: 'light' },
+                            { label: 'Mode sombre', value: 'dark' }
+                        ]}
+                        onChange={(value) => setAttributes({ themeMode: value })}
+                    />
+                </PanelBody>
                 <PanelBody title="Options d'animation">
                     <SelectControl
                         label="Type d'animation"
@@ -76,7 +90,7 @@ function EditComponent({ attributes, setAttributes }) {
                 </PanelBody>
             </InspectorControls>
 
-            <section className={`section-benefits1 ${reversed ? 'reversed' : ''} ${animation} ${mediaType === 'video' ? 'has-video' : ''}`}>
+            <section className={`section-benefits1 ${reversed ? 'reversed' : ''} ${animation} ${mediaType === 'video' ? 'has-video' : ''} ${themeMode === 'dark' ? 'dark-mode' : ''}`}>
                 <div className="container medium-container">
                     <div className="left">
                         <RichText
@@ -86,16 +100,9 @@ function EditComponent({ attributes, setAttributes }) {
                             onChange={(newHeading) => setAttributes({ heading: newHeading })}
                             placeholder="Entrez le titre..."
                         />
-                        <RichText
-                            tagName="p"
-                            className="p"
-                            value={paragraph}
-                            onChange={(newParagraph) => setAttributes({ paragraph: newParagraph })}
-                            placeholder="Entrez le contenu..."
-                        />
-                        <div className="buttons">
+                        <div className="content">
                             <InnerBlocks
-                                allowedBlocks={ALLOWED_BLOCKS}
+                                allowedBlocks={['core/paragraph', 'blocktheme/card-feature', 'blocktheme/button']}
                                 renderAppender={() => <InnerBlocks.ButtonBlockAppender />}
                             />
                         </div>
@@ -192,6 +199,10 @@ registerBlockType('blocktheme/section-benefits1', {
         },
         scrollingText: {
             type: 'string'
+        },
+        themeMode: {
+            type: 'string',
+            default: 'light'
         }
     },
     edit: EditComponent,

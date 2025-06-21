@@ -1,11 +1,12 @@
 import { registerBlockType } from '@wordpress/blocks';
-const { RichText, MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { RichText, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEditor;
 const { Button } = wp.components;
 
 registerBlockType('fse-achyl/card-team-member', {
+    parent: ['blocktheme/section-team'],
     edit: ({ attributes, setAttributes }) => {
         const { profileImage, memberName, memberDescription } = attributes;
-
+        const blockProps = useBlockProps();
         const onSelectImage = (media) => {
             setAttributes({
                 profileImage: {
@@ -27,6 +28,7 @@ registerBlockType('fse-achyl/card-team-member', {
         };
 
         return (
+            <div {...blockProps}>
             <div className="card-team-member">
                 <div className="pp">
                     <MediaUploadCheck>
@@ -75,6 +77,7 @@ registerBlockType('fse-achyl/card-team-member', {
                     onChange={(newDescription) => setAttributes({ memberDescription: newDescription })}
                     placeholder="Description du membre"
                 />
+            </div>
             </div>
         );
     },

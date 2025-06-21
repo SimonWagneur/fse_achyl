@@ -38,6 +38,7 @@
     "linkUrl": { "type": "string", "default": "" },
     "colorName": { "type": "string", "default": "black" },
     "disabled": { "type": "boolean", "default": false },
+    "buttonStyle": { "type": "string", "default": "primary" },
     "style": {
       "type": "object",
       "default": {}

@@ -17,25 +17,27 @@ function EditComponent({ attributes, setAttributes, clientId }) {
     ];
 
     return (
-        <div {...blockProps} className="slide card-step active">
-            <div className="step-number">{stepNumber}</div>
-            <RichText
-                tagName="h3"
-                className="h3"
-                value={title}
-                onChange={(title) => setAttributes({ title })}
-                placeholder="Titre de l'étape..."
-            />
-            <RichText
-                tagName="p"
-                className="p"
-                value={content}
-                onChange={(content) => setAttributes({ content })}
-                placeholder="Description de l'étape..."
-            />
-            <InnerBlocks
-                allowedBlocks={ALLOWED_BLOCKS}
-            />
+        <div {...blockProps}>
+            <div className="slide card-step active">
+                <div className="step-number">{stepNumber}</div>
+                <RichText
+                    tagName="h3"
+                    className="h3"
+                    value={title}
+                    onChange={(title) => setAttributes({ title })}
+                    placeholder="Titre de l'étape..."
+                />
+                <RichText
+                    tagName="p"
+                    className="p"
+                    value={content}
+                    onChange={(content) => setAttributes({ content })}
+                    placeholder="Description de l'étape..."
+                />
+                <InnerBlocks
+                    allowedBlocks={ALLOWED_BLOCKS}
+                    />
+            </div>
         </div>
     );
 }

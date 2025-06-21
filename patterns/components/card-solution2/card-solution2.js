@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { RichText, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { RichText, InspectorControls, MediaUpload, MediaUploadCheck, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, Button } from '@wordpress/components';
 
 
@@ -7,7 +7,7 @@ import { PanelBody, Button } from '@wordpress/components';
 
 function EditComponent({ attributes, setAttributes }) {
   const { iconUrl, title, content } = attributes;
-
+  const blockProps = useBlockProps();
   return (
     <>
       <InspectorControls>
@@ -44,6 +44,7 @@ function EditComponent({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
+      <div {...blockProps}>
       <div className="card-solution2">
         <div className="icon">
           {iconUrl !== "/assets/images/check-solid.svg" && iconUrl && (
@@ -64,6 +65,7 @@ function EditComponent({ attributes, setAttributes }) {
             placeholder="Enter description..."
           />
         </div>
+      </div>
       </div>
     </>
   );

@@ -7,10 +7,14 @@
  */
 
 $imageUrl = $attributes['imageUrl'] ?? '';
+$themeMode = $attributes['themeMode'] ?? 'light';
 $anchor = $attributes['anchor'] ?? '';
+
+$sectionClasses = ['section-benefits2'];
+if ($themeMode === 'dark') $sectionClasses[] = 'dark-mode';
 ?>
 
-<section class="section-benefits2" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
+<section class="<?php echo implode(' ', $sectionClasses); ?>" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container medium-container">
         <div class="left">
             <div class="state"></div>

@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-const { RichText, InspectorControls, MediaUpload, __experimentalLinkControl: LinkControl } = wp.blockEditor;
+const { RichText, InspectorControls, MediaUpload, __experimentalLinkControl: LinkControl, useBlockProps } = wp.blockEditor;
 const { PanelBody, TextControl, Button, SelectControl, Popover } = wp.components;
 const { useState } = wp.element;
 
@@ -15,7 +15,7 @@ const colorOptions = [
 function EditComponent({ attributes, setAttributes }) {
     const { linkUrl, imageUrl, title, description, tags, buttonColor, buttonText } = attributes;
     const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
-
+    const blockProps = useBlockProps();
     // Fonction pour gérer les tags
     const handleTagChange = (index, value) => {
         const newTags = [...tags];
@@ -145,7 +145,7 @@ function EditComponent({ attributes, setAttributes }) {
                     />
                 </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <div className="card-solution">
                 <div className="top">
                     <div className="banner">
@@ -186,6 +186,7 @@ function EditComponent({ attributes, setAttributes }) {
                         />
                   </button>
                 </div>
+            </div>
             </div>
         </>
     );

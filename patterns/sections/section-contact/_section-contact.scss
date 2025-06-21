@@ -17,6 +17,8 @@ section.section-contact {
         .right {
             width: 60%;
             padding: 20px;
+            display: flex;
+            align-items: center;
             .form-inner {
                 h2{
                     margin-bottom: 0px;

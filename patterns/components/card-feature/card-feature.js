@@ -1,12 +1,13 @@
 import { registerBlockType } from '@wordpress/blocks';
-const { RichText } = wp.blockEditor;
+const { RichText, useBlockProps } = wp.blockEditor;
 
 
 
 function EditComponent({ attributes, setAttributes }) {
     const { content } = attributes;
-
+    const blockProps = useBlockProps();
     return (
+        <div {...blockProps}>
         <div className="card-feature">
             <i className="fa-solid fa-check"></i>
             <RichText
@@ -16,6 +17,7 @@ function EditComponent({ attributes, setAttributes }) {
                 placeholder="Entrez votre fonctionnalité..."
             />
         </div>
+        </div>
     );
 }
 
@@ -24,7 +26,7 @@ function SaveComponent() {
 }
 
 registerBlockType('blocktheme/card-feature', {
-    parent: ['blocktheme/section-features'],
+    parent: ['blocktheme/section-features', 'blocktheme/card-pricing', 'blocktheme/section-benefits1'],
     attributes: {
         content: {
             type: "string",

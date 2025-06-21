@@ -24,7 +24,7 @@ function EditComponent({ attributes, setAttributes }) {
                     />
                 </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <form className="form-container">
                 <InnerBlocks 
                     allowedBlocks={ALLOWED_BLOCKS}
@@ -44,6 +44,7 @@ function EditComponent({ attributes, setAttributes }) {
                     </div>
                 </button>
             </form>
+            </div>
         </>
     )
 }

@@ -2,5 +2,18 @@ section.section-features{
     .content{
         display: flex;
         flex-wrap: wrap;
+        .card-feature{
+            width: calc(100% / 3);
+        }
+    }
+}
+
+@media screen and (max-width:900px){
+    section.section-features{
+        .content{
+            .card-feature{
+                width: 100%;
+            }
+        }
     }
 }

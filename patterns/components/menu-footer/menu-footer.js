@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls } from "@wordpress/block-editor";
+import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody, SelectControl, TextControl } from "@wordpress/components";
 import { useSelect } from '@wordpress/data';
 import metadata from './block.json';
@@ -8,7 +8,7 @@ import metadata from './block.json';
 
 function EditComponent({ attributes, setAttributes }) {
   const { menuSlug, title } = attributes;
-
+  const blockProps = useBlockProps();
   // Get available navigation menus
   const menus = useSelect((select) => {
     return select('core').getEntityRecords('postType', 'wp_navigation') || [];
@@ -43,11 +43,13 @@ function EditComponent({ attributes, setAttributes }) {
         </PanelBody>
       </InspectorControls>
 
+      <div {...blockProps}>
       <div className="menu-footer">
         <div className='title-menu'>{title || 'Menu Title'}</div>
         <div className="menu-placeholder">
           {menuSlug ? `Menu selected: ${menuSlug}` : 'Sélectionnez un menu dans le panneau latéral'}
         </div>
+      </div>
       </div>
     </>
   );

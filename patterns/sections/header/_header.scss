@@ -38,13 +38,19 @@
         box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.05);
         height: 70px;
         background-color: var(--wp--preset--color--bg);
+        .left{
+            .logo{
+                height: 28px;
+            }
+        }
     }
     .left{
         display: flex;
         align-items: center;
         .logo{
-            height: 25px;
+            height: 40px;
             display: block;
+            transition: all .2s ease-out;
         }
         .menu{
             margin: 0;

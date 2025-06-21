@@ -6,13 +6,13 @@ section.section-sponsors {
         align-items: center;
         gap: 70px;
         overflow-x: auto;
-        scroll-behavior: smooth;
+        // scroll-behavior: smooth;
         cursor: grab;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Pour Firefox */
         -ms-overflow-style: none; /* Pour IE et Edge */
         user-select: none;
-        margin-left: -50px;
+        // margin-left: -50px;
         &::-webkit-scrollbar{
             display: none;
         }
@@ -23,7 +23,7 @@ section.section-sponsors {
         .sponsor-item {
             flex: 0 0 auto;
             position: relative;
-            width: 220px;
+            width: 150px;
             img{
                 width: 100%;
                 filter: brightness(0) opacity(0.2);
@@ -46,7 +46,7 @@ section.section-sponsors {
         padding-top: 20px;
         padding-bottom: 20px;
         .sponsors-grid {
-            gap: 25px;
+            gap: 30px;
             .sponsor-item {
                 width: 100px;
             }

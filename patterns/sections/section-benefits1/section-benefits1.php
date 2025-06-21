@@ -7,12 +7,12 @@
  */
 
 $heading = $attributes['heading'] ?? '';
-$paragraph = $attributes['paragraph'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? '';
 $reversed = $attributes['reversed'] ?? false;
 $animation = $attributes['animation'] ?? '';
 $scrollingText = $attributes['scrollingText'] ?? '';
 $mediaType = $attributes['mediaType'] ?? 'image';
+$themeMode = $attributes['themeMode'] ?? 'light';
 $anchor = $attributes['anchor'] ?? '';
 
 // Ajouter la classe video si c'est une vidéo
@@ -20,20 +20,18 @@ $sectionClasses = ['section-benefits1'];
 if ($reversed) $sectionClasses[] = 'reversed';
 if ($animation) $sectionClasses[] = esc_attr($animation);
 if ($mediaType === 'video') $sectionClasses[] = 'has-video';
+if ($themeMode === 'dark') $sectionClasses[] = 'dark-mode';
 ?>
 
-<section class="<?php echo implode(' ', $sectionClasses); ?> <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>">
+
+<section class="<?php echo implode(' ', $sectionClasses); ?>" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
     <div class="container medium-container">
         <div class="left">
             <?php if ($heading) : ?>
                 <h2 class="h2"><?php echo esc_html($heading); ?></h2>
             <?php endif; ?>
             
-            <?php if ($paragraph) : ?>
-                <p class="p"><?php echo esc_html($paragraph); ?></p>
-            <?php endif; ?>
-            
-            <div class="buttons">
+            <div class="content">
                 <?php echo $content; ?>
             </div>
         </div>

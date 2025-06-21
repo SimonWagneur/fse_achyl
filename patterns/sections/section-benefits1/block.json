@@ -27,6 +27,10 @@
             "type": "boolean",
             "default": false
         },
+        "themeMode": {
+            "type": "string",
+            "default": "light"
+        },
         "anchor": { "type": "string" }
     },
     "textdomain": "blocktheme",

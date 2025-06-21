@@ -1,95 +1,103 @@
 jQuery(function($) {
-    // Initialisation de la galerie
-    const $galleries = $('.section-draggable[data-draggable="true"]');
+    // ========================================
+    // VARIABLES
+    // ========================================
+    const $sections = $('.section-draggable');
+    const scrollSpeed = 1;
 
-    $galleries.each(function() {
-        const $gallery = $(this);
-        
-        // Variables pour le drag
-        let isDragging = false;
-        let startX;
-        let scrollLeft;
-        let animationFrameId;
-        const autoScrollSpeed = 1;
+    // ========================================
+    // FONCTIONS
+    // ========================================
 
-        // Configuration initiale
-        const totalWidth = $gallery[0].scrollWidth;
-        const visibleWidth = $gallery[0].clientWidth;
+    // Fonction pour attendre que tous les éléments soient chargés
+    function waitForImages($section, callback) {
+        const $images = $section.find('img');
+        let loadedImages = 0;
+        const totalImages = $images.length;
 
-        // Fonction pour le défilement automatique
-        function autoScroll() {
-            if (!isDragging) {
-                let currentScroll = $gallery.scrollLeft();
-                $gallery.scrollLeft(currentScroll + autoScrollSpeed);
-                
-                // Vérifier la position de défilement
-                const maxScroll = $gallery[0].scrollWidth - $gallery[0].clientWidth;
+        if (totalImages === 0) {
+            // Pas d'images, on peut continuer directement
+            callback();
+            return;
+        }
 
-                // Si on atteint la fin, revenir au début en douceur
-                if ($gallery.scrollLeft() >= maxScroll) {
-                    $gallery.scrollLeft(0);
+        $images.each(function() {
+            const $img = $(this);
+            
+            if ($img[0].complete) {
+                // Image déjà chargée
+                loadedImages++;
+                if (loadedImages === totalImages) {
+                    callback();
                 }
+            } else {
+                // Attendre le chargement de l'image
+                $img.on('load', function() {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        callback();
+                    }
+                }).on('error', function() {
+                    // En cas d'erreur, on compte quand même
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        callback();
+                    }
+                });
             }
-            animationFrameId = requestAnimationFrame(autoScroll);
-        }
+        });
+    }
 
-        // Démarrer le défilement automatique si activé
-        if ($gallery.data('autoscroll') === true) {
-            autoScroll();
-        }
+    // Fonction pour initialiser une section
+    function initSection($section) {
+        // Attendre que tous les éléments soient chargés
+        waitForImages($section, function() {
+            // 1. Définir la largeur de la section réelle une fois chargée
+            const originalWidth = $section[0].scrollWidth;
+            const visibleWidth = $section[0].clientWidth;
+            const $children = $section.children();
 
-        // Gestionnaires d'événements pour le drag
-        $gallery
-            .on('mousedown', function(e) {
-                isDragging = true;
-                $gallery.addClass('dragging');
-                startX = e.pageX - $gallery.offset().left;
-                scrollLeft = $gallery.scrollLeft();
-            })
-            .on('mouseleave', function() {
-                isDragging = false;
-                $gallery.removeClass('dragging');
-            })
-            .on('mouseup', function() {
-                isDragging = false;
-                $gallery.removeClass('dragging');
-            })
-            .on('mousemove', function(e) {
-                if (!isDragging) return;
-                e.preventDefault();
-                
-                const x = e.pageX - $gallery.offset().left;
-                const walk = (x - startX) * 2;
-                const newScrollPosition = scrollLeft - walk;
-                
-                $gallery.scrollLeft(newScrollPosition);
-
-                // Gérer le défilement infini pendant le drag
-                const maxScroll = $gallery[0].scrollWidth - $gallery[0].clientWidth;
-                if (newScrollPosition >= maxScroll) {
-                    $gallery.scrollLeft(0);
-                    scrollLeft = 0;
-                    startX = e.pageX - $gallery.offset().left;
-                }
-            })
-            .on('mouseenter', function() {
-                cancelAnimationFrame(animationFrameId);
-            })
-            .on('mouseleave', function() {
-                if ($gallery.data('autoscroll') === true) {
-                    autoScroll();
-                }
+            // 2. Dupliquer le contenu de la section
+            $children.each(function() {
+                $(this).clone(true).appendTo($section);
             });
 
-        // Fonction pour dupliquer les éléments
-        function duplicateItems() {
-            const $items = $gallery.children();
-            $items.each(function() {
-                $(this).clone(true).appendTo($gallery);
-            });
+            // Attendre que la duplication soit terminée
+            setTimeout(() => {
+                // 3. Activer le défilement automatique
+                startAutoScroll($section, originalWidth);
+            }, 100);
+        });
+    }
+
+    // Fonction pour le défilement automatique
+    function startAutoScroll($section, originalWidth) {
+        // 4. Quand la section arrive à 1x sa largeur de défilement + 70px (ou 30px sur mobile), on réinitialise le scrollleft
+        const isMobile = window.innerWidth < 600;
+        const gap = isMobile ? 30 : 70;
+        const returnThreshold = originalWidth + gap;
+
+        function autoScroll() {
+            const currentScroll = $section.scrollLeft();
+            $section.scrollLeft(currentScroll + scrollSpeed);
+
+            // Vérifier si on doit réinitialiser
+            if (currentScroll >= returnThreshold) {
+                $section.scrollLeft(0);
+            }
+
+            requestAnimationFrame(autoScroll);
         }
 
-        // Dupliquer les éléments initialement
-        duplicateItems();
+        autoScroll();
+    }
+
+    // ========================================
+    // INITIALISATION
+    // ========================================
+    
+    $sections.each(function(index) {
+        const $section = $(this);
+        initSection($section);
     });
 });

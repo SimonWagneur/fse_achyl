@@ -146,26 +146,53 @@ button.primary:disabled{
         }
     }
 }
-button.primary.full{
-    height: 60px;
-    padding: 8px 8px 8px 25px;
-    .text{
-        .secondary{
-            font-size: 12px;
-            margin-top: -3px;
+button.primary.border{
+    &.black{
+        background-color: transparent;
+        color: var(--wp--preset--color--primary);
+        border: 1px solid var(--wp--preset--color--primary);
+        .round{
+            background-color: var(--wp--preset--color--primary);
+            color: var(--wp--preset--color--bg);
+        }
+        &:hover{
+            color: var(--wp--preset--color--secondary);
+            border: 1px solid var(--wp--preset--color--secondary);
+            .round{
+                background-color: var(--wp--preset--color--secondary);
+            }
         }
     }
-    .round-container{
-        height: 46px;
-        width: 46px;
-    }
-    &:hover{
-        .round-container{
+    &.green{
+        background-color: transparent;
+        color: var(--wp--preset--color--secondary);
+        border: 1px solid var(--wp--preset--color--secondary);
+        .round{
+            background-color: var(--wp--preset--color--secondary);
+            color: var(--wp--preset--color--bg);
+        }
+        &:hover{
+            color: var(--wp--preset--color--primary);
+            border: 1px solid var(--wp--preset--color--primary);
             .round{
-                height: 54px;
-                width: 54px;
-                margin-top: -4px;
-                margin-left: -4px;
+                background-color: var(--wp--preset--color--primary);
+            }
+        }
+    }
+    &.white{
+        background-color: transparent;
+        color: var(--wp--preset--color--bg);
+        border: 1px solid var(--wp--preset--color--bg);
+        .round{
+            background-color: var(--wp--preset--color--bg);
+            color: var(--wp--preset--color--primary);
+        }
+        &:hover{
+            color: var(--wp--preset--color--secondary);
+            border: 1px solid var(--wp--preset--color--secondary);
+            .round{
+                background-color: var(--wp--preset--color--secondary);
+                color: var(--wp--preset--color--bg);
             }
         }
     }

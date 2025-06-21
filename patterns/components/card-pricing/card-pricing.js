@@ -1,11 +1,12 @@
 import { registerBlockType } from '@wordpress/blocks';
-const { RichText, InnerBlocks, InspectorControls } = wp.blockEditor;
+const { RichText, InnerBlocks, InspectorControls, useBlockProps } = wp.blockEditor;
 const { PanelBody, ToggleControl, TextControl, DatePicker } = wp.components;
 const { __ } = wp.i18n;
 
 
 
-function EditComponent({ attributes, setAttributes }) {
+function EditComponent({ attributes, setAttributes, clientId }) {
+    const blockProps = useBlockProps();
     const { 
         title, 
         description, 
@@ -14,10 +15,13 @@ function EditComponent({ attributes, setAttributes }) {
         hasReducedPrice,
         reducedPrice,
         reducedPriceTva,
-        promoEndDate
+        promoEndDate,
+        hasButton,
+        buttonText,
+        buttonUrl
     } = attributes;
 
-    const ALLOWED_BLOCKS = ['blocktheme/button'];
+    const ALLOWED_BLOCKS = [ "blocktheme/button", "blocktheme/card-feature"];
     const TEMPLATE = [
         ['blocktheme/button']
     ];
@@ -57,8 +61,31 @@ function EditComponent({ attributes, setAttributes }) {
                         </>
                     )}
                 </PanelBody>
+                <PanelBody title={__('Options du bouton')}>
+                    <ToggleControl
+                        label={__('Afficher un bouton')}
+                        checked={hasButton}
+                        onChange={(value) => setAttributes({ hasButton: value })}
+                    />
+                    {hasButton && (
+                        <>
+                            <TextControl
+                                label={__('Texte du bouton')}
+                                value={buttonText}
+                                onChange={(value) => setAttributes({ buttonText: value })}
+                                placeholder="Choisir cette offre"
+                            />
+                            <TextControl
+                                label={__('Lien du bouton')}
+                                value={buttonUrl}
+                                onChange={(value) => setAttributes({ buttonUrl: value })}
+                                placeholder="#"
+                            />
+                        </>
+                    )}
+                </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <div className="card-pricing">
                 <div className="top">
                     <RichText
@@ -68,13 +95,11 @@ function EditComponent({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ title: value })}
                         placeholder="Entrez le titre de l'offre..."
                     />
-                    <RichText
-                        tagName="p"
-                        className="p"
-                        value={description}
-                        onChange={(value) => setAttributes({ description: value })}
-                        placeholder="Entrez la description de l'offre..."
-                    />
+                    <div className="features">
+                        <InnerBlocks
+                            allowedBlocks={['core/paragraph', 'blocktheme/card-feature']}
+                        />
+                    </div>
                 </div>
                 <div className="bottom">
                     {hasReducedPrice && reducedPrice && (
@@ -128,11 +153,26 @@ function EditComponent({ attributes, setAttributes }) {
                             Jusqu'au {new Date(promoEndDate).toLocaleDateString('fr-FR')}
                         </div>
                     )}
-                    <InnerBlocks
-                        allowedBlocks={ALLOWED_BLOCKS}
-                        template={TEMPLATE}
-                    />
+                    {hasButton && (
+                        <div className="buttons">
+                            <a>
+                                <button className="primary black">
+                                    <div className="text">
+                                        <div className="main">
+                                            <span>{buttonText || "Choisir cette offre"}</span>
+                                        </div>
+                                    </div>
+                                    <div className="round-container">
+                                        <div className="round">
+                                            <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </button>
+                            </a>
+                        </div>
+                    )}
                 </div>
+            </div>
             </div>
         </>
     );
@@ -175,6 +215,18 @@ registerBlockType('blocktheme/card-pricing', {
             default: ""
         },
         promoEndDate: {
+            type: "string",
+            default: ""
+        },
+        hasButton: {
+            type: "boolean",
+            default: false
+        },
+        buttonText: {
+            type: "string",
+            default: ""
+        },
+        buttonUrl: {
             type: "string",
             default: ""
         }

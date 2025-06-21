@@ -1,6 +1,17 @@
 section.section-benefits1{
     display: flex;
     align-items: center;
+    &.dark-mode{
+        background-color: var(--wp--preset--color--primary);
+        color: var(--wp--preset--color--bg);
+        .container{
+            .right{
+                .canvas{
+                    background-color: var(--wp--preset--color--primary);
+                }
+            }
+        }
+    }
     &.reversed{
         .container{
             flex-direction: row-reverse;
@@ -23,25 +34,20 @@ section.section-benefits1{
             p{
                 font-size: 22px;
                 line-height: 35px;
-                margin-bottom: 40px;
-                .feature{
-                    margin-bottom: 5px;
-                    display: flex;
-                    align-items: center;
-                    &:first-child{
-                        margin-top: 10px;
-                    }
-                    i{
-                        color: var(--wp--preset--color--secondary);
-                        margin-right: 10px;
-                        margin-left: 10px;
-                        font-size: 18px;
-                        margin-top: 4px;
-                    }
+            }
+            .card-feature {
+                font-size: 22px;
+                margin-bottom: 15px;
+                i{
+                    font-size: 18px;
+                    margin-top: 2px;
                 }
             }
             .controls{
                 padding-left: 0px;
+            }
+            button{
+                margin-top: 40px;
             }
         }
         .right{
@@ -194,7 +200,18 @@ section.section-benefits1{
                     line-height: 1.4em;
                     margin-bottom: 20px;
                 }
+                .card-feature {
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                    
+                    i{
+                        font-size: 14px;
+                        margin-top: 3px;
+                        margin-right: 10px;
+                    }
+                }
                 button{
+                    margin-top: 20px;
                     margin-bottom: 20px;
                 }
                 .controls{

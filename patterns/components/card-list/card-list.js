@@ -1,12 +1,12 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, RichText, MediaUpload } from "@wordpress/block-editor";
+import { InspectorControls, RichText, MediaUpload, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody, Button } from "@wordpress/components";
 
 
 
 function EditComponent({ attributes, setAttributes }) {
     const { backgroundImage, title, content } = attributes;
-
+    const blockProps = useBlockProps();
     return (
         <>
             <InspectorControls>
@@ -52,7 +52,7 @@ function EditComponent({ attributes, setAttributes }) {
                     </div>
                 </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <div 
                 className="card-list" 
                 data-url={backgroundImage}
@@ -71,6 +71,7 @@ function EditComponent({ attributes, setAttributes }) {
                     onChange={content => setAttributes({ content })}
                     placeholder="Votre texte ici..."
                 />
+            </div>
             </div>
         </>
     );

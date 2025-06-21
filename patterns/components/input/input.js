@@ -12,7 +12,7 @@ function sanitize_label(label) {
 function EditComponent({ attributes, setAttributes }) {
     const { type, label, width, selectOptions } = attributes;
     const id = sanitize_label(label);
-
+    const blockProps = useBlockProps();
     // Options disponibles pour le type de champ
     const typeOptions = [
         { label: "Texte", value: "texte" },
@@ -127,10 +127,11 @@ function EditComponent({ attributes, setAttributes }) {
                     )}
                 </PanelBody>
             </InspectorControls>
-
+            <div {...blockProps}>
             <div className={`input-box ${width}`}>
                 {renderField()}
                 <label htmlFor={id}>{label}</label>
+            </div>
             </div>
         </>
     )
