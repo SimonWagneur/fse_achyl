@@ -24,6 +24,7 @@
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(emailValue)) {
                     thisForm.find('.responseMessage').html('L\'adresse email est incorrecte.').addClass('error');
+                    thisForm.find('button').prop("disabled", false).html('<div class="text"><div class="main"><span>Envoyer</span></div></div><div class="round-container"><div class="round"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></div></div>');
                     return;
                 }
                 
@@ -48,7 +49,7 @@
                         console.log(response);
                         // console.log(response.email);
                         if(response.status === "success"){
-                            thisForm.find('.responseMessage').html('Votre demande a été envoyée avec succès.').addClass('success');
+                            thisForm.find('.responseMessage').removeClass('error').html('Votre demande a été envoyée avec succès.').addClass('success');
                             thisForm.find('button').html('<div class="text"><div class="main"><span>Message envoyé</span></div></div><div class="round-container"><div class="round"><i class="fa-solid fa-check" aria-hidden="true"></i></div></div>');
                         }
                         else{
