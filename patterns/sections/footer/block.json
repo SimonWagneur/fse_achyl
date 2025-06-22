@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "blocktheme/footer",
+  "title": "Pied de page",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Le pied de page du site",
+  "supports": {
+    "align": ["full"],
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "facebookUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "instagramUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "youtubeUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "file:../../../build/index.js",
+  "style": "file:./footer.css",
+  "render": "file:./footer.php"
+}

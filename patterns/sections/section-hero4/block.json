@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-hero4",
+    "title": "Section Hero 4",
+    "category": "sections",
+    "icon": "align-wide",
+    "description": "Section hero avec alignements personnalisables et média de fond",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        },
+        "horizontalAlignment": {
+            "type": "string",
+            "default": "hcenter",
+            "enum": ["hleft", "hcenter", "hright"]
+        },
+        "verticalAlignment": {
+            "type": "string",
+            "default": "vcenter",
+            "enum": ["vtop", "vcenter", "vbottom"]
+        },
+        "backgroundType": {
+            "type": "string",
+            "default": "none",
+            "enum": ["none", "image", "video"]
+        },
+        "backgroundImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number",
+            "default": 0
+        },
+        "backgroundImageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundVideoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundVideoId": {
+            "type": "number",
+            "default": 0
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "render": "file:./section-hero4.php",
+    "style": "file:./section-hero4.css"
+}

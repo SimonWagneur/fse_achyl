@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-benefits1",
+    "title": "Section Benefits 1",
+    "category": "theme",
+    "icon": "star-filled",
+    "description": "Section de bénéfices avec titre, texte, boutons et image",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "paragraph": {
+            "type": "string",
+            "default": ""
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "reversed": {
+            "type": "boolean",
+            "default": false
+        },
+        "themeMode": {
+            "type": "string",
+            "default": "light"
+        },
+        "anchor": { "type": "string" }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-benefits1.css",
+    "render": "file:./section-benefits1.php"
+}

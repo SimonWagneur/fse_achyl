@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "blocktheme/header",
+  "title": "Navbar",
+  "category": "theme",
+  "icon": "menu",
+  "description": "En-tête du site avec navigation et logo",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "menuSlug": {
+      "type": "string",
+      "default": ""
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "isTransparent": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "editorScript": "file:../../../build/index.js",
+  "style": "file:./header.css",
+  "render": "file:./header.php"
+}

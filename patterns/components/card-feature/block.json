@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/card-feature",
+    "title": "Card Feature",
+    "category": "theme",
+    "icon": "yes-alt",
+    "description": "Fonctionnalité avec icône check",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "content": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-feature.css",
+    "render": "file:./card-feature.php"
+}

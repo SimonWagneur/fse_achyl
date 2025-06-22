@@ -1,0 +1,6 @@
+# Exclude WordPress cache and temp files
+*.log
+.DS_Store
+node_modules/
+vendor/
+*.zip

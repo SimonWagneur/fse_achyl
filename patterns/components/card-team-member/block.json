@@ -1,0 +1,34 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "fse-achyl/card-team-member",
+    "title": "Card Team Member",
+    "category": "theme",
+    "icon": "admin-users",
+    "description": "A card displaying team member information",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "fse-achyl",
+    "attributes": {
+        "profileImage": {
+            "type": "object",
+            "default": {
+                "url": "",
+                "id": null,
+                "alt": ""
+            }
+        },
+        "memberName": {
+            "type": "string",
+            "default": ""
+        },
+        "memberDescription": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-team-member.css",
+    "render": "file:./card-team-member.php"
+}

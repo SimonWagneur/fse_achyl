@@ -1,0 +1,52 @@
+section.section-cta{
+    padding-top: 50px;
+    padding-bottom: 0px;
+    text-align: center;
+    color: var(--wp--preset--color--bg);
+    .bg{
+        margin: 2.5vw;
+        padding: 12vw 2.5vw;
+        background-color: var(--wp--preset--color--primary);
+        border-radius: 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    .container{
+        width: 90%;
+        max-width: 700px;
+        h2{
+            margin-bottom: 15px;
+        }
+        p{
+            margin-bottom: 50px;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    section.section-cta{
+        text-align: left;
+        
+        .bg{
+            border-radius: 15px;
+            margin: 5%;
+            margin-top: 0px;
+            width: 90%;
+        }
+        .container{
+            p{
+                margin-bottom: 40px;
+            }
+            .buttons{
+                justify-content: left;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

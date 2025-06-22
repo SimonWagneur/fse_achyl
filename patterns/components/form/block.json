@@ -1,0 +1,28 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/form",
+    "title": "Formulaire",
+    "category": "theme",
+    "icon": "feedback",
+    "description": "Formulaire personnalisable",
+    "attributes": {
+        "buttonText": {
+            "type": "string",
+            "default": "Envoyer"
+        },
+        "destination": {
+            "type": "string",
+            "default": ""
+        },
+        "objet": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "anchor": true
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./form.css",
+    "render": "file:./form.php"
+}

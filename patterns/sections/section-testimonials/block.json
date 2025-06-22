@@ -1,0 +1,15 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/section-testimonials",
+    "title": "Section Testimonials",
+    "category": "theme",
+    "icon": "testimonial",
+    "description": "Section de témoignages avec titre et slider",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-testimonials.css",
+    "render": "file:./section-testimonials.php"
+}

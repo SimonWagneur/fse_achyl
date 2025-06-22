@@ -1,0 +1,11 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/card-testimonial",
+    "title": "Card Testimonial",
+    "category": "theme",
+    "icon": "format-quote",
+    "description": "Un bloc de témoignage avec citation, étoiles et informations sur l'auteur",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./card-testimonial.css",
+    "render": "file:./card-testimonial.php"
+}

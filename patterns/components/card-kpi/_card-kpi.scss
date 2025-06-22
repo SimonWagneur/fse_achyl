@@ -1,0 +1,67 @@
+.card-kpi {
+    flex: 1 1 0;
+    min-width: 300px;
+    min-height: 250px;
+    border-radius: 15px;
+    outline: 1px var(--wp--preset--color--text) solid;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .content {
+      margin-top: -5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      color: var(--wp--preset--color--text);
+
+      .number {
+        font-size: 85px;
+        font-weight: 700;
+        word-wrap: break-word;
+      }
+
+      .wording {
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: uppercase;
+        word-wrap: break-word;
+      }
+    }
+}
+
+@media screen and (max-width: 900px) {
+  .card-kpi {
+    min-width: 200px;
+    min-height: 200px;
+    gap: 0px;
+    .content {
+      gap: 0px;
+      .number {
+          font-size: 60px;
+      }
+      .wording{
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-kpi {
+    min-width: 100%;
+    min-height: 150px;
+    .content {
+      .number {
+          font-size: 50px;
+      }
+      .wording{
+        font-size: 14px;
+      }
+    }
+  }
+}

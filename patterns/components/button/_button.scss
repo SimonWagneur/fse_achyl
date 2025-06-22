@@ -1,0 +1,239 @@
+button.primary{
+    padding: 8px 8px 8px 25px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 100px;
+    transition: all .15s ease;
+    font-family: inherit;
+    line-height: 1.7em;
+    .text{
+        text-align: left;
+        .main{
+            font-size: 16px;
+        }
+    }
+    .round-container{
+        height: 34px;
+        width: 34px;
+        margin-left: 20px;
+        .round{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .15s ease;
+            .fa-solid{
+                font-size: 16px;
+            }
+        }
+    }
+    &:hover{
+        .round-container{
+            .round{
+                height: 44px;
+                width: 44px;
+                margin-top: -5px;
+                margin-left: -5px;
+            }
+        }
+    }
+    &.black{
+        background-color: var(--wp--preset--color--primary);
+        color: var(--wp--preset--color--bg);
+        .round{
+            background-color: var(--wp--preset--color--bg);
+            color: var(--wp--preset--color--primary);
+        }
+        &:hover{
+            background-color: var(--wp--preset--color--secondary);
+        }
+    }
+    &.green{
+        background-color: var(--wp--preset--color--secondary);
+        color: var(--wp--preset--color--bg);
+        .round{
+            background-color: var(--wp--preset--color--bg);
+            color: var(--wp--preset--color--primary);
+        }
+        &:hover{
+            background-color: var(--wp--preset--color--primary);
+            color: var(--wp--preset--color--bg);
+        }
+    }
+    &.white{
+        background-color: var(--wp--preset--color--bg);
+        color: var(--wp--preset--color--primary);
+        .round{
+            background-color: var(--wp--preset--color--primary);
+            color: var(--wp--preset--color--bg);
+        }
+        &:hover{
+            background-color: var(--wp--preset--color--secondary);
+        }
+    }
+    .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+    }
+    .lds-ellipsis div {
+        position: absolute;
+        top: 12px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+        left: 4px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+        left: 4px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+        left: 16px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+        left: 28px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
+    @keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+    }
+    @keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(12px, 0);
+    }
+    }
+}
+button.primary:disabled{
+    opacity: 0.5;
+    cursor: default;
+    &:hover{
+        background-color: var(--wp--preset--color--primary);
+        .round-container{
+            .round{
+                height: 34px;
+                width: 34px;
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+        }
+    }
+}
+button.primary.border{
+    &.black{
+        background-color: transparent;
+        color: var(--wp--preset--color--primary);
+        border: 1px solid var(--wp--preset--color--primary);
+        .round{
+            background-color: var(--wp--preset--color--primary);
+            color: var(--wp--preset--color--bg);
+        }
+        &:hover{
+            color: var(--wp--preset--color--secondary);
+            border: 1px solid var(--wp--preset--color--secondary);
+            .round{
+                background-color: var(--wp--preset--color--secondary);
+            }
+        }
+    }
+    &.green{
+        background-color: transparent;
+        color: var(--wp--preset--color--secondary);
+        border: 1px solid var(--wp--preset--color--secondary);
+        .round{
+            background-color: var(--wp--preset--color--secondary);
+            color: var(--wp--preset--color--bg);
+        }
+        &:hover{
+            color: var(--wp--preset--color--primary);
+            border: 1px solid var(--wp--preset--color--primary);
+            .round{
+                background-color: var(--wp--preset--color--primary);
+            }
+        }
+    }
+    &.white{
+        background-color: transparent;
+        color: var(--wp--preset--color--bg);
+        border: 1px solid var(--wp--preset--color--bg);
+        .round{
+            background-color: var(--wp--preset--color--bg);
+            color: var(--wp--preset--color--primary);
+        }
+        &:hover{
+            color: var(--wp--preset--color--secondary);
+            border: 1px solid var(--wp--preset--color--secondary);
+            .round{
+                background-color: var(--wp--preset--color--secondary);
+                color: var(--wp--preset--color--bg);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    button.primary:disabled{
+        &:hover{
+            .round-container{
+                .round{
+                    height: 32px;
+                    width: 32px;
+                    margin-top: 0px;
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+    button.primary.full{
+        height: auto;
+        padding: 8px 8px 8px 25px;
+        .text{
+            .secondary{
+                display: none;
+            }
+        }
+        .round-container{
+            height: 34px;
+            width: 34px;
+            margin-left: 20px;
+        }
+        &:hover{
+            .round-container{
+                .round{
+                    height: 44px;
+                    width: 44px;
+                    margin-top: -5px;
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+}

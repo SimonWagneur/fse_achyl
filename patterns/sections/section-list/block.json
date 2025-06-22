@@ -1,0 +1,22 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/section-list",
+    "title": "Section List",
+    "category": "theme",
+    "icon": "list-view",
+    "description": "Une section avec titre et liste de cartes",
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Votre titre ici"
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-list.css",
+    "render": "file:./section-list.php"
+}

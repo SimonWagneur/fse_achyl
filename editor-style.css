@@ -1,0 +1,241 @@
+/* Appliqué uniquement dans l’éditeur Gutenberg */
+
+/* Global */
+body.block-editor-page .editor-styles-wrapper {
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.editor-visual-editor{
+    background-color: white;
+}
+
+.wp-block {
+    padding: 10px;
+    border-radius: 2px;
+}
+.editor-styles-wrapper button{
+    z-index: 99;
+}
+.editor-styles-wrapper .slider{
+    overflow: auto !important;
+}
+.block-editor-inner-blocks, .block-editor-block-list__layout{
+    display: inherit !important;
+}
+
+
+.editor-styles-wrapper section{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+
+/* Navbar */
+.editor-styles-wrapper .navbar .left img{
+    opacity: 0.2 !important;
+    position: absolute;
+}
+.editor-styles-wrapper .navbar .left button{
+    margin-right: 50px;
+}
+.editor-styles-wrapper .navbar .menu-container{
+    margin-left: 50px;
+}
+
+
+/* Hero 1 */
+.editor-styles-wrapper section.hero .visual-container img {
+  height: 100% !important;
+  width: 100% !important;
+  transform: none !important;
+  position: absolute !important;
+  opacity: 0.2 !important;
+  top: 0px !important;
+  left: 0px !important;
+}   
+.editor-styles-wrapper section.hero .visual-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}   
+.editor-styles-wrapper section.hero .visual-container button {
+    z-index: 99 !important;
+  }   
+
+
+/* Section solutions */
+.editor-styles-wrapper section.section-solutions .solutions-container{
+    width: 100% !important;
+    display: block !important;
+}
+
+.editor-styles-wrapper section.section-solutions .solutions-container .block-editor-block-list__layout{
+    display: grid !important;
+    grid-template-columns: auto auto !important;
+    gap: 30px !important;
+}
+/* .editor-styles-wrapper section.section-solutions .solutions-container .card-solution{
+    width: calc(50% - 25px);
+} */
+
+
+/* Section benefits 1 */
+.editor-styles-wrapper section.section-benefits1 .canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editor-styles-wrapper section.section-benefits1 .canvas .media-buttons {
+    position: absolute;
+    z-index: 3;
+    top: unset !important;
+    right: unset !important;
+}
+.editor-styles-wrapper section.section-benefits1 .canvas .media-placeholder {
+    position: absolute;
+    z-index: 3;
+}
+.editor-styles-wrapper section.section-benefits1 img {
+  opacity: 0.2 !important;
+}
+
+
+
+/* Section projects */
+.editor-styles-wrapper section.section-projects .card-project{
+    width: 1100px !important;
+}
+
+
+/* Section pricing */
+.editor-styles-wrapper section.section-pricing .block-editor-inner-blocks{
+    width: 100% !important;
+}
+.editor-styles-wrapper section.section-pricing .block-editor-block-list__layout{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+
+/* Section features */
+.editor-styles-wrapper section.section-features .block-editor-block-list__layout{
+    flex-wrap: wrap !important;
+}
+.editor-styles-wrapper section.section-features .content .card-feature {
+    width: 100% !important;
+}
+.editor-styles-wrapper section.section-features .content .wp-block-blocktheme-card-feature {
+    width: calc(100% / 3) !important;
+}
+
+
+/* Section kpis */
+.editor-styles-wrapper section.section-kpi .block-editor-inner-blocks{
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+.editor-styles-wrapper section.section-kpi .block-editor-block-list__layout{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+}
+
+
+/* Section gallery */
+.editor-styles-wrapper section.section-gallery .gallery-grid{
+    flex-wrap: wrap !important;
+    margin-left: 0px !important;
+}
+.editor-styles-wrapper section.section-gallery .gallery-grid .gallery-item{
+    width: 200px !important;
+}   
+
+/* section team */
+.editor-styles-wrapper section.section-team .team-members{
+    display: flex !important;
+}
+.editor-styles-wrapper section.section-team .block-editor-block-list__layout{
+    gap: 20px !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+}
+.editor-styles-wrapper section.section-team .pp .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.editor-styles-wrapper section.section-team .pp .image-container img{
+    opacity: 0.2 !important;
+}
+.editor-styles-wrapper section.section-team .pp .image-container button{
+    position:  absolute !important;
+}
+
+/* section sponsors */
+.editor-styles-wrapper section.section-sponsors .sponsors-grid{
+    flex-wrap: wrap !important;
+    margin-left: 0px !important;
+}
+.editor-styles-wrapper section.section-sponsors .sponsors-grid .sponsor-item{
+    width: 200px !important;
+}   
+
+/* section contact */
+.editor-styles-wrapper section.section-contact .image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.editor-styles-wrapper section.section-contact .image-container img{
+    opacity: 0.2 !important;
+}
+.editor-styles-wrapper section.section-contact .button-container{
+    position: absolute;
+}
+
+/* form */
+.editor-styles-wrapper .form-container .block-editor-inner-blocks{
+    width: 100%;
+}
+.editor-styles-wrapper .form-container .block-editor-block-list__layout{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    width: 100%;
+}
+
+/* section solutions 2 */
+.editor-styles-wrapper section.section-solution2 .block-editor-inner-blocks{
+    width: 100% !important;
+    flex-wrap: wrap !important;
+}
+.editor-styles-wrapper section.section-solution2 .block-editor-block-list__layout{
+    width: 100% !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+/* section steps */
+.editor-styles-wrapper .card-step, .editor-styles-wrapper .card-testimonial, .editor-styles-wrapper .card-pricing{
+    height: 100% !important;
+}
+
+/* form */
+.editor-styles-wrapper .form-container .block-editor-block-list__layout{
+    display: block !important;
+}
+.editor-styles-wrapper .form-container .block-list-appender{
+    position: relative !important;
+}

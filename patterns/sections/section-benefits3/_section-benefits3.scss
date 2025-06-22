@@ -1,0 +1,181 @@
+section.section-benefits3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10vw;
+    padding-right: 3vw;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    &.dark-mode{
+        background-color: var(--wp--preset--color--primary);
+        color: var(--wp--preset--color--bg);
+        .container{
+            .right{
+                .canvas{
+                    background-color: var(--wp--preset--color--primary);
+                }
+            }
+        }
+    }
+    &.reversed{
+        flex-direction: row-reverse;
+        padding-left: 3vw;
+        padding-right: 10vw;
+        .left{
+            padding-right: 0px;
+            padding-left: 60px;
+            
+        }
+    }
+    .left{
+        width: 45%;
+        padding-right: 40px;
+        // margin-top: 60px;
+        .state{
+            margin-bottom: 10px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 22px;
+            line-height: 35px;
+        }
+        .card-feature {
+            font-size: 22px;
+            margin-bottom: 15px;
+            i{
+                font-size: 18px;
+                margin-top: 2px;
+            }
+        }
+        .controls{
+            padding-left: 0px;
+        }
+        button{
+            margin-top: 40px;
+        }
+    }
+    .right{
+        width: 50vw;
+        .canvas{
+            width: 100%;
+            height: 110vh;
+            background-color: var(--wp--preset--color--grey);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            p{
+                max-width: 70%;
+                text-align: center;
+                color: #CCCCCC;
+                font-size: 32px;
+                text-transform: uppercase;
+                line-height: 38px;
+                z-index: 2;
+            }
+            #heroBackground{
+                position: absolute;
+                transition: all .2s ease-out;
+                opacity: 1;
+                filter: blur(0);
+                // width: 100%; /* L'image prend toute la largeur */
+                height: 100%; /* L'image prend toute la hauteur */
+                width: 100%;
+                object-fit: cover; /* Ajuste l'image pour couvrir tout l'espace */
+                &.blurring{
+                    filter: blur(20px);
+                }
+            }
+            .toggle-button-box{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px){
+    section.section-benefits3{
+        flex-wrap: wrap;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        width: 100vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        &.reversed{
+            padding-left: 5vw;
+            padding-right: 5vw;
+            .left{
+                padding-left: 0px;
+            }
+        }
+        .left{
+            width: 100%;
+        }
+        .right{
+            width: 100%;
+            margin-top: 40px;
+            .canvas{
+                max-height: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    section.section-benefits3{
+        &.reversed{
+            .right{
+                margin-bottom: 0px;
+            }
+        }
+            .left{
+                width: 100%;
+                margin-top: 0px;
+                p{
+                    font-size: 16px;
+                    line-height: 1.4em;
+                    margin-bottom: 20px;
+                }
+                .card-feature {
+                    font-size: 16px;
+                    margin-bottom: 8px;
+                    
+                    i{
+                        font-size: 14px;
+                        margin-top: 3px;
+                        margin-right: 10px;
+                    }
+                }
+                button{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .controls{
+                    margin-bottom: 20px;
+                }
+            }
+            .right{
+                width: 100%;
+                margin-top: 0px;
+                margin-bottom: 50px;
+                .canvas{
+                    height: auto;
+                    aspect-ratio: 1 / 1;
+
+                    p{
+                        max-width: 80%;
+                        font-size: 24px;
+                        line-height: 28px;
+                    }
+                }
+        }
+    }
+}

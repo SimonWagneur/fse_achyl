@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-benefits2",
+    "title": "Section Benefits 2",
+    "category": "theme",
+    "icon": "slides",
+    "description": "Section de bénéfices avec slider et contrôles",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "themeMode": {
+            "type": "string",
+            "default": "light"
+        }
+    },
+    "textdomain": "blocktheme",
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-benefits2.css",
+    "render": "file:./section-benefits2.php"
+}

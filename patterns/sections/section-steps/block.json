@@ -1,0 +1,16 @@
+{
+    "apiVersion": 2,
+    "name": "blocktheme/section-steps",
+    "title": "Section Steps",
+    "category": "theme",
+    "icon": "slides",
+    "description": "Une section avec titre et slider de cartes étapes",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "editorScript": "file:../../../build/index.js",
+    "viewScript": "file:./frontend.js",
+    "style": "file:./section-steps.css",
+    "render": "file:./section-steps.php"
+}

@@ -1,0 +1,108 @@
+.card-pricing{
+    border: solid 1px var(--wp--preset--color--grey-dark);;
+    border-radius: 15px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3{
+        margin-bottom: 15px;
+    }
+    p{
+        margin-bottom: 10px;
+    }
+    .card-feature {
+        padding-right: 10px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        i{
+            margin-right: 10px;
+            font-size: 16px;
+            margin-top: 2px;
+        }
+    }
+    .feature{
+        font-size: 20px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        i{
+            color: var(--wp--preset--color--secondary);
+            margin-right: 10px;
+            margin-left: 10px;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+    }
+    .bottom{
+        margin-top: 40px;
+    }
+    .prix{
+        display: flex;
+        align-items: flex-start;
+        .montant{
+            font-size: 70px;
+            font-weight: 700;
+            margin-right: 10px;
+            line-height: 1.1;
+        }
+        .tva{
+            font-size: 20px;
+            padding-top: 15px;
+        }
+        &.inactive{
+            color: #ABABAB;
+            text-decoration: line-through;
+        }
+    }
+    .promo{
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 9%;
+        color: var(--wp--preset--color--primary);
+    }
+    a button{
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width:900px){
+    .card-pricing{
+        width: 100%;
+        padding: 40px 30px;
+        h3{
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:600px){
+    .card-pricing{
+        padding: 30px 25px;
+        .bottom{
+            margin-top: 20px;
+            .prix{
+                margin-top: -10px;
+                .montant{
+                    font-size: 70px;
+                    margin-right: 10px;
+                }
+                .tva{
+                    font-size: 23px;
+                    padding-top: 15px;
+                }
+                &.inactive{
+                    .montant{
+                        font-size: 50px;
+                        margin-right: 10px;
+                    }
+                    .tva{
+                        font-size: 15px;
+                        padding-top: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+}

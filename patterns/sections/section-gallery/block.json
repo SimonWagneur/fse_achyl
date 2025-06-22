@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "blocktheme/section-gallery",
+    "title": "Section Gallery",
+    "category": "sections",
+    "icon": "format-gallery",
+    "description": "Section galerie avec titre, description et sélection de médias",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaItems": {
+            "type": "array",
+            "default": [],
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "number" },
+                    "url": { "type": "string" },
+                    "type": { "type": "string" },
+                    "alt": { "type": "string" },
+                    "link": { "type": "string", "default": "" }
+                }
+            }
+        }
+    },
+    "editorScript": "file:../../../build/index.js",
+    "style": "file:./section-gallery.css",
+    "render": "file:./section-gallery.php"
+}

@@ -1,0 +1,23 @@
+section.section-testimonials{
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+        h2{
+            margin-bottom: 0px;
+            max-width: 800px;
+        }
+    }
+    .bottom{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 600px){
+    section.section-testimonials{
+        .top{
+            margin-bottom: 40px;
+        }
+    }
+}

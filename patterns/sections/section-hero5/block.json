@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "fse-achyl/section-hero5",
+    "title": "Section Hero 5",
+    "category": "sections",
+    "icon": "align-center",
+    "description": "Section héro simple avec le titre de la page",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
+    "editorScript": "file:../../../build/index.js",
+    "render": "file:./section-hero5.php",
+    "style": "file:./section-hero5.css"
+}
