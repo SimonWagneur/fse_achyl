@@ -135,7 +135,6 @@ button.primary:disabled{
     opacity: 0.5;
     cursor: default;
     &:hover{
-        background-color: var(--wp--preset--color--primary);
         .round-container{
             .round{
                 height: 34px;
@@ -145,6 +144,16 @@ button.primary:disabled{
             }
         }
     }
+    &.black{
+        background-color: var(--wp--preset--color--primary);
+    }
+    &.green{
+        background-color: var(--wp--preset--color--secondary);
+    }
+    &.white{
+        background-color: var(--wp--preset--color--bg);
+    }
+
 }
 button.primary.border{
     &.black{

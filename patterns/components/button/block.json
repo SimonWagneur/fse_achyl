@@ -36,6 +36,7 @@
   "attributes": {
     "text": { "type": "string", "default": "" },
     "linkObject": { "type": "object", "default": { "url": "" } },
+    "linkUrl": { "type": "string", "default": "" },
     "colorName": { "type": "string", "default": "black" },
     "disabled": { "type": "boolean", "default": false },
     "buttonStyle": { "type": "string", "default": "primary" },

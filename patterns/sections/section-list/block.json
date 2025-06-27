@@ -13,7 +13,7 @@
     "attributes": {
         "title": {
             "type": "string",
-            "default": "Votre titre ici"
+            "default": ""
         }
     },
     "editorScript": "file:../../../build/index.js",

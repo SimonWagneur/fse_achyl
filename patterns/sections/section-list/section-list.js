@@ -56,7 +56,7 @@ registerBlockType("blocktheme/section-list", {
     attributes: {
         title: {
             type: "string",
-            default: "Votre titre ici"
+            default: ""
         },
         anchor: { type: "string" }
     },

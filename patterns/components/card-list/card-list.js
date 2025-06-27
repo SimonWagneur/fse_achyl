@@ -62,14 +62,14 @@ function EditComponent({ attributes, setAttributes }) {
                     className="h3"
                     value={title}
                     onChange={title => setAttributes({ title })}
-                    placeholder="Votre titre ici..."
+                    placeholder="Titre"
                 />
                 <RichText
                     tagName="p"
                     className="p"
                     value={content}
                     onChange={content => setAttributes({ content })}
-                    placeholder="Votre texte ici..."
+                    placeholder="Texte"
                 />
             </div>
             </div>
@@ -90,8 +90,8 @@ registerBlockType("blocktheme/card-list", {
     },
     attributes: {
         backgroundImage: { type: "string", default: "" },
-        title: { type: "string", default: "Votre titre ici" },
-        content: { type: "string", default: "Votre texte ici" }
+        title: { type: "string", default: "" },
+        content: { type: "string", default: "" }
     },
     edit: EditComponent,
     save: () => null

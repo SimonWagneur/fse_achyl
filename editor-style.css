@@ -75,7 +75,7 @@ body.block-editor-page .editor-styles-wrapper {
 
 .editor-styles-wrapper section.section-solutions .solutions-container .block-editor-block-list__layout{
     display: grid !important;
-    grid-template-columns: auto auto !important;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px !important;
 }
 /* .editor-styles-wrapper section.section-solutions .solutions-container .card-solution{

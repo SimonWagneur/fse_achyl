@@ -21,6 +21,7 @@
         else{
             if (st > lastScrollTop){
                 $('.navbar').css("margin-top","-100px");
+                $('.navbar').addClass('scrolled');
             } else {
                 $('.navbar').css("margin-top","0px");
                 $('.navbar').addClass('scrolled');
