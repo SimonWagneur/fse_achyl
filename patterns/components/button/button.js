@@ -1,6 +1,7 @@
 import ourColors from '../../../assets/colors/ourColors';
-import { RichText, InspectorControls, getColorObjectByColorValue, useBlockProps } from "@wordpress/block-editor"
-import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl, SelectControl } from "@wordpress/components"
+import { RichText, InspectorControls, getColorObjectByColorValue, useBlockProps, __experimentalLinkControl as LinkControl } from "@wordpress/block-editor"
+import { TextControl, PanelBody, PanelRow, ColorPalette, CheckboxControl, SelectControl, Popover, Button } from "@wordpress/components"
+import { useState } from '@wordpress/element';
 import metadata from './block.json';
 import { registerBlockType } from '@wordpress/blocks';
 
@@ -8,6 +9,11 @@ import { registerBlockType } from '@wordpress/blocks';
 
 function EditComponent({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
+  const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false)
+  
+  function handleLinkChange(newLink) {
+    setAttributes({ linkObject: newLink })
+  }
 
   function handleTextChange(value) {
     setAttributes({ text: value });
@@ -15,10 +21,6 @@ function EditComponent({ attributes, setAttributes }) {
 
   function preventClickInEditor(event) {
     event.preventDefault();
-  }
-
-  function handleLinkChange(newLink) {
-    setAttributes({ linkUrl: newLink })
   }
 
   const currentColorValue = ourColors.filter(color => {
@@ -36,6 +38,10 @@ function EditComponent({ attributes, setAttributes }) {
 
   function handleButtonStyleChange(newStyle) {
     setAttributes({ buttonStyle: newStyle });
+  }
+
+  function buttonHandler() {
+    setIsLinkPickerVisible(prev => !prev)
   }
 
   // Déterminer les classes CSS en fonction du style du bouton
@@ -57,12 +63,12 @@ function EditComponent({ attributes, setAttributes }) {
             />
           </PanelRow>
         </PanelBody>
-        <PanelBody title="Lien" initialOpen={true}>
+        {/* <PanelBody title="Lien" initialOpen={true}>
           <TextControl
             value={attributes.linkUrl}
             onChange={handleLinkChange}
           />
-        </PanelBody>
+        </PanelBody> */}
         <PanelBody title="Couleur" initialOpen={true}>
           <PanelRow>
             <ColorPalette disableCustomColors={true} clearable={false} colors={ourColors} value={currentColorValue} onChange={handleColorChange} />
@@ -78,9 +84,9 @@ function EditComponent({ attributes, setAttributes }) {
           </PanelRow>
         </PanelBody>
       </InspectorControls>
-      <div {...blockProps}>
+      <div {...blockProps} onClick={buttonHandler}>
         <a
-          href={attributes.linkUrl || "#"}
+          href={attributes.linkObject.url || "#"}  
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'inline-block' }}
@@ -108,6 +114,14 @@ function EditComponent({ attributes, setAttributes }) {
           </button>
         </a>
       </div>
+      {isLinkPickerVisible && (
+      <Popover position="middle center">
+        <LinkControl settings={[]}  value={attributes.linkObject} onChange={handleLinkChange} />
+        <Button variant="primary" onClick={() => setIsLinkPickerVisible(false)} style={{ display: "block", width: "100%" }}>
+          Confirmer
+        </Button>
+      </Popover>
+      )}
     </>
   );
 }

@@ -16,14 +16,15 @@ $anchor = $attributes['anchor'] ?? '';
   <div class="container medium-container">
     <div class="left">
       <?php if (!empty($heading)) : ?>
-        <h1 class="h1"><?php echo wp_kses_post($heading); ?></h1>
+        <h1 class="h1 visible"><?php echo wp_kses_post($heading); ?></h1>
       <?php endif; ?>
 
       <?php if (!empty($paragraph)) : ?>
-        <p class="p"><?php echo wp_kses_post($paragraph); ?></p>
+        <p class="p visible"><?php echo wp_kses_post($paragraph); ?></p>
       <?php endif; ?>
-
-      <?php echo $content; // InnerBlocks content ?>
+      <div class="visible">
+        <?php echo $content; // InnerBlocks content ?>
+      </div>
     </div>
 
     <div class="right">

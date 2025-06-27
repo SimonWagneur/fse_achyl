@@ -20,7 +20,7 @@ if (!empty($menu_slug)) {
 }
 ?>
 
-<div class="navbar<?php echo $is_transparent ? ' transparent' : ''; ?>" data-attr="<?php echo $is_transparent ? 'transparent' : ''; ?>">
+<div class="navbar visible<?php echo $is_transparent ? ' transparent' : ''; ?>" data-attr="<?php echo $is_transparent ? 'transparent' : ''; ?>">
   <div class="left">
     <a href="<?php echo esc_url(home_url('/')); ?>">
       <?php

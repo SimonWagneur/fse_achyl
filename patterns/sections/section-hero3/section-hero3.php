@@ -15,13 +15,15 @@ $anchor = $attributes['anchor'] ?? '';
 <section class="section-hero3 hero" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
   <div class="container xlarge-container">
     <div class="upper">
-      <h1><?php echo wp_kses_post($title); ?></h1>
+      <h1 class="visible"><?php echo wp_kses_post($title); ?></h1>
       <div class="right">
-        <p><?php echo wp_kses_post($text); ?></p>
-        <?php echo $content; // Affiche le contenu de InnerBlocks ?>
+        <p class="visible"><?php echo wp_kses_post($text); ?></p>
+        <div class="visible">
+            <?php echo $content; // Affiche le contenu de InnerBlocks ?>
+        </div>
       </div>
     </div>
-    <div class="lower">
+    <div class="lower visible">
       <?php if (!empty($imageUrl)) : ?>
           <img 
               src="<?php echo esc_url($imageUrl); ?>"

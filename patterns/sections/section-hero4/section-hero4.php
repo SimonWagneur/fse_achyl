@@ -34,8 +34,10 @@ $anchor = $attributes['anchor'] ?? '';
     </div>
     <div class="overlay-filter"></div>
     <div class="content">
-        <h1><?php echo wp_kses_post($title); ?></h1>
-        <p><?php echo wp_kses_post($text); ?></p>
-        <?php echo $content; // Affiche le contenu de InnerBlocks ?>
+        <h1 class="visible"><?php echo wp_kses_post($title); ?></h1>
+        <p class="visible"><?php echo wp_kses_post($text); ?></p>
+        <div class="visible">
+            <?php echo $content; // Affiche le contenu de InnerBlocks ?>
+        </div>
     </div>
 </section>

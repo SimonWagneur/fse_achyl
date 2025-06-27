@@ -239,3 +239,12 @@ body.block-editor-page .editor-styles-wrapper {
 .editor-styles-wrapper .form-container .block-list-appender{
     position: relative !important;
 }
+
+/* Section benefits 3 */
+.editor-styles-wrapper section.section-benefits3 .canvas .media-buttons {
+    position: relative !important;
+    z-index: 3 !important;
+}
+.editor-styles-wrapper section.section-benefits3 img {
+  opacity: 0.2 !important;
+}
