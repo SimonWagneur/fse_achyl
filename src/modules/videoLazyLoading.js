@@ -57,6 +57,7 @@ class VideoLazyLoader {
         // Charger la vidéo
         videoElement.src = videoUrl;
         videoElement.style.display = 'block';
+        videoElement.style.opacity = '0';
         
         
         // Masquer le placeholder
@@ -66,9 +67,12 @@ class VideoLazyLoader {
         }
         
         
-        // Démarrer la lecture quand la vidéo est prête
-        videoElement.addEventListener('canplay', () => {
+        // Attendre que la vidéo soit entièrement chargée avant de la démarrer
+        videoElement.addEventListener('loadeddata', () => {
+            // La vidéo est maintenant entièrement chargée
             videoElement.play().then(() => {
+                // Transition d'opacité quand la vidéo se lance
+                videoElement.style.opacity = '1';
             }).catch(e => {
                 this.addPlayButton(container, videoElement);
             });
@@ -131,33 +135,33 @@ class VideoLazyLoader {
         });
     }
 
-    addPlayButton(container, videoElement) {
-        const playButton = document.createElement('button');
-        playButton.innerHTML = '▶️ Lire la vidéo';
-        playButton.className = 'video-play-button';
-        playButton.style.cssText = `
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 10;
-        `;
+    // addPlayButton(container, videoElement) {
+    //     const playButton = document.createElement('button');
+    //     playButton.innerHTML = '▶️ Lire la vidéo';
+    //     playButton.className = 'video-play-button';
+    //     playButton.style.cssText = `
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         transform: translate(-50%, -50%);
+    //         background: rgba(0,0,0,0.8);
+    //         color: white;
+    //         border: none;
+    //         padding: 10px 20px;
+    //         border-radius: 5px;
+    //         cursor: pointer;
+    //         z-index: 10;
+    //     `;
         
-        playButton.addEventListener('click', () => {
-            videoElement.play().then(() => {
-                playButton.remove();
-            }).catch(e => {
-            });
-        });
+    //     playButton.addEventListener('click', () => {
+    //         videoElement.play().then(() => {
+    //             playButton.remove();
+    //         }).catch(e => {
+    //         });
+    //     });
         
-        container.appendChild(playButton);
-    }
+    //     container.appendChild(playButton);
+    // }
 
     showErrorState(container) {
         const loadingText = container.querySelector('.video-loading-text span');

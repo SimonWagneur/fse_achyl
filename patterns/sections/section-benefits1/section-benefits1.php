@@ -48,11 +48,7 @@ $videoId = $mediaType === 'video' ? 'video_' . uniqid() : '';
                             <!-- Placeholder pendant le chargement -->
                             <div class="video-placeholder">
                                 <div class="video-placeholder-content">
-                                    <div class="video-icon">🎥</div>
-                                    <div class="video-loading-text">
-                                        <span>Vidéo en cours de chargement...</span>
-                                        <div class="loading-spinner"></div>
-                                    </div>
+                                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                                 </div>
                             </div>
                             
@@ -65,6 +61,16 @@ $videoId = $mediaType === 'video' ? 'video_' . uniqid() : '';
                                 playsinline
                                 style="display: none;"
                             ></video>
+                            
+                            <!-- Script pour le délai de chargement -->
+                            <script>
+                                setTimeout(function() {
+                                    var placeholder = document.querySelector('#<?php echo esc_attr($videoId); ?> .video-placeholder');
+                                    if (placeholder) {
+                                        placeholder.style.display = 'none';
+                                    }
+                                }, 1000);
+                            </script>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>

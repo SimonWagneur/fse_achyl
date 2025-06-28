@@ -15,7 +15,10 @@ jQuery(document).ready(function($) {
         sections.each(function() {
             let section = $(this);
             let canva = section.find(".canvas");
+            let canvaWidth = canva.width();
+            console.log(canvaWidth);
             let img = canva.find('img');
+            let imgWidth = img.width();
             
             if(img.length) {
                 // Set initial position
@@ -33,11 +36,11 @@ jQuery(document).ready(function($) {
                             x: "0%" 
                         },
                         {
-                            x: "-60%",
+                            x: canvaWidth - imgWidth,
                             ease: "linear",
                             scrollTrigger: {
                                 trigger: canva,
-                                start: "top 50%", 
+                                start: "top 70%", 
                                 end: "bottom center",
                                 scrub: true,
                                 markers: false

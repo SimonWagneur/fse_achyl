@@ -14,7 +14,9 @@ jQuery(document).ready(function($) {
         sections.each(function() {
             let section = $(this);
             let canva = section.find(".canvas");
+            let canvaHeight = canva.height();
             let img = canva.find('img');
+            let imgHeight = img.height();
             
             if(img.length) {
                 // Set initial position
@@ -32,7 +34,7 @@ jQuery(document).ready(function($) {
                             y: "0%" 
                         },
                         {
-                            y: "-60%",
+                            y: canvaHeight - imgHeight,
                             ease: "linear",
                             scrollTrigger: {
                                 trigger: canva,
