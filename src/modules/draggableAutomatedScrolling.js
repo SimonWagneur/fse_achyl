@@ -4,7 +4,7 @@ jQuery(function($) {
     // ========================================
     const $sections = $('.section-draggable');
     const isMobile = window.innerWidth < 600;
-    const scrollSpeed = isMobile ? 1 : 3;
+    const scrollSpeed = 1;
 
     // ========================================
     // FONCTIONS

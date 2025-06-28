@@ -27,7 +27,7 @@ $anchor = $attributes['anchor'] ?? '';
       </div>
     </div>
 
-    <div class="right">
+    <div class="right visible">
       <div class="visual-container">
         <img
           id="heroBackground"
