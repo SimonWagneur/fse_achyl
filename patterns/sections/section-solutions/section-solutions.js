@@ -49,6 +49,7 @@ registerBlockType("blocktheme/section-solutions", {
     "anchor": true
   },
   attributes: {
+    anchor: { type: "string" },
     title: {
         type: "string",
         default: ""

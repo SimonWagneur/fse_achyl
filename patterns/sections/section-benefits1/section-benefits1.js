@@ -3,7 +3,7 @@ const { RichText, InnerBlocks, MediaUpload, MediaUploadCheck, InspectorControls 
 const { Button, PanelBody, SelectControl, TextControl } = wp.components;
 
 function EditComponent({ attributes, setAttributes }) {
-    const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText, themeMode } = attributes;
+    const { heading, paragraph, imageUrl, mediaType, reversed, animation, scrollingText, themeMode, backgroundImageUrl } = attributes;
 
     const ALLOWED_BLOCKS = [
         'blocktheme/button',
@@ -37,13 +37,24 @@ function EditComponent({ attributes, setAttributes }) {
         });
     };
 
+    // Fonction pour gérer la sélection de l'image de fond
+    const handleBackgroundImageSelect = (media) => {
+        setAttributes({ backgroundImageUrl: media.url });
+    };
+
     // Fonction pour supprimer le média
     const removeMedia = () => {
         setAttributes({ 
             imageUrl: '',
             animation: '',
-            mediaType: 'image'
+            mediaType: 'image',
+            backgroundImageUrl: ''
         });
+    };
+
+    // Fonction pour supprimer l'image de fond
+    const removeBackgroundImage = () => {
+        setAttributes({ backgroundImageUrl: '' });
     };
 
     return (
@@ -87,13 +98,42 @@ function EditComponent({ attributes, setAttributes }) {
                     )}
                 </PanelBody>
                 {mediaType === 'video' && (
-                    <PanelBody title="Optimisation vidéo" initialOpen={false}>
-                        <p style={{ fontSize: '12px', color: '#666' }}>
-                            ⚡ La vidéo sera automatiquement optimisée :<br/>
-                            • Lazy loading (chargement différé)<br/>
-                            • Résolution 720p recommandée<br/>
-                            • Compression automatique
+                    <PanelBody title="Image de fond pour la vidéo">
+                        <p style={{ fontSize: '12px', color: '#666', marginBottom: '10px' }}>
+                            Cette image sera affichée pendant le chargement de la vidéo
                         </p>
+                        <MediaUploadCheck>
+                            <MediaUpload
+                                onSelect={handleBackgroundImageSelect}
+                                allowedTypes={['image']}
+                                value={backgroundImageUrl}
+                                render={({ open }) => (
+                                    <>
+                                        {backgroundImageUrl ? (
+                                            <div style={{ marginBottom: '10px' }}>
+                                                <img 
+                                                    src={backgroundImageUrl} 
+                                                    alt="Image de fond" 
+                                                    style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+                                                />
+                                                <div style={{ display: 'flex', gap: '5px' }}>
+                                                    <Button onClick={open} isSecondary size="small">
+                                                        Modifier l'image
+                                                    </Button>
+                                                    <Button onClick={removeBackgroundImage} isDestructive size="small">
+                                                        Supprimer
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <Button onClick={open} isSecondary>
+                                                Choisir une image de fond
+                                            </Button>
+                                        )}
+                                    </>
+                                )}
+                            />
+                        </MediaUploadCheck>
                     </PanelBody>
                 )}
             </InspectorControls>
@@ -133,14 +173,37 @@ function EditComponent({ attributes, setAttributes }) {
                                                             alt="Background" 
                                                         />
                                                     ) : (
-                                                        <video 
-                                                            id="heroBackground"
-                                                            src={imageUrl}
-                                                            autoPlay
-                                                            loop
-                                                            muted
-                                                            playsInline
-                                                        />
+                                                        <div style={{ position: 'relative' }}>
+                                                            {backgroundImageUrl && (
+                                                                <img 
+                                                                    src={backgroundImageUrl} 
+                                                                    alt="Image de fond" 
+                                                                    style={{ 
+                                                                        position: 'absolute', 
+                                                                        top: 0, 
+                                                                        left: 0, 
+                                                                        width: '100%', 
+                                                                        height: '100%', 
+                                                                        objectFit: 'cover',
+                                                                        zIndex: 1
+                                                                    }}
+                                                                />
+                                                            )}
+                                                            <video 
+                                                                id="heroBackground"
+                                                                src={imageUrl}
+                                                                autoPlay
+                                                                loop
+                                                                muted
+                                                                playsInline
+                                                                style={{ 
+                                                                    position: 'relative', 
+                                                                    zIndex: 2,
+                                                                    width: '100%',
+                                                                    height: 'auto'
+                                                                }}
+                                                            />
+                                                        </div>
                                                     )}
                                                     <div className="media-buttons" style={{ position: "absolute", top: 0, right: 0 }}>
                                                         <Button onClick={open} isSecondary style={{ marginRight: '5px' }}>
@@ -183,6 +246,7 @@ registerBlockType('blocktheme/section-benefits1', {
         "anchor": true
     },
     attributes: {
+        anchor: { type: "string" },
         heading: {
             type: 'string'
         },
@@ -190,6 +254,10 @@ registerBlockType('blocktheme/section-benefits1', {
             type: 'string'
         },
         imageUrl: {
+            type: 'string',
+            default: ''
+        },
+        backgroundImageUrl: {
             type: 'string',
             default: ''
         },

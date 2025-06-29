@@ -4,7 +4,7 @@ import { registerBlockType } from '@wordpress/blocks';
 
 function EditComponent({ attributes, setAttributes }) {
     const blockProps = useBlockProps();
-    const { buttonText, destination, objet } = attributes;
+    const { buttonText, destination, objet, endpoint } = attributes;
 
     const ALLOWED_BLOCKS = ['blocktheme/champ-formulaire'];
     const TEMPLATE = [
@@ -37,6 +37,14 @@ function EditComponent({ attributes, setAttributes }) {
                         onChange={(value) => setAttributes({ objet: value })}
                         placeholder="Nouveau message depuis le formulaire"
                         help="L'objet par défaut des emails envoyés"
+                    />
+                </PanelBody>
+                <PanelBody title="Configuration endpoint" initialOpen={false}>
+                    <TextControl
+                        label="URL de l'endpoint"
+                        value={endpoint}
+                        onChange={(value) => setAttributes({ endpoint: value })}
+                        placeholder="https://example.com/endpoint"
                     />
                 </PanelBody>
             </InspectorControls>
@@ -74,7 +82,8 @@ registerBlockType("blocktheme/form", {
     attributes: {
         buttonText: { type: "string", default: "Envoyer" },
         destination: { type: "string", default: "" },
-        objet: { type: "string", default: "" }
+        objet: { type: "string", default: "" },
+        endpoint: { type: "string", default: "" }
     },
     edit: EditComponent,
     save: SaveComponent

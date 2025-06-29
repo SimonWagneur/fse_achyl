@@ -84,7 +84,12 @@ function SaveComponent() {
 
 registerBlockType("blocktheme/section-contact", {
     title: "Section Contact",
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     attributes: {
+        anchor: { type: "string" },
         imageUrl: { type: "string", default: "" },
         title: { type: "string", default: "Contactez-nous" },
         description: { type: "string", default: "Remplissez le formulaire ci-dessous pour nous contacter." }

@@ -17,6 +17,10 @@
         "objet": {
             "type": "string",
             "default": ""
+        },
+        "endpoint": {
+            "type": "string",
+            "default": ""
         }
     },
     "supports": {

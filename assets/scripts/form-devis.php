@@ -41,7 +41,7 @@ Heure: '.$time.'<br>
 ';
 
 // Boucle sur tous les champs POST (sauf les champs techniques)
-$excluded_fields = ['check', 'form_id', 'destination', 'objet'];
+$excluded_fields = ['check', 'form_id', 'destination', 'objet', 'endpoint'];
 foreach ($_POST as $field_name => $field_value) {
     // Ignorer les champs techniques
     if (!in_array($field_name, $excluded_fields) && !empty($field_value)) {
@@ -58,11 +58,56 @@ $headers .= "Disposition-Notification-To: ".$from."  \n";
 $CR_Mail = TRUE;
 $CR_Mail = @mail ($to, $subject, $message_email, $headers);
 
+/* envoyer vers endpoint */
+$endpoint_url = ($form_config && isset($form_config['endpoint']) && !empty($form_config['endpoint'])) ? $form_config['endpoint'] : null;
+$endpoint_response = null;
+
+if ($endpoint_url) {
+    // Préparer les données pour l'endpoint
+    $endpoint_data = [
+        'date' => $date,
+        'time' => $time,
+        'form_id' => $form_id ?? 'non défini'
+    ];
+    
+    // Ajouter tous les champs du formulaire
+    foreach ($_POST as $field_name => $field_value) {
+        if (!in_array($field_name, $excluded_fields) && !empty($field_value)) {
+            $endpoint_data[$field_name] = $field_value;
+        }
+    }
+    
+    // Configuration pour l'envoi vers l'endpoint
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $endpoint_url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($endpoint_data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    
+    $endpoint_response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_error = curl_error($ch);
+    curl_close($ch);
+    
+    if ($curl_error) {
+        $endpoint_response = ['error' => $curl_error];
+    }
+}
+
 $response['status'] = 'success';
 $response['email'] = $email;
 $response['form_id'] = $form_id ?? 'non défini';
 $response['destination'] = $to;
 $response['objet'] = $subject;
+$response['endpoint_url'] = $endpoint_url;
+$response['endpoint_response'] = $endpoint_response;
+$response['endpoint_http_code'] = $http_code ?? null;
 $response['form_config'] = $form_config;
 echo json_encode($response);
 

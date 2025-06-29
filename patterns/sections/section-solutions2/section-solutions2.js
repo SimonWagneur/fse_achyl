@@ -38,7 +38,12 @@ function SaveComponent() {
 
 registerBlockType("blocktheme/section-solutions2", {
   title: "Section Solutions 2",
+  supports: {
+    "html": false,
+    "anchor": true
+  },
   attributes: {
+    anchor: { type: "string" },
     title: {
       type: "string",
       default: ""

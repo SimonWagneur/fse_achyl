@@ -8,7 +8,7 @@
 $buttonText = $attributes['buttonText'] ?? 'Envoyer';
 $destination = $attributes['destination'] ?? '';
 $objet = $attributes['objet'] ?? '';
-
+$endpoint = $attributes['endpoint'] ?? '';
 // Générer un ID unique pour ce formulaire
 $formId = 'form_' . uniqid();
 
@@ -16,7 +16,8 @@ $formId = 'form_' . uniqid();
 if (!empty($destination) || !empty($objet)) {
     $form_config = [
         'destination' => $destination,
-        'objet' => $objet
+        'objet' => $objet,
+        'endpoint' => $endpoint
     ];
     
     // Créer le dossier cache s'il n'existe pas

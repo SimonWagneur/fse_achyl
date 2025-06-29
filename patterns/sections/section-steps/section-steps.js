@@ -57,6 +57,7 @@ registerBlockType("blocktheme/section-steps", {
         anchor: true
     },
     attributes: {
+        anchor: { type: "string" },
         title: {
             type: "string",
             default: ""

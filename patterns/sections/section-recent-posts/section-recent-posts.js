@@ -119,6 +119,7 @@ registerBlockType("blocktheme/section-recent-posts", {
         html: false
     },
     attributes: {
+        anchor: { type: "string" },
         title: {
             type: "string",
             default: "Articles Récents"

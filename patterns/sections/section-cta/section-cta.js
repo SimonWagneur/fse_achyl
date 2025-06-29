@@ -93,6 +93,10 @@ function SaveComponent({ attributes }){
 }
 
 registerBlockType('blocktheme/section-cta', {
+    "supports": {
+        "html": false,
+        "anchor": true
+    },
     attributes: {
         title: {
             type: "string",

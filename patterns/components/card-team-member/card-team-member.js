@@ -3,7 +3,7 @@ const { RichText, MediaUpload, MediaUploadCheck, useBlockProps } = wp.blockEdito
 const { Button } = wp.components;
 
 registerBlockType('fse-achyl/card-team-member', {
-    parent: ['blocktheme/section-team'],
+    parent: ['fse-achyl/section-team'],
     edit: ({ attributes, setAttributes }) => {
         const { profileImage, memberName, memberDescription } = attributes;
         const blockProps = useBlockProps();

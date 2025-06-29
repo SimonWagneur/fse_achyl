@@ -47,6 +47,7 @@ function SaveComponent() {
 
 registerBlockType('blocktheme/section-projects', {
     attributes: {
+        anchor: { type: "string" },
         title: {
             type: "string",
             default: ""

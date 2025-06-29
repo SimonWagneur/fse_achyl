@@ -123,6 +123,7 @@ registerBlockType('blocktheme/section-benefits3', {
         "anchor": true
     },
     attributes: {
+        anchor: { type: "string" },
         heading: {
             type: 'string'
         },

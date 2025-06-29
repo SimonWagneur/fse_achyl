@@ -13,7 +13,11 @@ $backgroundType = $attributes['backgroundType'] ?? 'none';
 $backgroundImageUrl = $attributes['backgroundImageUrl'] ?? '';
 $backgroundImageAlt = $attributes['backgroundImageAlt'] ?? '';
 $backgroundVideoUrl = $attributes['backgroundVideoUrl'] ?? '';
+$backgroundVideoImageUrl = $attributes['backgroundVideoImageUrl'] ?? '';
 $anchor = $attributes['anchor'] ?? '';
+
+// Générer un ID unique pour le lazy loading
+$videoId = $backgroundType === 'video' ? 'hero4_video_' . uniqid() : '';
 ?>
 
 <section class="section-hero4 hero <?php echo esc_attr($horizontalAlignment); ?> <?php echo esc_attr($verticalAlignment); ?>" <?php echo !empty($anchor) ? ' id="' . esc_attr($anchor) . '"' : ''; ?>>
@@ -24,12 +28,29 @@ $anchor = $attributes['anchor'] ?? '';
                 alt="<?php echo esc_attr($backgroundImageAlt); ?>"
             />
         <?php elseif ($backgroundType === 'video' && !empty($backgroundVideoUrl)) : ?>
-            <div class="video-loading" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: black; display: flex; align-items: center; justify-content: center; z-index: 1;">
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <div class="video-lazy-container" data-video-url="<?php echo esc_url($backgroundVideoUrl); ?>" id="<?php echo esc_attr($videoId); ?>">
+                <div class="video-placeholder">
+                    <div class="video-placeholder-content">
+                        <?php if (!empty($backgroundVideoImageUrl)) : ?>
+                            <!-- Image de fond personnalisée -->
+                            <img 
+                                src="<?php echo esc_url($backgroundVideoImageUrl); ?>"
+                                alt="Image de fond"
+                                style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;"
+                            />
+                        <?php endif; ?>
+                        <!-- Animation de chargement toujours visible -->
+                        <div class="lds-ellipsis" style="position: relative; z-index: 2;"><div></div><div></div><div></div><div></div></div>
+                    </div>
+                </div>
+                <video 
+                    class="lazy-video"
+                    preload="none"
+                    muted
+                    loop
+                    playsinline
+                ></video>
             </div>
-            <video autoplay muted loop playsinline style="position: relative; z-index: 0;" onloadeddata="this.parentNode.querySelector('.video-loading').style.display='none'; this.style.zIndex='1';">
-                <source src="<?php echo esc_url($backgroundVideoUrl); ?>" type="video/mp4">
-            </video>
         <?php endif; ?>
     </div>
     <div class="overlay-filter"></div>

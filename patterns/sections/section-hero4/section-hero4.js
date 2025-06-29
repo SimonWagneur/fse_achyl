@@ -19,7 +19,8 @@ function EditComponent({ attributes, setAttributes }) {
             backgroundImageId: media.id,
             backgroundImageAlt: media.alt || '',
             backgroundVideoUrl: '',
-            backgroundVideoId: 0
+            backgroundVideoId: 0,
+            backgroundVideoImageUrl: ''
         });
     };
 
@@ -30,9 +31,24 @@ function EditComponent({ attributes, setAttributes }) {
             backgroundVideoId: media.id,
             backgroundImageUrl: '',
             backgroundImageId: 0,
-            backgroundImageAlt: ''
+            backgroundImageAlt: '',
+            backgroundVideoImageUrl: ''
         });
         setVideoLoading(true);
+    };
+
+    const onSelectVideoBackgroundImage = (media) => {
+        setAttributes({
+            backgroundVideoImageUrl: media.url,
+            backgroundVideoImageId: media.id
+        });
+    };
+
+    const removeVideoBackgroundImage = () => {
+        setAttributes({
+            backgroundVideoImageUrl: '',
+            backgroundVideoImageId: 0
+        });
     };
 
     const handleVideoLoad = () => {
@@ -131,6 +147,58 @@ function EditComponent({ attributes, setAttributes }) {
                                     )}
                                 />
                             </MediaUploadCheck>
+                            
+                            {/* Sélection de l'image de fond pour la vidéo */}
+                            <div className="video-background-image-selection" style={{ marginTop: '15px', paddingTop: '15px', borderTop: '1px solid #ddd' }}>
+                                <p style={{ fontSize: '12px', color: '#666', marginBottom: '10px' }}>
+                                    Image de fond pendant le chargement de la vidéo
+                                </p>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={onSelectVideoBackgroundImage}
+                                        allowedTypes={['image']}
+                                        value={attributes.backgroundVideoImageId}
+                                        render={({ open }) => (
+                                            <div className="media-preview">
+                                                {attributes.backgroundVideoImageUrl && (
+                                                    <div style={{ marginBottom: '10px' }}>
+                                                        <img
+                                                            src={attributes.backgroundVideoImageUrl}
+                                                            alt="Image de fond vidéo"
+                                                            style={{ width: '100%', height: 'auto' }}
+                                                        />
+                                                        <div style={{ display: 'flex', gap: '5px', marginTop: '5px' }}>
+                                                            <Button
+                                                                onClick={open}
+                                                                variant="secondary"
+                                                                size="small"
+                                                            >
+                                                                Modifier l'image
+                                                            </Button>
+                                                            <Button
+                                                                onClick={removeVideoBackgroundImage}
+                                                                variant="destructive"
+                                                                size="small"
+                                                            >
+                                                                Supprimer
+                                                            </Button>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {!attributes.backgroundVideoImageUrl && (
+                                                    <Button
+                                                        onClick={open}
+                                                        variant="secondary"
+                                                        size="small"
+                                                    >
+                                                        Choisir une image de fond
+                                                    </Button>
+                                                )}
+                                            </div>
+                                        )}
+                                    />
+                                </MediaUploadCheck>
+                            </div>
                         </div>
                     )}
                 </PanelBody>
@@ -159,7 +227,19 @@ function EditComponent({ attributes, setAttributes }) {
                                     justifyContent: 'center',
                                     zIndex: 1
                                 }}>
-                                    <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                                    {attributes.backgroundVideoImageUrl ? (
+                                        <img
+                                            src={attributes.backgroundVideoImageUrl}
+                                            alt="Image de fond"
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover'
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                                    )}
                                 </div>
                             )}
                             <video

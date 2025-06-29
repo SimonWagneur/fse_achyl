@@ -10,7 +10,8 @@
         "html": false,
         "anchor": true
     },
-    "attributes": {
+    "attributes": { 
+        "anchor": { "type": "string" },
         "title": {
             "type": "string",
             "default": ""

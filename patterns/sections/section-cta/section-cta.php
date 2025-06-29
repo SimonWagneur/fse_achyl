@@ -14,7 +14,7 @@ $anchor = $attributes['anchor'] ?? '';
 // Préparer le style pour l'image de background
 $bgStyle = '';
 if (!empty($backgroundImage)) {
-    $bgStyle = ' style="background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)), url(' . esc_url($backgroundImage) . ');"';
+    $bgStyle = ' style="background-image: linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 95%)), url(' . esc_url($backgroundImage) . ');"';
 }
 ?>
 

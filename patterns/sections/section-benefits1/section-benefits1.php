@@ -8,6 +8,7 @@
 
 $heading = $attributes['heading'] ?? '';
 $imageUrl = $attributes['imageUrl'] ?? '';
+$backgroundImageUrl = $attributes['backgroundImageUrl'] ?? '';
 $reversed = $attributes['reversed'] ?? false;
 $animation = $attributes['animation'] ?? '';
 $scrollingText = $attributes['scrollingText'] ?? '';
@@ -43,34 +44,32 @@ $videoId = $mediaType === 'video' ? 'video_' . uniqid() : '';
                     <?php if ($mediaType === 'image') : ?>
                         <img id="heroBackground" src="<?php echo esc_url($imageUrl); ?>" alt="Background">
                     <?php else : ?>
-                        <!-- Container pour la vidéo avec lazy loading -->
                         <div class="video-lazy-container" data-video-url="<?php echo esc_url($imageUrl); ?>" id="<?php echo esc_attr($videoId); ?>">
-                            <!-- Placeholder pendant le chargement -->
+
                             <div class="video-placeholder">
                                 <div class="video-placeholder-content">
-                                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                                    <?php if ($backgroundImageUrl) : ?>
+                                        <!-- Image de fond personnalisée -->
+                                        <img 
+                                            src="<?php echo esc_url($backgroundImageUrl); ?>" 
+                                            alt="Image de fond" 
+                                            class="background-image"
+                                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;"
+                                        />
+                                    <?php endif; ?>
+                                    <!-- Animation de chargement toujours visible -->
+                                    <div class="lds-ellipsis" style="position: relative; z-index: 2;"><div></div><div></div><div></div><div></div></div>
                                 </div>
                             </div>
-                            
-                            <!-- La vidéo sera injectée ici par JavaScript -->
+
                             <video 
                                 class="lazy-video"
                                 preload="none"
                                 muted
                                 loop
                                 playsinline
-                                style="display: none;"
                             ></video>
                             
-                            <!-- Script pour le délai de chargement -->
-                            <script>
-                                setTimeout(function() {
-                                    var placeholder = document.querySelector('#<?php echo esc_attr($videoId); ?> .video-placeholder');
-                                    if (placeholder) {
-                                        placeholder.style.display = 'none';
-                                    }
-                                }, 1000);
-                            </script>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>

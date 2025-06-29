@@ -12,6 +12,7 @@
     },
     "textdomain": "fse-achyl",
     "attributes": {
+        "anchor": { "type": "string" },
         "sponsorImages": {
             "type": "array",
             "default": [],

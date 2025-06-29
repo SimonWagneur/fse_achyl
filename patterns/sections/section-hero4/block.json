@@ -11,6 +11,7 @@
         "anchor": true
     },
     "attributes": {
+        "anchor": { "type": "string" },
         "title": {
             "type": "string",
             "default": ""
@@ -51,6 +52,14 @@
             "default": ""
         },
         "backgroundVideoId": {
+            "type": "number",
+            "default": 0
+        },
+        "backgroundVideoImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundVideoImageId": {
             "type": "number",
             "default": 0
         }
